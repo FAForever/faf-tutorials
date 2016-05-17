@@ -179,6 +179,8 @@ function FirstFactoryBuilt()
 	IssueBuildFactory({ScenarioInfo.Factory_1}, 'uel0105', 2) -- T1 Engie
 	IssueBuildFactory({ScenarioInfo.Factory_1}, 'uel0201', 2) -- T1 Tank
 	IssueBuildFactory({ScenarioInfo.Factory_1}, 'uel0101', 1) -- T1 Scout
+	
+	loopFactoryBuildOrder(ScenarioInfo.Factory_1, 'uel0105')
 
 	-- Triggers for units
 	-- Engineer 1
@@ -466,6 +468,15 @@ function __EngineerBuildGroup(army, engineer, aiBrain, g)
             end
         end
     end
+end
+
+function loopFactoryBuildOrder(factory, unit)
+	while true do
+		WaitSeconds(0.1)
+		if factory:IsIdleState() then
+			IssueBuildFactory({factory}, unit, 3)
+		end
+	end
 end
 
 --------
