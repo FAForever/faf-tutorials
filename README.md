@@ -4,9 +4,10 @@ Tutorials to introduce popular maps for new players and showing build order.
 
 ## Testing
 
-* Put the map into your map folder, usually: `C:\Users\%UserName%\Documents\My Games\Gas Powered Games\Supreme Commander Forged Alliance\Maps\`
-* Currently in [coop mod](https://github.com/FAForever/fa-coop) is used to launch the game.
-* Soon will need it's own mod once more more functions for maps are done (see issues)
+* Put `init_tutorials.lua` into `C:\ProgramData\FAForever\bin`
+* Open it and change this line https://github.com/speed2CZ/faf-tutorials/blob/master/init_tutorials.lua#L92 to point at the tutorial repo on your computer
+* Launch `C:\ProgramData\FAForever\bin\ForgedAlliance.exe` with `/init init_tutorials.lua` go to skirmish, select map and launch
+* You might need to edit `LastScenario` in your `game.prefs (C:\Users\%USERNAME%\AppData\Local\Gas Powered Games\Supreme Commander Forged Alliance)` to `FAF_TUT_Theta_BO` if the lobby bugs out since the mod doesn't default on this map yet.
 
 ## Adding new maps
 
