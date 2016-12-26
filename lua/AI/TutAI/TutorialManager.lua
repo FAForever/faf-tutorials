@@ -246,9 +246,9 @@ TutorialManager = Class {
 
         units = {}
         for idx, unitData in tblData.Units do
-            _, _, num = string.find(idx, "^(%d+)")
+            local _,_,num = string.find(idx, "^(%d+)")
             num = tonumber(num)
-            table.insert(units, num, unitData)
+            units[num] = unitData
 
             -- Add move position
             if Scenario.MasterChain._MASTERCHAIN_.Markers[idx] then
