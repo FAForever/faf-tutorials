@@ -195,16 +195,104 @@ TutorialManager = Class {
         IssueGuard({engineer}, target)
     end,
 
-    EngineerReclaim = function(self, engineer, area)
+    --- Function for an engineer to reclaim based on info in data
+    -- data is a table that contains 4 possible values
+    -- - minMass : minimum amount of mass a prop needs for it to be reclaimed
+    -- - area : a square area containing the to-be-reclaimed props
+    -- - simpleChainFigure : chain of the edges for a simple figure containing the to-be-reclaimed props (either use area or simpleChainFigure)
+    -- - moveChain : chain of positions the engineer will move to, it will reclaim props in range of these positions
+    EngineerReclaim = function(self, engineer, data)
         LOG('reclaiming')
-        if area then
-            LOG(area)
-            -- Move before reclaiming
-            if Scenario.MasterChain._MASTERCHAIN_.Markers[area] then
-                IssueMove({engineer}, Scenario.MasterChain._MASTERCHAIN_.Markers[area].position)
+        if not data then
+            return
+        end
+        
+        local MassFilter = function(p)
+                return not data.minMass or data.minMass <= p.MaxMassReclaim * p.ReclaimLeft
             end
-
-            for k, prop in GetReclaimablesInRect(ScenarioUtils.AreaToRect(area)) do
+        
+        local propsToReclaim
+        --area
+        if data.area then
+            propsToReclaim = GetReclaimablesInRect(ScenarioUtils.AreaToRect(data.area))
+        end
+        
+        --simpleChainFigure
+        if data.simpleChainFigure then
+            propsToReclaim = {}
+            local positions = ScenarioUtils.ChainToPositions(data.simpleChainFigure)
+            
+            -- make a square around the figure, to narrow down the props that need to be checked later
+            local encapsulatingRect = {}
+            for _,pos in positions do
+                if not encapsulatingRect[1] or encapsulatingRect[1] > pos[1] then
+                    encapsulatingRect[1] = pos[1]
+                end
+                if not encapsulatingRect[2] or encapsulatingRect[2] > pos[3] then
+                    encapsulatingRect[2] = pos[3]
+                end
+                if not encapsulatingRect[3] or encapsulatingRect[3] < pos[1] then
+                    encapsulatingRect[3] = pos[1]
+                end
+                if not encapsulatingRect[4] or encapsulatingRect[4] < pos[3] then
+                    encapsulatingRect[4] = pos[3]
+                end
+            end
+            local props = GetReclaimablesInRect(Rect(encapsulatingRect[1],encapsulatingRect[2],encapsulatingRect[3],encapsulatingRect[4]))
+            
+            local moduloFunc = function(value, divider)
+                    return value - math.floor(value / divider) * divider
+                end
+            
+            
+            --only use props inside figure (uses a Ray casting algorithm)
+            for _,prop in props do
+                local line = prop:GetPosition()[1] -- the horizontal ray
+                local propZ = prop:GetPosition()[3] -- vertical position for calculation relative position of intersections and props
+                local before = 0 -- # intersections with figure left of prop
+                local after = 0 -- # intersections with figure right of prop
+                for i=1,table.getn(positions) do -- loop over each edge of the figure
+                    local p1 = positions[i]
+                    
+                    local modulo = moduloFunc(i, table.getn(positions))
+                    local p2 = positions[modulo + 1]
+                    local intersection = (p1[1] < line and p2[1] > line) or (p1[1] > line and p2[1] < line)
+                    
+                    if intersection then
+                        local z = ((line - p2[1]) / (p1[1] - p2[1]) * (p1[3] - p2[3])) + p2[3]
+                        if z < propZ then
+                            before = before + 1
+                        else
+                            after = after + 1
+                        end
+                    end
+                end
+                if moduloFunc(before, 2) == 0 or  moduloFunc(after, 2) == 0 then
+                    continue
+                end
+                table.insert(propsToReclaim, prop)
+            end
+        end
+        
+        if data.moveChain then
+            local positions = ScenarioUtils.ChainToPositions(data.moveChain)
+            local range = engineer:GetBlueprint().Economy.MaxBuildDistance + 2 --magic? not sure why MaxBuildDistance is too short
+            for _,position in positions do
+                IssueMove({engineer}, position)
+                local propsInRange = propsToReclaim or GetReclaimablesInRect(Rect(position[1] - range,position[3] - range,position[1] + range,position[3] + range))
+                propsInRange = table.filter(propsInRange, MassFilter)
+                for _,prop in propsInRange do
+                    local propPos = prop:GetPosition()
+                    local dist = VDist2(position[1],position[3], propPos[1], propPos[3])
+                    if dist > range then
+                        continue
+                    end
+                    IssueReclaim({engineer}, prop)
+                end
+            end
+        else
+            propsToReclaim = table.filter(propsToReclaim, MassFilter)
+            for k, prop in propsToReclaim do
                 IssueReclaim({engineer}, prop)
             end
         end

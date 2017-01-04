@@ -171,16 +171,16 @@ function StartBuildOrder(skipZoom)
             {assist = {'Engineer', 1}}, -- {type, number}
             {wait = {'Units_Active', 2, categories.ueb0101}},
             {build = {'Mex_Middle'}},
-            {reclaim = 'Reclaim_Middle'},
+            {reclaim = {area = 'Reclaim_Middle', moveChain = 'Move_Chain_Middle', minMass = 5}},
         },
         Engineers = {
             { -- Engineer 1
                 {build = '1_Engineer_Build'},
             },
             { -- Engineer 2
-                {reclaim = 'Reclaim_Area_1'},
+                {reclaim = {simpleChainFigure = 'Reclaim_Chain_1', moveChain = 'Move_Chain_1', minMass = 5}},
                 {build = {'1_North_Mex', '2_North_Mex'}},
-                {reclaim = 'Reclaim_Area_3'},
+                {reclaim = {simpleChainFigure = 'Reclaim_Chain_3', moveChain = 'Move_Chain_3', minMass = 5}},
                 {build = {'3_North_Mex', '4_North_Mex', '5_North_Mex'}},
                 {build = 'Walls_North'},
                 {build = 'PD_North'},
