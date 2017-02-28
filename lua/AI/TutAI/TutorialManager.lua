@@ -8,6 +8,7 @@ TutorialManager = Class {
 
         self.AIBrain = false
         self.strArmy = false
+        self.Active = false
         self.Initialized = false
 
         self.Orders = {
@@ -37,6 +38,7 @@ TutorialManager = Class {
     -- Spawn ACU, assign orders. 
     -- Starts threads for monitoring built units
     Initialize = function(self, strArmy)
+        self.Active = true
         if self.Initialized then
             error('*AI ERROR: TutorialManager has already been initialized', 2)
         end
@@ -51,6 +53,11 @@ TutorialManager = Class {
 
         self:ForkThread(self.NewFactoriesMonitor) -- Start the thread to manage newly built factories
         self:ForkThread(self.NewEngineersMonitor) -- tart the thread to manage newly built engineers
+    end,
+
+    -- If base is inactive, all functionality at the tutorial manager should stop
+    BaseActive = function(self, val)
+        self.Active = val
     end,
 
     -- Auto trashbags all threads on a base manager
@@ -115,7 +122,7 @@ TutorialManager = Class {
     -- Main engineer thread, checks for newly built engineers, assign orders to them
     NewEngineersMonitor = function(self)
         LOG('Starting "NewFactoriesMonitor" thread.')
-        while true do
+        while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.ENGINEER - categories.COMMAND, false, true) -- NeedToBeIdle, NeedToBeBuilt
 
             for _, eng in units do
@@ -394,7 +401,7 @@ TutorialManager = Class {
     -- Main factory thread, checks for newly built factories, assign orders to them
     NewFactoriesMonitor = function(self)
         LOG('Starting "NewFactoriesMonitor" thread.')
-        while true do
+        while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.FACTORY * categories.STRUCTURE, true, true) -- NeedToBeIdle, includeUnfinished
 
             for _, fac in units do
