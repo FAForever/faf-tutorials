@@ -448,6 +448,8 @@ TutorialManager = Class {
                     self:SetFactoryBuildQeue(factory, data)
                 elseif action == 'assist' then
                     self:SetFactoryAssist(factory, data)
+                elseif action == 'RepeatBuild' then
+                    self:SetFactoryRepeatBuild(factory, data)
                 end
             end
         end
@@ -485,6 +487,16 @@ TutorialManager = Class {
         end
 
         IssueFactoryAssist({factory}, targetFactory)
+    end,
+
+    -- Repeat Build
+    SetFactoryRepeatBuild = function(self, factory, val)
+        local unitID = factory:GetEntityId()
+        if not Sync.SetRepeatBuild then
+            Sync.SetRepeatBuild = {}
+        end
+
+        Sync.SetRepeatBuild[unitID] = val
     end,
 }
 
