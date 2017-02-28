@@ -93,7 +93,7 @@ TutorialManager = Class {
     ------------
     -- Engineers
     ------------
-    SetEngineerOrders = function(self, data)
+    SetEngineersOrders = function(self, data)
         for units, tblOrders in data do
             self.Orders[units] = tblOrders
         end
