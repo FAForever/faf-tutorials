@@ -49,19 +49,18 @@ TutorialManager = Class {
 
         self.strArmy = strArmy
         self.AIBrain = GetArmyBrain(strArmy)
-        self.AIBrain:PBMRemoveBuildLocation( false, 'MAIN' ) -- remove main since we dont use it in ops much
+        self.AIBrain:PBMRemoveBuildLocation( false, 'MAIN' ) -- remove main since we dont use it in ops much -- TODO: might not need this line at all, no platoons currently
 
         self.Units.ACU = ScenarioFramework.SpawnCommander(strArmy, 'ACU', 'Warp', true) -- Spawn ACU
         self:ForkThread(self.AssignEngineerOrders, self.Units.ACU, nil, true) -- Orders for ACU
 
-        self:ForkThread(self.NewFactoriesMonitor) -- Start the thread to manage newly built factories
-        self:ForkThread(self.NewEngineersMonitor) -- tart the thread to manage newly built engineers
+        self:ForkThread(self.NewFactoriesMonitor) -- Start a thread to manage newly built factories
+        self:ForkThread(self.NewEngineersMonitor) -- Start a thread to manage newly built engineers
         self:ForkThread(self.NewUnitsMonitor) -- Start a thread to manage newly built units
 
         self:PlayeVoiceOver('Start')
     end,
 
-    -- If base is inactive, all functionality at the tutorial manager should stop
     BaseActive = function(self, val)
         self.Active = val
     end,
@@ -79,9 +78,8 @@ TutorialManager = Class {
 
     WaitThread = function(self, unit, data)
         local locked = true
-        LOG('Wait thread ', repr(data))
+
         Unlock = function()
-            LOG('WaitThread ended')
             locked = false
         end
 
@@ -108,12 +106,10 @@ TutorialManager = Class {
                 end
             end
         end
-        LOG('Voice Over table: ', repr(self.VoiceOvers))
     end,
 
     PlayeVoiceOver = function(self, string)
         if self.VoiceOvers[string] then
-            LOG('Playing VO: ' .. string)
             ScenarioFramework.Dialogue(self.StringsFile[self.VoiceOvers[string]], nil, true)
         end
     end,
@@ -125,7 +121,6 @@ TutorialManager = Class {
         for units, tblOrders in data do
             self.Orders[units] = tblOrders
         end
-        LOG('New Engineers orders set, ACU orders: ', repr(self.Orders.ACU), 'engie order: ', repr(self.Orders.Engineers))
     end,
 
     GetACU = function(self)
@@ -142,7 +137,6 @@ TutorialManager = Class {
 
     -- Main engineer thread, checks for newly built engineers, assign orders to them
     NewEngineersMonitor = function(self)
-        LOG('Starting "NewFactoriesMonitor" thread.')
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.ENGINEER - categories.COMMAND, false, true) -- NeedToBeIdle, NeedToBeBuilt
 
@@ -152,7 +146,6 @@ TutorialManager = Class {
                     table.insert(self.Units.Engineers, eng)
                     local num = self:GetNumberOfEngineers()
 
-                    LOG('Registering new Engineer: ' .. num)
                     eng:SetCustomName(num)
 
                     self:PlayeVoiceOver('Engineer' .. num)
@@ -181,7 +174,6 @@ TutorialManager = Class {
         end
 
         if not isACU then
-            LOG('Assigning orders for: Engineer ' .. num .. ', orders: ', repr(tblOrders))
             WaitSeconds(3)
 
             IssueStop({engineer})
@@ -236,7 +228,6 @@ TutorialManager = Class {
     -- - simpleChainFigure : chain of the edges for a simple figure containing the to-be-reclaimed props (either use area or simpleChainFigure)
     -- - moveChain : chain of positions the engineer will move to, it will reclaim props in range of these positions
     EngineerReclaim = function(self, engineer, data)
-        LOG('reclaiming')
         if not data then
             return
         end
@@ -427,7 +418,6 @@ TutorialManager = Class {
 
     -- Main factory thread, checks for newly built factories, assign orders to them
     NewFactoriesMonitor = function(self)
-        LOG('Starting "NewFactoriesMonitor" thread.')
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.FACTORY * categories.STRUCTURE, true, true) -- NeedToBeIdle, includeUnfinished
 
@@ -438,7 +428,6 @@ TutorialManager = Class {
                     table.insert(self.Units.Factories[type], fac)
                     local num = self:GetNumOfFactories(type)
 
-                    LOG('Registering new factory: ' .. type .. ' Factory ' .. num)
                     fac:SetCustomName(type .. num)
 
                     self:PlayeVoiceOver(type .. 'Factory' .. num)
@@ -467,7 +456,7 @@ TutorialManager = Class {
         IssueClearFactoryCommands({factory})
         for _, order in tblOrders do
             lastOrder = order
-            LOG('Assigning order for: ' .. type .. ' Factory ' .. num .. ' ,orders: ', repr(lastOrder))
+
             for action, data in order do
                 if action == 'wait' then -- First, check if we should wait until the previous order is done
                     self:SetFactoryWait(factory)
@@ -531,12 +520,6 @@ TutorialManager = Class {
     ----------
     -- Attacks
     ----------
-    --[[
-    SetAttackGroupsOrders = function(self, data)
-        self.Orders.Units = data
-    end,
-    --]]
-
     SetAttackGroups = function(self, data)
         self.Units.AttackGroups = data
 
@@ -549,7 +532,6 @@ TutorialManager = Class {
     end,
 
     NewUnitsMonitor = function(self)
-        LOG('Starting "NewUnitsMonitor" thread.')
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.MOBILE - categories.ENGINEER, false, true)
 
@@ -565,7 +547,6 @@ TutorialManager = Class {
     end,
 
     AssignUnitToAttackGroup = function(self, unit)
-        LOG('Assigning unit to AttackGroup')
         for _, group in self.Units.AttackGroups do
             if not group.Formed then
                 for _, data in group.units do
@@ -594,7 +575,6 @@ TutorialManager = Class {
     end,
 
     FormAttackGroup = function(self, group)
-        LOG('Forming Attack Group')
         group.Formed = true
         self:AssignAttackGroupOrders(group)
     end,
@@ -603,7 +583,6 @@ TutorialManager = Class {
         local units = group.AttackForce
         local order = group.order[1]
         local data = group.order[2]
-        LOG('Order: ' .. order .. ' ,data: ' .. data)
 
         if order == 'move' then
             for _, v in ScenarioUtils.ChainToPositions(data) do
@@ -617,6 +596,5 @@ function CreateTutorialManager()
     local tManager = TutorialManager()
     tManager:Create()
     
-    LOG('Tutorial Manager Created')
     return tManager
 end
