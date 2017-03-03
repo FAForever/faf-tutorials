@@ -182,6 +182,10 @@ TutorialManager = Class {
 
         if not isACU then
             LOG('Assigning orders for: Engineer ' .. num .. ', orders: ', repr(tblOrders))
+            WaitSeconds(3)
+
+            IssueStop({engineer})
+            IssueClearCommands({engineer})
         end
 
         for _, order in tblOrders do
