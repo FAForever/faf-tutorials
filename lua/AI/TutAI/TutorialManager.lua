@@ -21,6 +21,7 @@ TutorialManager = Class {
 
         self.Units = {
             ACU = nil,
+            AttackGroups = {},
             Engineers = {},
             Factories = {
                 Land = {},
@@ -55,6 +56,7 @@ TutorialManager = Class {
 
         self:ForkThread(self.NewFactoriesMonitor) -- Start the thread to manage newly built factories
         self:ForkThread(self.NewEngineersMonitor) -- tart the thread to manage newly built engineers
+        self:ForkThread(self.NewUnitsMonitor) -- Start a thread to manage newly built units
 
         self:PlayeVoiceOver('Start')
     end,
@@ -520,6 +522,90 @@ TutorialManager = Class {
         end
 
         Sync.SetRepeatBuild[unitID] = val
+    end,
+
+    ----------
+    -- Attacks
+    ----------
+    --[[
+    SetAttackGroupsOrders = function(self, data)
+        self.Orders.Units = data
+    end,
+    --]]
+
+    SetAttackGroups = function(self, data)
+        self.Units.AttackGroups = data
+
+        -- Create table for storing actual units
+        for _, group in self.Units.AttackGroups do
+            if not group.AttackForce then
+                group.AttackForce = {}
+            end
+        end
+    end,
+
+    NewUnitsMonitor = function(self)
+        LOG('Starting "NewUnitsMonitor" thread.')
+        while self.Active do
+            local units = self.AIBrain:GetListOfUnits(categories.MOBILE - categories.ENGINEER, false, true)
+
+            for _, unit in units do
+                if not unit.Used and unit:GetFractionComplete() == 1 then
+                    self:AssignUnitToAttackGroup(unit)
+
+                    unit.Used = true
+                end
+            end
+            WaitSeconds(4)
+        end
+    end,
+
+    AssignUnitToAttackGroup = function(self, unit)
+        LOG('Assigning unit to AttackGroup')
+        for _, group in self.Units.AttackGroups do
+            if not group.Formed then
+                for _, data in group.units do
+                    if data[2] > 0 and EntityCategoryContains(ParseEntityCategory(data[1]), unit) then
+                        table.insert(group.AttackForce, unit)
+                        data[2] = data[2] - 1
+
+                        if self:CanFormAttackGroup(group) then
+                            self:FormAttackGroup(group)
+                        end
+
+                        return
+                    end
+                end
+            end
+        end
+    end,
+
+    CanFormAttackGroup = function(self, group)
+        for _, data in group.units do
+            if data[2] > 0 then
+                return false
+            end
+        end
+        return true
+    end,
+
+    FormAttackGroup = function(self, group)
+        LOG('Forming Attack Group')
+        group.Formed = true
+        self:AssignAttackGroupOrders(group)
+    end,
+
+    AssignAttackGroupOrders = function(self, group)
+        local units = group.AttackForce
+        local order = group.order[1]
+        local data = group.order[2]
+        LOG('Order: ' .. order .. ' ,data: ' .. data)
+
+        if order == 'move' then
+            for _, v in ScenarioUtils.ChainToPositions(data) do
+                IssueMove(units, v)
+            end
+        end
     end,
 }
 
