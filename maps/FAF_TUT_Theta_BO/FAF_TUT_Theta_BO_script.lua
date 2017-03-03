@@ -32,9 +32,6 @@ local NEUTRAL_CIVILIAN = ScenarioInfo.NEUTRAL_CIVILIAN
 
 local tManager = TutorialManager.CreateTutorialManager()
 
--- Table to track down units were already used by script
-local UsedUnits = {}
-
 --------------
 -- Debug only!
 --------------
@@ -52,8 +49,8 @@ function OnPopulate(scenario)
 end
 
 function OnStart(self)
-    ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
-    -- StartBuildOrder(true)
+    -- ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
+    StartBuildOrder(true)
 end
 
 ------------------
@@ -83,6 +80,8 @@ end
 function MapIntro()
     -- Vision to the map
     Utilities.UserConRequest('SallyShears')
+
+    -- MarkReclaimAreas({'Reclaim_Area_1', 'Reclaim_Area_2', 'Reclaim_Area_3'})
 
     Cinematics.EnterNISMode()
 
@@ -165,7 +164,7 @@ function StartBuildOrder(skipZoom)
         ScenarioFramework.StartOperationJessZoom('AI_Start')
     end
 
-    tManager:SetEngineerOrders({
+    tManager:SetEngineersOrders({
         ACU = {
             {build = '1_ACU_Build'}, -- groupName OR {unitName1, unitName2, ...}, if there's a marker with the same name as the building, move order will be issued first
             {assist = {'Engineer', 1}}, -- {type, number}
@@ -221,16 +220,9 @@ function StartBuildOrder(skipZoom)
                     build = {
                         {'uel0201', 5},
                         {'uel0101', 1},
-                        {'uel0201', 5},
-                        {'uel0101', 1},
-                        {'uel0201', 5},
-                        {'uel0101', 1},
-                        {'uel0201', 5},
-                        {'uel0101', 1},
-                        {'uel0201', 5},
-                        {'uel0101', 1},
                     },
                     RallyPoint = 'Fac_2_Rally',
+                    RepeatBuild = true,
                 },
             },
             { -- Factory 3
@@ -251,8 +243,23 @@ function StartBuildOrder(skipZoom)
         },
     })
 
+    tManager:SetAttackGroups({
+        {
+            units = {{'uel0201', 1}, {'uel0101', 1}},
+            order = {'move', 'North_Attack_Chain'},
+        },
+        {
+            units = {{'uel0201', 1}, {'uel0101', 1}},
+            order = {'move', 'South_Attack_Chain'},
+        },
+    })
+
     tManager:SetVoiceOvers(OpStrings, {
-        LandFirst = {}
+        LandFirst = 'Start',
+        FirstEngineer = 'Engineer1',
+        NorthEngineer = 'Engineer2',
+        SouthEngineer = 'Engineer3',
+        SecondFactory = 'LandFactory2',
     })
 
     tManager:Initialize('speed2_AI')
@@ -321,7 +328,34 @@ function ResetMap()
     end
 end
 
--- Marks reclaim areas
+function MarkReclaimAreas(areas, removeOnReclaimed)
+    MarkAreas(areas)
+
+    if removeOnReclaimed then
+        for _, area in areas do
+            ForkThread(ReclaimInAreaCheckThread, area)
+        end
+    end
+end
+
+function ReclaimInAreaCheckThread(area)
+    local rect = ScenarioUtils.AreaToRect(area)
+
+    while true do
+        local reclaimables = GetReclaimablesInRect(rect)
+        for _, v in reclaimables do
+            if (IsProp(v) and v.CanTakeDamage) or (IsUnit(v) and v:IsDead()) then
+                break
+            end
+        end
+        WaitSeconds(5)
+    end
+
+    if TutorialDecals[area] then
+        TutorialDecals[area]:Destroy()
+    end
+end
+
 local AreaDecal = '/env/utility/decals/objective_debug_albedo.dds'
 local TutorialDecals = {}
 function MarkAreas(tblAreas)
@@ -354,6 +388,7 @@ function OnCtrlF4()
 end
 
 function OnShiftF3()
+    LOG(repr(Scenario.Chains))
 end
 
 function OnShiftF4()

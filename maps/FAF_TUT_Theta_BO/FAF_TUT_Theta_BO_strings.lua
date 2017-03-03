@@ -52,7 +52,8 @@ NorthPlateau2 = {
 }
 
 StartBuildOrder = {
-    {text = '[speed2]: Now it\'s time to show some build order.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Let\'s watch some example build order now.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Hold down \'SHIFT\' key to see command qeue of the units. You can also select an ACU, engineers or a factory to see their build qeue.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 
@@ -63,16 +64,9 @@ StartBuildOrder = {
 
 
 
-StartBuildOrder = {
-    {text = '[speed2]: Hold down SHIFT key to see command qeue of the units. You can also select an ACU or engineers to see their build qeue.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
-
 LandFirst = {
     {text = '[speed2]: Land Factory is built first, followed by a single Power Generator. Then 4 Mass Extractors along the way to the Hydrocarbon.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[speed2]: Be sure to place move order closer to the Mass Extractors to utilize full build range of your ACU. Build range is the small yellow circle.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
-
-FactoryQeue = {
+    {text = '[speed2]: Be sure to place move order closer to the Mass Extractors to utilize full build range of your ACU. Build range is the small yellow circle.', vid = '', bank = '', cue = '', faction = 'UEF', delay = 5},
     {text = '[speed2]: Factory will build 3 engineers. One for building your base, 2 for expanding. Then 2 tanks and 2 scouts to protect your expanding enginners and/or for raiding enemy engineers.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: After that you can build additional engineers and tanks. On a small map like Theta you should not build only engineers from your fist factory since you will never need so many of them.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: Changing factory rally point will also affect which way the units will leave the factory, you can save some time by that.', vid = '', bank = '', cue = '', faction = 'UEF'},
@@ -92,11 +86,8 @@ SouthEngineer = {
 }
 
 SecondFactory = {
-    {text = '[speed2]: Your second Land Factory will produce only attacking units. For the beginning you will needs only tanks and scout. Good ratio is 5 tanks to a single scout. Later you can add an artillery into the mix to deal with enemy Point Defenses', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Your second Land Factory will produce only attacking units. For the beginning you will needs only tanks and scout. Good ratio is 5 tanks to a single scout. Later you can add an artillery into the mix to deal with enemy Point Defenses.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: Once you build more factories, set them to assist this one. That way you need to set a build qeue only on the one factory which will save you more time to micro your units.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
-
-CommanderMiddle = {
     {text = '[speed2]: This is also a time to move your ACU to the middle of the map to get the reclaim from there. Build also a Mass Extractor that is on the way.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: Newly build engineer will replace your ACU with building the base.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
