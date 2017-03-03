@@ -29,9 +29,11 @@ TutorialManager = Class {
                 Gate = {},
             },
         }
-        self.TriggerNumber = 1
 
         self.StringsFile = false
+        self.VoiceOvers = {}
+
+        self.TriggerNumber = 1
     end,
 
     -- Starts the build order
@@ -53,6 +55,8 @@ TutorialManager = Class {
 
         self:ForkThread(self.NewFactoriesMonitor) -- Start the thread to manage newly built factories
         self:ForkThread(self.NewEngineersMonitor) -- tart the thread to manage newly built engineers
+
+        self:PlayeVoiceOver('Start')
     end,
 
     -- If base is inactive, all functionality at the tutorial manager should stop
@@ -90,11 +94,26 @@ TutorialManager = Class {
         IssueClearFactoryCommands({unit})
     end,
 
-    SetVoiceOvers = function(self, file, data)
+    SetVoiceOvers = function(self, file, voTable)
         self.StringsFile = file
+
+        for voName, data in voTable do
+            if type(data) == 'string' then
+                self.VoiceOvers[data] = voName
+            else
+                for type, num in data do
+                    self.VoiceOvers[type][num] = voName
+                end
+            end
+        end
+        LOG('Voice Over table: ', repr(self.VoiceOvers))
     end,
 
-    StartVoiceOvers = function(self)
+    PlayeVoiceOver = function(self, string)
+        if self.VoiceOvers[string] then
+            LOG('Playing VO: ' .. string)
+            ScenarioFramework.Dialogue(self.StringsFile[self.VoiceOvers[string]], nil, true)
+        end
     end,
 
     ------------
@@ -133,6 +152,8 @@ TutorialManager = Class {
 
                     LOG('Registering new Engineer: ' .. num)
                     eng:SetCustomName(num)
+
+                    self:PlayeVoiceOver('Engineer' .. num)
 
                     -- Assign orders
                     self:ForkThread(self.AssignEngineerOrders, eng, num)
@@ -413,6 +434,8 @@ TutorialManager = Class {
 
                     LOG('Registering new factory: ' .. type .. ' Factory ' .. num)
                     fac:SetCustomName(type .. num)
+
+                    self:PlayeVoiceOver(type .. 'Factory' .. num)
 
                     -- Assign orders
                     self:ForkThread(self.AssignFactoryOrders, fac, type, num)
