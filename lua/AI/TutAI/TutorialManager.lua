@@ -334,8 +334,8 @@ TutorialManager = Class {
         end
     end,
 
-    EngineerMove = function(self, engineer, position)
-        IssueMove({engineer}, ScenarioUtils.MarkerToPosition(position))
+    EngineerMove = function(self, engineer, marker)
+        IssueMove({engineer}, ScenarioUtils.MarkerToPosition(marker))
     end,
 
     EngineerAttackMove = function(self, engineer, marker)
