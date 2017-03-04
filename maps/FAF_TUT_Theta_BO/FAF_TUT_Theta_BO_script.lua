@@ -52,8 +52,8 @@ function OnPopulate(scenario)
 end
 
 function OnStart(self)
-    -- ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
-    StartBuildOrder(true)
+    ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
+    --StartBuildOrder(true)
 end
 
 ------------------
@@ -263,6 +263,7 @@ function StartBuildOrder(skipZoom)
         FirstEngineer = 'Engineer1',
         NorthEngineer = 'Engineer2',
         SouthEngineer = 'Engineer3',
+        Raids = 'AttackGroup1',
         SecondFactory = 'LandFactory2',
     })
 

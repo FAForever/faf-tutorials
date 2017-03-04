@@ -85,8 +85,12 @@ SouthEngineer = {
     {text = '[speed2]: This engineer also have an important task of building a T1 Radar next to the hill to give you intel on enemy unit movement.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
+Raids = {
+    {text = '[speed2]: Your first two tanks will protect your expanding engineers. Sending a scout with them will help you to spot the enemy units sooner and react in time.', vid = '', bank = '', cue = '', faction = 'UEF'},
+}
+
 SecondFactory = {
-    {text = '[speed2]: Your second Land Factory will produce only attacking units. For the beginning you will needs only tanks and scout. Good ratio is 5 tanks to a single scout. Later you can add an artillery into the mix to deal with enemy Point Defenses.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Second Land Factory will produce only attacking units. For the beginning you will needs only tanks and scout. Good ratio is 5 tanks to a single scout. Later you can add an artillery into the mix to deal with enemy Point Defenses.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: Once you build more factories, set them to assist this one. That way you need to set a build qeue only on the one factory which will save you more time to micro your units.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: This is also a time to move your ACU to the middle of the map to get the reclaim from there. Build also a Mass Extractor that is on the way.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: Newly build engineer will replace your ACU with building the base.', vid = '', bank = '', cue = '', faction = 'UEF'},
