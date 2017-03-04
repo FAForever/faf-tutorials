@@ -55,8 +55,7 @@ TutorialManager = Class {
         self.AIBrain = GetArmyBrain(strArmy)
         self.AIBrain:PBMRemoveBuildLocation( false, 'MAIN' ) -- remove main since we dont use it in ops much -- TODO: might not need this line at all, no platoons currently
 
-        self.Units.ACU = ScenarioFramework.SpawnCommander(strArmy, 'ACU', 'Warp', true) -- Spawn ACU
-        self:ForkThread(self.AssignEngineerOrders, self.Units.ACU, nil, true) -- Orders for ACU
+        self:SpawnACU() -- Spawn ACU, assign orders to it
 
         self:ForkThread(self.NewFactoriesMonitor) -- Start a thread to manage newly built factories
         self:ForkThread(self.NewEngineersMonitor) -- Start a thread to manage newly built engineers
@@ -67,6 +66,11 @@ TutorialManager = Class {
 
     BaseActive = function(self, val)
         self.Active = val
+    end,
+
+    SpawnACU = function(self)
+        self.Units.ACU = ScenarioFramework.SpawnCommander(self.strArmy, 'ACU', 'Warp', true)
+        self:ForkThread(self.AssignEngineerOrders, self.Units.ACU, nil, true) -- Orders for ACU
     end,
 
     -- Auto trashbags all threads on a base manager
