@@ -131,7 +131,7 @@ EighthEngineer = {
 }
 
 Powerspam = {
-    {text = '[Mephi]: The next two engis start your Power spam, because you will need a lot of power as soon you get all the reclaim from the Hillside Expansion.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[Mephi]: The next two engis start your Power spam, because you will need a lot of power as soon you get all the reclaim from the Hillside Expansion. Don\'t forget to include one Energy Storage to easier manage your power situation and to be able to Overcharge with your ACU.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 ReclaimFactory = {
