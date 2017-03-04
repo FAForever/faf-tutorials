@@ -69,7 +69,7 @@ TutorialManager = Class {
     end,
 
     SpawnACU = function(self)
-        self.Units.ACU = ScenarioFramework.SpawnCommander(self.strArmy, 'ACU', 'Warp', true)
+        self.Units.ACU = ScenarioFramework.SpawnCommander(self.strArmy, 'ACU', 'Warp', 'ACU')
         self:ForkThread(self.AssignEngineerOrders, self.Units.ACU, nil, true) -- Orders for ACU
     end,
 
