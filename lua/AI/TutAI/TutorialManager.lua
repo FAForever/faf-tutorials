@@ -478,6 +478,8 @@ TutorialManager = Class {
                     self:SetFactoryBuildQueue(factory, data)
                 elseif action == 'assist' then
                     self:SetFactoryAssist(factory, data)
+                elseif action == 'patrol' then
+                    self:SetFactoryPatrol(factory, data)
                 elseif action == 'RepeatBuild' then
                     self:SetFactoryRepeatBuild(factory, data)
                 end
@@ -517,6 +519,13 @@ TutorialManager = Class {
         end
 
         IssueFactoryAssist({factory}, targetFactory)
+    end,
+
+    -- Factory Patrol -- FIXME: Patrol nor attack move work on factories
+    SetFactoryPatrol = function(self, factory, chain)
+        for _, v in ScenarioUtils.ChainToPositions(chain) do
+            IssuePatrol({factory}, v)
+        end
     end,
 
     -- Repeat Build
