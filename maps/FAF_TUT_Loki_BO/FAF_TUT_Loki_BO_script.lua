@@ -18,15 +18,15 @@ local TutorialManager = import('/lua/AI/TutAI/TutorialManager.lua')
 -- Globals
 ----------
 ScenarioInfo.Player = 1
-ScenarioInfo.Tokyto_AI = 2
+ScenarioInfo.Tutorial_AI = 2
 ScenarioInfo.NEUTRAL_CIVILIAN = 3
 
 ---------
 -- Locals
 ---------
 local Player = ScenarioInfo.Player
-local Tokyto_AI = ScenarioInfo.Tokyto_AI
-local NEUTRAL_CIVILIAN = ScenarioInfo.NEUTRAL_CIVILIA
+local Tutorial_AI = ScenarioInfo.Tutorial_AI
+local NEUTRAL_CIVILIAN = ScenarioInfo.NEUTRAL_CIVILIAN
 
 local tManager = TutorialManager.CreateTutorialManager()
 
@@ -43,15 +43,18 @@ function OnPopulate(scenario)
 
     -- Sets Army Colors
     ScenarioFramework.SetUEFPlayerColor(Player)
-    ScenarioFramework.SetArmyColor(Tokyto_AI, 144, 20, 39)
+    ScenarioFramework.SetArmyColor(Tutorial_AI, 144, 20, 39)
+    ScenarioFramework.SetNeutralColor(NEUTRAL_CIVILIAN)
 end
 
 function OnStart(self)
-    ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
     Spawnwall()
     Spawnvillage()
     Spawnoutland()
     Spawncars()
+
+    ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
+    -- StartBuildOrder(true)
 end
 
 ------------------
@@ -78,7 +81,7 @@ end
 ----------------------
 -- Map info cinematics
 ----------------------
---[[function MapIntro()
+function MapIntro()
     -- Vision to the map
     Utilities.UserConRequest('SallyShears')
 
@@ -87,7 +90,7 @@ end
     WaitSeconds(1)
 
     -- Initial Camera
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Init'), 2)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 2)
 
     WaitSeconds(1)
     ScenarioFramework.Dialogue(OpStrings.MapInfo, nil, true)
@@ -95,48 +98,53 @@ end
     -- Starting Position
     ScenarioFramework.Dialogue(OpStrings.StartPosition, nil, true)
     WaitSeconds(10)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Starting_Position'), 3)
-    WaitSeconds(5)
-
-    -- Reclaim near base
-    ScenarioFramework.Dialogue(OpStrings.ReclaimNearBase, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ReclaimNearBase'), 2)
-    WaitSeconds(5)
-
-    -- Reclaim in middle
-    ScenarioFramework.Dialogue(OpStrings.ReclaimMiddle, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Mid_Reclaim'), 3)
-    WaitSeconds(6)
-
-    -- Civ buildings
-    ScenarioFramework.Dialogue(OpStrings.MiddleWrecks, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Mid_Civs'), 2)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 3)
     WaitSeconds(3)
 
+    -- Reclaim near base
+    ScenarioFramework.Dialogue(OpStrings.TwoMexHydro, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_TwoMexHydro'), 2)
+    WaitSeconds(4)
+
+    -- Reclaim in middle
+    ScenarioFramework.Dialogue(OpStrings.ReclaimNearBase, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ReclaimNearBase'), 3)
+    WaitSeconds(2)
+
+    -- Civ buildings
+    ScenarioFramework.Dialogue(OpStrings.ThreeMexHillside, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ThreeMexHillside'), 2)
+    WaitSeconds(6)
+
     -- More info about middle pass
-    ScenarioFramework.Dialogue(OpStrings.InfoAboutMiddle, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Middle_Pass'), 3)
-    WaitSeconds(7)
+    ScenarioFramework.Dialogue(OpStrings.TwoMexSide, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_TwoMexSide'), 3)
+    WaitSeconds(3)
 
     -- Bottom Pass
-    ScenarioFramework.Dialogue(OpStrings.BottomPassage, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_South_Pass'), 3)
-    WaitSeconds(9)
+    ScenarioFramework.Dialogue(OpStrings.FourMexCorner, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_FourMexCorner'), 3)
+    WaitSeconds(4)
 
     -- North Area 
-    ScenarioFramework.Dialogue(OpStrings.NorthPart, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Main'), 4)
-    WaitSeconds(9)
+    ScenarioFramework.Dialogue(OpStrings.Pond, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Pond'), 3)
+    WaitSeconds(5)
 
     -- North Mexes
-    ScenarioFramework.Dialogue(OpStrings.NorthPlateau, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Top_Expansion'), 2)
-    WaitSeconds(7)
+    ScenarioFramework.Dialogue(OpStrings.ThreeMexTop, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ThreeMexTop'), 2)
+    WaitSeconds(3)
 
     -- Final words
-    ScenarioFramework.Dialogue(OpStrings.NorthPlateau2, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Mid_Final'), 5)
-    WaitSeconds(6)
+    ScenarioFramework.Dialogue(OpStrings.Choke, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Choke'), 4)
+    WaitSeconds(4)
+
+    -- Move to Starting position
+    ScenarioFramework.Dialogue(OpStrings.PlateauWest, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_PlateauWest'), 3)
+    WaitSeconds(2)
 
     -- Move to Starting position
     ScenarioFramework.Dialogue(OpStrings.StartBuildOrder, nil, true)
@@ -149,7 +157,6 @@ end
 
     StartBuildOrder(true)
 end
---]]
 
 ----------------------
 -- Example Build Order
@@ -165,15 +172,63 @@ function StartBuildOrder(skipZoom)
         ScenarioFramework.StartOperationJessZoom('AI_Start')
     end
 
-    tManager:SetFactoriesQeue({
-        AIR = {
-            { -- Factory 2
+    tManager:SetEngineersOrders({
+        ACU = {
+            {build = 'ACU_Initial'}, -- groupName OR {unitName1, unitName2, ...}, if there's a marker with the same name as the building, move order will be issued first
+        },
+        Engineers = {
+            { -- Engineer 1
+                {build = 'Expansion_Left'},
+            },
+            { -- Engineer 2
+                {move = 'Engineer_2_Move'},
+                {attackmove = 'Engie_2_Attack_Move'},
+            },
+            { -- Engineer 3
+                {build = 'Expansion_Top'},
+                {attackmove = 'Engie_3_Attack_Move'},
+            },
+            { -- Engineer 4
+                {build = 'Expansion_Bot'},
+            },
+            { -- Engineer 5
+                {move = 'Engineer_5_Move'},
+                {assist = {'ACU'}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+            {
+                {assist = {'Engineer', 5}},
+            },
+        },
+    })
+
+    tManager:SetFactoriesQueue({
+        Air = {
+            { -- Factory 1
                 { -- Order 1
                     build = {
                         {'uea0101', 1}, -- T1 Air Scout
-                        {'uea0102', 2}, -- T1 Interceptor
+                        {'uea0102', 3}, -- T1 Interceptor
                     },
-                    RallyPoint = 'Fac_2_Rally',
+                    RallyPoint = 'Rally Point 08',
+                    RepeatBuild = true,
                 },
             },
         },
@@ -184,86 +239,59 @@ function StartBuildOrder(skipZoom)
                         {'uel0105', 3}, -- 3x T1 Engie
                         {'uel0201', 1}, -- T1 Tank
                         {'uel0101', 1}, -- T1 Scout
+                        {'uel0105', 3}, -- 3x T1 Engie
                         {'uel0201', 1}, -- T1 Tank
                         {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 1}, -- T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-
                         {'uel0105', 2}, -- 2x T1 Engie
-                        {'uel0201', 1}, -- 1x T1 Tank
-                        {'uel0105', 1}, -- 1x T1 Engie
                         {'uel0201', 2}, -- 2x T1 Tank
-
-                        {'uel0105', 1}, -- 1x T1 Engie
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0105', 2}, -- 2x T1 Engie
                         {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0105', 1}, -- 1x T1 Engie
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0105', 1}, -- 1x T1 Engie
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0105', 1}, -- 1x T1 Engie
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0201', 2}, -- 2x T1 Tank
-                        {'uel0105', 1}, -- 1x T1 Engie        -- 9 engies
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0105', 50}, -- 50x T1 Engie
                     },
-                    RallyPoint = 'Fac_1_Rally',
+                    RallyPoint = 'Rally Point 06',
                 },
             },
-            { -- Factory 3
+            { -- Factory 2
                 { -- Order 1
-                        build = {
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                        },  
-                RallyPoint = 'Fac_3_Rally', 
+                    build = {
+                        {'uel0201', 5}, -- 5x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0103', 2}, -- 2x T1 Arty
+                    },  
+                    RallyPoint = 'Rally Point 07',
+                    RepeatBuild = true,
                 },
-            },
-            { -- Factory 4
+            },--[[
+            { -- Factory 3
                 { -- Order 1
                     assist = 3,
                 },
             },
-            { -- Factory 5
+            { -- Factory 4
                 { -- Order 1
-                        build = {
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                        },      
-                RallyPoint = 'Fac_5_Rally',
+                    build = {
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                    },      
+                    RallyPoint = 'Fac_5_Rally',
                 },
             },
             { -- Factory 6
@@ -279,79 +307,60 @@ function StartBuildOrder(skipZoom)
             { -- Factory 8
                 { -- Order 1
                     build = {
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            {'uel0101', 1}, -- T1 Scout
-                            {'uel0201', 3}, -- 3x T1 Tank
-                            },  
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                        {'uel0101', 1}, -- T1 Scout
+                        {'uel0201', 3}, -- 3x T1 Tank
+                    },  
                     RallyPoint = 'Fac_4_Rally',
                 },
-            },
+            },--]]
         },
     })
 
-    tManager:SetEngineerOrders({
-        ACU = {
-            {build = 'ACU_Initial'}, -- groupName OR {unitName1, unitName2, ...}, if there's a marker with the same name as the building, move order will be issued first
-            --{assist = {'Engineer', 1}}, -- {type, number}
-            --{wait = {'Units_Active', 2, categories.ueb0101}},
+    tManager:SetAttackGroups({
+        {
+            units = {{'uel0201', 1}, {'uel0101', 1}},
+            order = {'move', 'Attack_Group_1_Move'},
         },
-        Engineers = {
-            { -- Engineer 1
-                {build = 'Expansion_Left'},
-            },
-            { -- Engineer 2
-                {build = 'Expansion_Top'},
-                --IssueAggressiveMove({ScenarioInfo.Engie_2}, ScenarioUtils.MarkerToPosition('Engie_2_Attack_Move_1_1'))
-            },
-            { -- Engineer 3
-                {build = 'Expansion_Bot'},
-            },
-            { -- Engineer 4
-                {build = 'E_Spam'},
-            },
-            { -- Engineer 5
-                {build = 'Fac_Spam'},
-                {assist = {'Factory', 6}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
-            {
-            {assist = {'Engineer', 5}},
-            },
+        {
+            units = {{'uel0201', 1}},
+        },
+        {
+            units = {{'uel0201', 1}, {'uel0101', 1}},
+            order = {'move', 'Attack_Group_3_Move'},
         },
     })
-    tManager:Initialize('Tokyto_AI')
+
+    tManager:SetVoiceOvers(OpStrings, {
+        InitialBO = 'Start',
+        FirstEngineer = 'Engineer1',
+        SecondEngineer = 'Engineer2',
+        ThirdEngineer = 'Engineer3',
+        TankScout = 'AttackGroup1',
+        SecondFactory = 'LandFactory2',
+        FourthEngineer = 'Engineer4',
+        FithEngineer = 'Engineer5',
+        SixthEngineer = 'Engineer6',
+        AirFactory = 'AirFactory1',
+        
+    })
+
+    tManager:Initialize()
 end
 
 --------------------------------

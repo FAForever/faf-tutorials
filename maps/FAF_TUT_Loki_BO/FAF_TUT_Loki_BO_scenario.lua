@@ -10,14 +10,10 @@ ScenarioInfo = {
     save = '/maps/FAF_TUT_Loki_BO/FAF_TUT_Loki_BO_save.lua',
     script = '/maps/FAF_TUT_Loki_BO/FAF_TUT_Loki_BO_script.lua',
     norushradius = 0.000000,
-    norushoffsetX_ARMY_1 = 0.000000,
-    norushoffsetY_ARMY_1 = 0.000000,
-    norushoffsetX_ARMY_2 = 0.000000,
-    norushoffsetY_ARMY_2 = 0.000000,
     Configurations = {
         ['standard'] = {
             teams = {
-                { name = 'FFA', armies = {'Player','Tokyto_AI','NEUTRAL_CIVILIAN',} },
+                { name = 'FFA', armies = {'Player','Tutorial_AI','NEUTRAL_CIVILIAN',} },
             },
             customprops = {
             },

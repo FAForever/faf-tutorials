@@ -53,7 +53,7 @@ NorthPlateau2 = {
 
 StartBuildOrder = {
     {text = '[speed2]: Let\'s watch some example build order now.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[speed2]: Hold down \'SHIFT\' key to see command qeue of the units. You can also select an ACU, engineers or a factory to see their build qeue.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Hold down \'SHIFT\' key to see command queue of the units. You can also select the ACU or engineers or factories to see their build queue. In case you need a bit more time to follow the buildorder, you can adjust the speed with \'+\' and \'-\', or Pause the game with the \'II\'-Button on the top middle of the screen.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 

@@ -18,7 +18,7 @@ local Utilities = import('/lua/Utilities.lua')
 -- Globals
 ----------
 ScenarioInfo.Player = 1
-ScenarioInfo.speed2_AI = 2
+ScenarioInfo.Tutorial_AI = 2
 ScenarioInfo.ARMY_9 = 3
 ScenarioInfo.NEUTRAL_CIVILIAN = 4
 
@@ -26,7 +26,7 @@ ScenarioInfo.NEUTRAL_CIVILIAN = 4
 -- Locals
 ---------
 local Player = ScenarioInfo.Player
-local speed2_AI = ScenarioInfo.speed2_AI
+local Tutorial_AI = ScenarioInfo.Tutorial_AI
 local ARMY_9 = ScenarioInfo.ARMY_9
 local NEUTRAL_CIVILIAN = ScenarioInfo.NEUTRAL_CIVILIAN
 
@@ -45,7 +45,7 @@ function OnPopulate(scenario)
 
     -- Sets Army Colors
     ScenarioFramework.SetUEFPlayerColor(Player)
-    ScenarioFramework.SetArmyColor(speed2_AI, 144, 20, 39)
+    ScenarioFramework.SetArmyColor(Tutorial_AI, 144, 20, 39)
 end
 
 function OnStart(self)
@@ -197,7 +197,7 @@ function StartBuildOrder(skipZoom)
         },
     })
 
-    tManager:SetFactoriesQeue({
+    tManager:SetFactoriesQueue({
         Land = {
             { -- Factory 1
                 { -- Order 1
@@ -262,7 +262,7 @@ function StartBuildOrder(skipZoom)
         SecondFactory = 'LandFactory2',
     })
 
-    tManager:Initialize('speed2_AI')
+    tManager:Initialize()
 end
 
 -- TODO: once build order ends, swich back to player's army view and let him try the build order.
