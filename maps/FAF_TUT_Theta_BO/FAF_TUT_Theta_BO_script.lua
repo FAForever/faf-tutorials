@@ -246,11 +246,15 @@ function StartBuildOrder(skipZoom)
     tManager:SetAttackGroups({
         {
             units = {{'uel0201', 1}, {'uel0101', 1}},
-            order = {'move', 'North_Attack_Chain'},
+            orders = {
+                {move = 'North_Attack_Chain'},
+            },
         },
         {
             units = {{'uel0201', 1}, {'uel0101', 1}},
-            order = {'move', 'South_Attack_Chain'},
+            orders = {
+                {move = 'South_Attack_Chain'},
+            },
         },
     })
 

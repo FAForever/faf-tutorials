@@ -194,28 +194,31 @@ function StartBuildOrder(skipZoom)
             { -- Engineer 5
                 {move = 'Engineer_5_Move'},
                 {assist = {'ACU'}},
+                {wait = {'Units_Active', 1, categories.ueb0102}},
+                {assist = {'Engineer', 7}},
             },
-            {
+            { -- Engineer 6
+                {move = 'Engineer_6_Move'},
+                {attackmove = 'Engineer_6_AttackMove'},
+            },
+            { -- Engineer 7
+                {build = 'Fac_Spam'},
+            },
+            { -- Engineer 8
+                {assist = {'Engineer', 7}},
+            },
+            { -- Engineer 9
+                {build = 'E_Spam'},
+            },
+            { -- Engineer 10
+                {assist = {'Engineer', 9}},
+            },
+            --[[{
                 {assist = {'Engineer', 5}},
             },
             {
                 {assist = {'Engineer', 5}},
-            },
-            {
-                {assist = {'Engineer', 5}},
-            },
-            {
-                {assist = {'Engineer', 5}},
-            },
-            {
-                {assist = {'Engineer', 5}},
-            },
-            {
-                {assist = {'Engineer', 5}},
-            },
-            {
-                {assist = {'Engineer', 5}},
-            },
+            },--]]
         },
     })
 
@@ -251,6 +254,7 @@ function StartBuildOrder(skipZoom)
                         {'uel0105', 50}, -- 50x T1 Engie
                     },
                     RallyPoint = 'Rally Point 06',
+                    patrol = 'Hillside_Factory_Patrol_Chain',
                 },
             },
             { -- Factory 2
@@ -263,86 +267,60 @@ function StartBuildOrder(skipZoom)
                     RallyPoint = 'Rally Point 07',
                     RepeatBuild = true,
                 },
-            },--[[
+            },
             { -- Factory 3
                 { -- Order 1
-                    assist = 3,
+                    assist = 2,
                 },
             },
             { -- Factory 4
                 { -- Order 1
-                    build = {
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                    },      
-                    RallyPoint = 'Fac_5_Rally',
+                    assist = 2,
                 },
             },
-            { -- Factory 6
+            { -- Factory 5
                 { -- Order 1
-                    assist = 3,
+                    assist = 2,
+                },
+            },
+            { -- Factory 6 hillside
+                { -- Order 1
+                    build = {
+                        {'uel0105', 20}, -- 20x T1 Engie
+                    },
+                    patrol = 'Hillside_Factory_Patrol_Chain',
+                    RallyPoint = 'Hillside_Factory_Patrol0',
                 },
             },
             { -- Factory 7
                 { -- Order 1
-                    assist = 3,
+                    assist = 2,
                 },
             },
-            { -- Factory 8
-                { -- Order 1
-                    build = {
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                        {'uel0101', 1}, -- T1 Scout
-                        {'uel0201', 3}, -- 3x T1 Tank
-                    },  
-                    RallyPoint = 'Fac_4_Rally',
-                },
-            },--]]
         },
     })
 
     tManager:SetAttackGroups({
         {
             units = {{'uel0201', 1}, {'uel0101', 1}},
-            order = {'move', 'Attack_Group_1_Move'},
+            orders = {
+                {move = 'Attack_Group_1_Move'},
+            },
         },
         {
             units = {{'uel0201', 1}},
         },
         {
             units = {{'uel0201', 1}, {'uel0101', 1}},
-            order = {'move', 'Attack_Group_3_Move'},
+            orders = {
+                {move = 'Attack_Group_3_Move'},
+            },
+        },
+        {
+            units = {{'uea0101', 1}},
+            orders = {
+                {patrol = 'AirScout_Patrol_Chain'},
+            },
         },
     })
 
@@ -357,7 +335,9 @@ function StartBuildOrder(skipZoom)
         FithEngineer = 'Engineer5',
         SixthEngineer = 'Engineer6',
         AirFactory = 'AirFactory1',
-        
+        FactorySpam = 'Engineer7',
+        EighthEngineer = 'Engineer8',
+        Powerspam = 'Engineer9',
     })
 
     tManager:Initialize()
