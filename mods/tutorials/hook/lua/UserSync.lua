@@ -1,3 +1,5 @@
+NoOrdersAllowed = false
+
 local oldOnSync = OnSync
 OnSync = function()
     oldOnSync()
@@ -9,6 +11,18 @@ OnSync = function()
         for unitID, val in Sync.SetRepeatBuild do
             local unit = GetUnitById(unitID)
             unit:ProcessInfo('SetRepeatQueue', tostring(val))
+        end
+    end
+    
+    if Sync.NoOrdersAllowed then
+        WARN('NoOrdersAllowed')
+        NoOrdersAllowed = Sync.NoOrdersAllowed
+        if Sync.NoOrdersAllowed then
+            IN_ClearKeyMap()
+        else
+            IN_AddKeyMapTable(import('/lua/ui/game/gamemain.lua').modifiersKeys)
+            import('/modules/hotbuild.lua').addModifiers()
+            IN_AddKeyMapTable(import('/lua/keymap/keymapper.lua').GetKeyMappings(true))
         end
     end
 end
