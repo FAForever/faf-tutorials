@@ -201,7 +201,7 @@ TutorialManager = Class {
                 elseif action == 'move' then
                     self:EngineerMove(engineer, data)
                 elseif action == 'attackmove' then
-                    self:EngineerAttackMove(engineer)
+                    self:EngineerAttackMove(engineer, data)
                 end
             end
         end
@@ -334,7 +334,8 @@ TutorialManager = Class {
         IssueMove({engineer}, ScenarioUtils.MarkerToPosition(position))
     end,
 
-    EngineerAttackMove = function(self, engineer)
+    EngineerAttackMove = function(self, engineer, marker)
+        IssueAggressiveMove({engineer}, ScenarioUtils.MarkerToPosition(marker))
     end,
 
     EngineerBuildUnit = function(self, engineer, ...)
