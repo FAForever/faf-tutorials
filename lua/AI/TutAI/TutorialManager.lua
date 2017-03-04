@@ -565,7 +565,6 @@ TutorialManager = Class {
                         if self:CanFormAttackGroup(group) then
                             self:FormAttackGroup(group)
                         end
-
                         return
                     end
                 end
@@ -584,17 +583,27 @@ TutorialManager = Class {
 
     FormAttackGroup = function(self, group)
         group.Formed = true
-        self:AssignAttackGroupOrders(group)
+        self:ForkThread(self.AssignAttackGroupOrders, group)
     end,
 
     AssignAttackGroupOrders = function(self, group)
         local units = group.AttackForce
-        local order = group.order[1]
-        local data = group.order[2]
 
-        if order == 'move' then
-            for _, v in ScenarioUtils.ChainToPositions(data) do
-                IssueMove(units, v)
+        for _, order in group.orders or {} do
+            for action, data in order do
+                if action == 'move' then
+                    if string.find('Chain', data) then
+                        for _, v in ScenarioUtils.ChainToPositions(data) do
+                            IssueMove(units, v)
+                        end
+                    else
+                        IssueMove(units, ScenarioUtils.MarkerToPosition(data))
+                    end
+                elseif action == 'patrol' then
+                    for _, v in ScenarioUtils.ChainToPositions(data) do
+                        IssuePatrol(units, v)
+                    end
+                end
             end
         end
     end,
