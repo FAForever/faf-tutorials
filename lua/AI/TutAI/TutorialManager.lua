@@ -212,13 +212,16 @@ TutorialManager = Class {
 
     EngineerAssist = function(self, engineer, targetData)
         local target = nil
-        local targetType = 'Engineers'
-        if targetData[1] == 'Factory' then
-            targetType = 'Factories'
-        end
 
         while not target do
-            target = self.Units[targetType][targetData[2]]
+            if targetData[1] == 'Factory' then
+                target = self.Units.Factories[targetData[2]]
+            elseif targetData[1] == 'Engineer' then
+                target = self.Units.Engineers[targetData[2]]
+            elseif targetData[1] == 'ACU' then
+                target = self.Units.ACU
+            end
+            
             WaitSeconds(1)
         end
 
