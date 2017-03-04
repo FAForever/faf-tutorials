@@ -545,10 +545,12 @@ TutorialManager = Class {
         self.Units.AttackGroups = data
 
         -- Create table for storing actual units
-        for _, group in self.Units.AttackGroups do
+        for num, group in self.Units.AttackGroups do
             if not group.AttackForce then
                 group.AttackForce = {}
             end
+
+            group.Number = num
         end
     end,
 
@@ -597,6 +599,9 @@ TutorialManager = Class {
 
     FormAttackGroup = function(self, group)
         group.Formed = true
+
+        self:PlayeVoiceOver('AttackGroup' .. group.Number)
+
         self:ForkThread(self.AssignAttackGroupOrders, group)
     end,
 
