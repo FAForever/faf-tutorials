@@ -47,6 +47,10 @@ TutorialManager = Class {
         end
         self.Initialized = true
 
+        if not strArmy then
+            strArmy = 'Tutorial_AI'
+        end
+
         self.strArmy = strArmy
         self.AIBrain = GetArmyBrain(strArmy)
         self.AIBrain:PBMRemoveBuildLocation( false, 'MAIN' ) -- remove main since we dont use it in ops much -- TODO: might not need this line at all, no platoons currently
