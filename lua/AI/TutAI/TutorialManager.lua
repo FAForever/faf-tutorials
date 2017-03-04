@@ -611,7 +611,7 @@ TutorialManager = Class {
         for _, order in group.orders or {} do
             for action, data in order do
                 if action == 'move' then
-                    if string.find('Chain', data) then
+                    if string.find(data, 'Chain') then
                         for _, v in ScenarioUtils.ChainToPositions(data) do
                             IssueMove(units, v)
                         end
