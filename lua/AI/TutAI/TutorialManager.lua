@@ -387,7 +387,7 @@ TutorialManager = Class {
     ------------
     -- Factories
     ------------
-    SetFactoriesQeue = function(self, data)
+    SetFactoriesQueue = function(self, data)
         self.Orders.Factories = data
     end,
 
@@ -458,7 +458,7 @@ TutorialManager = Class {
             return
         end
 
-        WaitSeconds(3) -- Wait few seconds after factory is started, as player would do before setting build qeue
+        WaitSeconds(3) -- Wait few seconds after factory is started, as player would do before setting build queue
 
         IssueClearFactoryCommands({factory})
         for _, order in tblOrders do
@@ -470,7 +470,7 @@ TutorialManager = Class {
                 elseif action == 'RallyPoint' then -- Second, check if rally point is changing
                     self:SetFactoryRallyPoint(factory, data)
                 elseif action == 'build' then
-                    self:SetFactoryBuildQeue(factory, data)
+                    self:SetFactoryBuildQueue(factory, data)
                 elseif action == 'assist' then
                     self:SetFactoryAssist(factory, data)
                 elseif action == 'RepeatBuild' then
@@ -495,8 +495,8 @@ TutorialManager = Class {
     end,
 
     -- Factory Build
-    SetFactoryBuildQeue = function(self, factory, tblQeue)
-        for _, data in tblQeue do
+    SetFactoryBuildQueue = function(self, factory, tblQueue)
+        for _, data in tblQueue do
             IssueBuildFactory({factory}, data[1], data[2])
         end
     end,
@@ -538,6 +538,7 @@ TutorialManager = Class {
         end
     end,
 
+    -- Main thread for managing newly built units
     NewUnitsMonitor = function(self)
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.MOBILE - categories.ENGINEER, false, true)
