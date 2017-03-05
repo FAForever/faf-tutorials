@@ -616,13 +616,13 @@ TutorialManager = Class {
     AssignAttackGroupOrders = function(self, group)
         local units = group.AttackForce
 
-        IssueStop(group)
-        IssueClearCommands(group)
+        IssueStop(units)
+        IssueClearCommands(units)
 
         for _, order in group.orders or {} do
             for action, data in order do
                 if action == 'assist' then
-                    IssueGroupAssist(group, data)
+                    self:IssueGroupAssist(units, data)
                 elseif action == 'attackmove' then
                     self:IssueGroupAttackMove(units, data)
                 elseif action == 'move' then
