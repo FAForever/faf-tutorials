@@ -86,7 +86,7 @@ TutorialManager = Class {
         end
     end,
 
-    WaitThread = function(self, unit, data)
+    WaitThread = function(self, group, data)
         local locked = true
 
         Unlock = function()
@@ -100,8 +100,8 @@ TutorialManager = Class {
         while locked do
             WaitSeconds(1)
         end
-        IssueClearCommands({unit})
-        IssueClearFactoryCommands({unit})
+        IssueClearCommands(group)
+        IssueClearFactoryCommands(group)
     end,
 
     SetVoiceOvers = function(self, file, voTable)
@@ -207,6 +207,7 @@ TutorialManager = Class {
             return
         end
 
+        -- ACU starts building right away
         if not isACU then
             WaitSeconds(3)
 
@@ -216,46 +217,29 @@ TutorialManager = Class {
 
         for _, order in tblOrders do
             for action, data in order do
-                if action == 'wait' then
-                    self:WaitThread(engineer, data)
+                if action == 'assist' then
+                    self:IssueGroupAssist({engineer}, data)
+                elseif action == 'attackmove' then
+                    self:IssueGroupAttackMove({engineer}, data)
                 elseif action == 'build' then
                     if type(data) == 'string' then
                         self:EngineerBuildGroup(engineer, data)
                     elseif type(data) == 'table' then
                         self:EngineerBuildUnit(engineer, unpack(data))
                     end
-                elseif action == 'assist' then
-                    self:EngineerAssist(engineer, data)
+                elseif action == 'move' then
+                    self:IssueGroupMove({engineer}, data)
+                elseif action == 'patrol' then
+                    self:IssueGroupPatrol({engineer}, data)
                 elseif action == 'reclaim' then
                     self:EngineerReclaim(engineer, data)
-                elseif action == 'move' then
-                    self:EngineerMove(engineer, data)
-                elseif action == 'attackmove' then
-                    self:EngineerAttackMove(engineer, data)
+                elseif action == 'wait' then
+                    self:WaitThread({engineer}, data)
+                else
+                    WARN('*TUTORIAL MANAGER ERROR: AssignEngineerOrders, unknown action type: "' .. action .. '". Supported types: assist, attackmove, build, move, patrol, reclaim, wait')
                 end
             end
         end
-    end,
-
-    EngineerWait = function(self, engineer)
-    end,
-
-    EngineerAssist = function(self, engineer, targetData)
-        local target = nil
-
-        while not target do
-            if targetData[1] == 'Factory' then
-                target = self.Units.Factories[targetData[2]]
-            elseif targetData[1] == 'Engineer' then
-                target = self.Units.Engineers[targetData[2]]
-            elseif targetData[1] == 'ACU' then
-                target = self.Units.ACU
-            end
-            
-            WaitSeconds(1)
-        end
-
-        IssueGuard({engineer}, target)
     end,
 
     --- Function for an engineer to reclaim based on info in data
@@ -358,14 +342,6 @@ TutorialManager = Class {
                 IssueReclaim({engineer}, prop)
             end
         end
-    end,
-
-    EngineerMove = function(self, engineer, marker)
-        IssueMove({engineer}, ScenarioUtils.MarkerToPosition(marker))
-    end,
-
-    EngineerAttackMove = function(self, engineer, marker)
-        IssueAggressiveMove({engineer}, ScenarioUtils.MarkerToPosition(marker))
     end,
 
     EngineerBuildUnit = function(self, engineer, ...)
@@ -508,6 +484,8 @@ TutorialManager = Class {
                     self:SetFactoryPatrol(factory, data)
                 elseif action == 'RepeatBuild' then
                     self:SetFactoryRepeatBuild(factory, data)
+                else
+                    WARN('*TUTORIAL MANAGER ERROR: AssignFactoryOrders, unknown action type: "' .. action .. '". Supported types: wait, assist, build, RallyPoint, RepeatBuild, patrol')
                 end
             end
         end
@@ -580,6 +558,10 @@ TutorialManager = Class {
         end
     end,
 
+    GetAttackGroup = function(self, number)
+        return self.Units.AttackGroups[number]
+    end,
+
     -- Main thread for managing newly built units
     NewUnitsMonitor = function(self)
         while self.Active do
@@ -634,21 +616,96 @@ TutorialManager = Class {
     AssignAttackGroupOrders = function(self, group)
         local units = group.AttackForce
 
+        IssueStop(group)
+        IssueClearCommands(group)
+
         for _, order in group.orders or {} do
             for action, data in order do
-                if action == 'move' then
-                    if string.find(data, 'Chain') then
-                        for _, v in ScenarioUtils.ChainToPositions(data) do
-                            IssueMove(units, v)
-                        end
-                    else
-                        IssueMove(units, ScenarioUtils.MarkerToPosition(data))
-                    end
+                if action == 'assist' then
+                    IssueGroupAssist(group, data)
+                elseif action == 'attackmove' then
+                    self:IssueGroupAttackMove(units, data)
+                elseif action == 'move' then
+                    self:IssueGroupMove(units, data)
                 elseif action == 'patrol' then
-                    for _, v in ScenarioUtils.ChainToPositions(data) do
-                        IssuePatrol(units, v)
-                    end
+                    self:IssueGroupPatrol(units, data)
+                else
+                    WARN('*TUTORIAL MANAGER ERROR: AssignAttackGroupOrders, unknown action type: "' .. action .. '". Supported types: assist, attackmove, move, patrol')
                 end
+            end
+        end
+    end,
+
+    ----------------
+    -- Common Orders
+    ----------------
+    IssueGroupAssist = function(self, group, data)
+        if not type(data) == 'table' then
+            error('*TUTORIAL MANAGER ERROR: IssueGroupAssist requires table as a second parametr. Provided type: ' .. type(data), 2)
+        end
+
+        local target = nil
+        local targetType = data[1]
+        local num = data[2]
+
+        while not target do
+            if targetType == 'ACU' then
+                target = self.Units.ACU
+            elseif targetType == 'Engineer' then
+                target = self.Units.Engineers[num]
+            elseif targetType == 'Factory' then
+                target = self.Units.Factories[num]
+            elseif targetType == 'AttackGroup' then
+                -- First unit of the attack group
+                target = self:GetAttackGroup(num).AttackForce[1]
+            end
+            
+            WaitSeconds(3)
+        end
+
+        IssueGuard(group, target)
+    end,
+
+    IssueGroupAttackMove = function(self, group, data)
+        if type(data) == 'string' then
+            if string.find(data, 'Chain') then
+                for _, v in ScenarioUtils.ChainToPositions(data) do
+                    IssueAggressiveMove(group, v)
+                end
+            else
+                IssueAggressiveMove(group, ScenarioUtils.MarkerToPosition(data))
+            end
+        elseif type(data) == 'table' then
+            for _, marker in data do
+                IssueAggressiveMove(group, ScenarioUtils.MarkerToPosition(marker))
+            end
+        end
+    end,
+
+    IssueGroupMove = function(self, group, data)
+        if type(data) == 'string' then
+            if string.find(data, 'Chain') then
+                for _, v in ScenarioUtils.ChainToPositions(data) do
+                    IssueMove(group, v)
+                end
+            else
+                IssueMove(group, ScenarioUtils.MarkerToPosition(data))
+            end
+        elseif type(data) == 'table' then
+            for _, marker in data do
+                IssueMove(group, ScenarioUtils.MarkerToPosition(marker))
+            end
+        end
+    end,
+
+    IssueGroupPatrol = function(self, group, data)
+        if type(data) == 'string' then
+            for _, v in ScenarioUtils.ChainToPositions(data) do
+                IssuePatrol(group, v)
+            end
+        elseif type(data) == 'table' then
+            for _, marker in data do
+                IssuePatrol(group, ScenarioUtils.MarkerToPosition(marker))
             end
         end
     end,
