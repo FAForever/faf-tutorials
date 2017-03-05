@@ -43,9 +43,6 @@ local Debug = false     -- Skipping initial cinematics
 function OnPopulate(scenario)
     ScenarioUtils.InitializeScenarioArmies()
 
-    -- Save props for later respawn
-    ScenarioFramework.SaveMap()
-
     -- Sets Army Colors
     ScenarioFramework.SetUEFPlayerColor(Player)
     ScenarioFramework.SetArmyColor(Tutorial_AI, 144, 20, 39)
@@ -60,6 +57,9 @@ end
 -- Choice dialogue
 ------------------
 function TutorialStart()
+    -- Save props for later respawn
+    ScenarioFramework.SaveMap()
+
     -- Choice dialogue
     local dialogue = CreateDialogue('What do you want to do?', {'Watch map basic info', 'Watch build order', 'Try the build order'})
     dialogue.OnButtonPressed = function(self, info)
@@ -171,6 +171,7 @@ function StartBuildOrder(skipZoom)
             {wait = {'Units_Active', 2, categories.ueb0101}},
             {build = {'Mex_Middle'}},
             {reclaim = {area = 'Reclaim_Middle', moveChain = 'Move_Chain_Middle', minMass = 5}},
+            {move = 'ACU_Final_Position'},
         },
         Engineers = {
             { -- Engineer 1
@@ -184,15 +185,21 @@ function StartBuildOrder(skipZoom)
                 {build = 'Walls_North'},
                 {build = 'PD_North'},
                 {build = {'Radar_North'}},
+                {move = 'North_Engie_Hide'},
             },
             { -- Engineer 3
                 {build = 'South_Expansion'},
+                {attackmove = 'South_Engineer_AttackMove_Chain'},
             },
             { -- Engineer 4
                 {assist = {'Engineer', 1}},
             },
             { -- Engineer 5
                 {assist = {'Engineer', 1}},
+            },
+            { -- Engineer 6
+                {build = {'Radar_Middle'}},
+                {attackmove = 'Engineer_6_AttackMove_Chain'},
             },
         },
     })
@@ -244,16 +251,40 @@ function StartBuildOrder(skipZoom)
     })
 
     tManager:SetAttackGroups({
-        {
-            units = {{'uel0201', 1}, {'uel0101', 1}},
+        { -- Attack Group 1
+            units = {{'uel0201', 1}},
             orders = {
-                {move = 'North_Attack_Chain'},
+                {move = 'North_Attack_1'},
             },
         },
-        {
-            units = {{'uel0201', 1}, {'uel0101', 1}},
+        { -- Attack Group 2
+            units = {{'uel0201', 1}},
             orders = {
                 {move = 'South_Attack_Chain'},
+            },
+        },
+        { -- Attack Group 3
+            units = {{'uel0101', 1}},
+            orders = {
+                {assist = {'AttackGroup', 1}},
+            },
+        },
+        { -- Attack Group 4
+            units = {{'uel0101', 1}},
+            orders = {
+                {assist = {'AttackGroup', 2}},
+            },
+        },
+        { -- Attack Group 5
+            units = {{'uel0201', 3}},
+            orders = {
+                {move = 'Attack_Group_5_Move'}
+            },
+        },
+        { -- Attack Group 6
+            units = {{'uel0201', 4}, {'uel0101', 2}},
+            orders = {
+                {move = 'Attack_Group_6_Move'}
             },
         },
     })
@@ -265,6 +296,10 @@ function StartBuildOrder(skipZoom)
         SouthEngineer = 'Engineer3',
         Raids = 'AttackGroup1',
         SecondFactory = 'LandFactory2',
+        MoreTanks = 'AttackGroup5',
+        ACUMiddle = {'Units_Active', 9, categories.ueb1103},
+        MiddleRadar = 'Engineer6',
+        EndBuildOrder = {'Units_Active', 1, categories.ueb3101, SpawnPlayer},
     })
 
     tManager:Initialize()
@@ -277,6 +312,9 @@ end
 function SpawnPlayer()
     -- Switch back to player's army
     Utilities.UserConRequest('SetFocusArmy 0')
+
+    -- Reset the map props
+    ScenarioFramework.ResetMap()
 
     ScenarioFramework.StartOperationJessZoom('Player_Start')
 

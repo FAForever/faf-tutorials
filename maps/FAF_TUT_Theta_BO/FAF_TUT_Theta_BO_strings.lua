@@ -74,10 +74,12 @@ LandFirst = {
 
 FirstEngineer = {
     {text = '[speed2]: First engineer will go to build a Hydrocarbon and then several Land Factories around the Mass Extractor. The ACU will assist it until the Hydrocarbon and at least one more factory are done.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Always try to place Land Factories around Mass Extractors and Air Factories around Power Generators to fully use the adjacency bonus (cost discount).', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 NorthEngineer = {
-    {text = '[speed2]: Another engineers can expand to the top-left side. It will get few rocks on it\'s way and build Mass Extractors. Try to get the corner area, build a Point Defense and Walls there.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Another engineers can expand to the top-left side. It will get few rocks on it\'s way and build Mass Extractors. Try to secure the corner area by building a Point Defense and Walls there.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Additional radar in that position will help you spot enemy army movement. You can also move the engineer to the corner of the map. If your opponents over runs that position, there\'s a small chance that the engineer will survive and you can start rebuilding right away.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SouthEngineer = {
@@ -87,11 +89,28 @@ SouthEngineer = {
 
 Raids = {
     {text = '[speed2]: Your first two tanks will protect your expanding engineers. Sending a scout with them will help you to spot the enemy units sooner and react in time.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Order the scout to assist the tank instead of ordering a move command to both of them to keep the scout always covered behind the tank.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SecondFactory = {
     {text = '[speed2]: Second Land Factory will produce only attacking units. For the beginning you will needs only tanks and scout. Good ratio is 5 tanks to a single scout. Later you can add an artillery into the mix to deal with enemy Point Defenses.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[speed2]: Once you build more factories, set them to assist this one. That way you need to set a build qeue only on the one factory which will save you more time to micro your units.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[speed2]: Once you build more factories, set them to assist this one. That way you need to set a build qeue only on the one factory which will save you more time to micro your units.', vid = '', bank = '', cue = '', faction = 'UEF', delay = 5},
     {text = '[speed2]: This is also a time to move your ACU to the middle of the map to get the reclaim from there. Build also a Mass Extractor that is on the way.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[speed2]: Newly build engineer will replace your ACU with building the base.', vid = '', bank = '', cue = '', faction = 'UEF'},
+}
+
+MoreTanks = {
+    {text = '[speed2]: Distributing other tanks will depend on your opponent\'s movement. Reiforce bottom or top positions as needed. The scout you send with the first tanks should show you how many units your opponent have in that area.', vid = '', bank = '', cue = '', faction = 'UEF'},
+}
+
+ACUMiddle = {
+    {text = '[speed2]: Try to reclaim as much rocks as you can with your ACU in the middle. It\'s very likely that you will encounter your opponent\'s ACU there. Ignore the incoming fire, reclaim what you can and retreat a bit to regroup with your army.', vid = '', bank = '', cue = '', faction = 'UEF'},
+}
+
+MiddleRadar = {
+    {text = '[speed2]: Make sure to build a radar in middle of the map as well. Once the radar is up, you can use the engineer to reclaim anything that was left in that area.', vid = '', bank = '', cue = '', faction = 'UEF'},
+}
+
+EndBuildOrder = {
+    {text = '[speed2]: Now you should know the basics about this map. It\'s time for you to try the build order yourself.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }

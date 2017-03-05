@@ -41,9 +41,6 @@ local Debug = false     -- Skipping initial cinematics
 function OnPopulate(scenario)
     ScenarioUtils.InitializeScenarioArmies()
 
-    -- Save props for later respawn
-    ScenarioFramework.SaveMap()
-
     -- Sets Army Colors
     ScenarioFramework.SetUEFPlayerColor(Player)
     ScenarioFramework.SetArmyColor(Tutorial_AI, 144, 20, 39)
@@ -64,6 +61,9 @@ end
 -- Choice dialogue
 ------------------
 function TutorialStart()
+    -- Save props for later respawn
+    ScenarioFramework.SaveMap()
+
     -- Choice dialogue
     local dialogue = CreateDialogue('What do you want to do?', {'Watch map basic info', 'Watch build order', 'Try the build order'})
     dialogue.OnButtonPressed = function(self, info)
@@ -349,6 +349,9 @@ end
 function SpawnPlayer()
     -- Switch back to player's army
     Utilities.UserConRequest('SetFocusArmy 0')
+
+    -- Reset the map props
+    ScenarioFramework.ResetMap()
 
     ScenarioFramework.StartOperationJessZoom('Player_Start')
 
