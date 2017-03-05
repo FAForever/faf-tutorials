@@ -57,6 +57,8 @@ TutorialManager = Class {
 
         self:SpawnACU() -- Spawn ACU, assign orders to it
 
+        self:SetVoiceOverTriggers() -- Set triggers for VoiceOvers
+
         self:ForkThread(self.NewFactoriesMonitor) -- Start a thread to manage newly built factories
         self:ForkThread(self.NewEngineersMonitor) -- Start a thread to manage newly built engineers
         self:ForkThread(self.NewUnitsMonitor) -- Start a thread to manage newly built units
@@ -104,21 +106,45 @@ TutorialManager = Class {
 
     SetVoiceOvers = function(self, file, voTable)
         self.StringsFile = file
+        self.VoiceOvers = voTable
+    end,
 
-        for voName, data in voTable do
-            if type(data) == 'string' then
-                self.VoiceOvers[data] = voName
-            else
-                for type, num in data do
-                    self.VoiceOvers[type][num] = voName
-                end
+    -- This needs to be done after army brain is set, Initialize function is called
+    SetVoiceOverTriggers = function(self)
+        for voName, data in self.VoiceOvers do
+            if type(data) == 'table' then
+                ForkThread(
+                    function(voName, data)
+                        local locked = true
+                        local name = 'Trigger' .. self.TriggerNumber
+                        local cb = data[4]
+
+                        Unlock = function()
+                            locked = false
+                        end
+
+                        ScenarioFramework.CreateArmyStatTrigger(Unlock, self.AIBrain, name, 
+                            {{StatType = data[1], CompareType = 'GreaterThanOrEqual', Value = data[2], Category = data[3]}})
+                        self.TriggerNumber = self.TriggerNumber + 1
+
+                        self.VoiceOvers[voName] = name
+
+                        while locked do
+                            WaitSeconds(1)
+                        end
+
+                        self:PlayeVoiceOver(name, cb)
+                    end, voName, data
+                )
             end
         end
     end,
 
-    PlayeVoiceOver = function(self, string)
-        if self.VoiceOvers[string] then
-            ScenarioFramework.Dialogue(self.StringsFile[self.VoiceOvers[string]], nil, true)
+    PlayeVoiceOver = function(self, string, cb)
+        for voName, nType in self.VoiceOvers do
+            if nType == string then
+                ScenarioFramework.Dialogue(self.StringsFile[voName], cb, true)
+            end
         end
     end,
 
