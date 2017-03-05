@@ -14,7 +14,7 @@ function SaveMap()
     end
 end
  
- --- Delete all units and remaining props. Spawn props agan from saved table and spawn wreckages
+--- Delete all units and remaining props. Spawn props agan from saved table and spawn wreckages
 function ResetMap()
     -- Delete ramining props
     for _, v in GetReclaimablesInRect(Rect(unpack(ScenarioInfo.PlayableArea))) do

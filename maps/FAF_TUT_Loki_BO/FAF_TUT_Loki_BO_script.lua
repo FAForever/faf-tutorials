@@ -361,11 +361,10 @@ end
 
 
 
-
 ------------------------------
 -- Loki's original script bits
 ------------------------------
-makeInvincible = function(unit)     
+makeInvincible = function(unit)
     unit:SetDoNotTarget(true)
     unit:SetCanBeKilled(false)
     unit:SetCapturable(false)
