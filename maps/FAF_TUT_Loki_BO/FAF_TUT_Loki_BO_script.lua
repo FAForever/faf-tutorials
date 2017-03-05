@@ -163,6 +163,7 @@ end
 ----------------------
 -- ACU Orders
 function StartBuildOrder(skipZoom)
+    Sync.NoOrdersAllowed = true
     -- Switch Army veiw
     Utilities.UserConRequest('SetFocusArmy 1')
     -- SimConExecute('SetFocusArmy 1')
