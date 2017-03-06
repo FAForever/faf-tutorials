@@ -61,15 +61,15 @@ StartBuildOrder = {
 
 
 LandFirst = {
-    {text = '[Training Officer]: Land Factories are built first, followed by a single Power Generator. Then 4 Mass Extractors along the way to the Hydrocarbon.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[Training Officer]: A Land Factory is built first, followed by a single Power Generator. Then 4 Mass Extractors along the way to the Hydrocarbon.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: Be sure to place move orders closer to the Mass Extractors to utilize the full build range of your ACU. Build range is the small yellow circle on your HUD surrounding the ACU.', vid = '', bank = '', cue = '', faction = 'UEF', delay = 5},
     {text = '[Training Officer]: The first Land Factory will build 3 engineers. One for building your base and 2 for expanding. Then 2 tanks and 2 scouts to protect your expanding enginners and/or for raiding enemy engineers.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: After that you can build additional engineers and tanks. On a small map like Theta you should not build only engineers from your first factory since you will never need so many of them.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[Training Officer]: Changing factory rally points will also affect which way the units will leave the factory, you can save some time by doing that.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[Training Officer]: Changing a factory\'s rally point will also affect which way the units will leave the factory, you can save some time by doing that.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FirstEngineer = {
-    {text = '[Training Officer]: You first engineer will go to build a Hydrocarbon and then several Land Factories around the Mass Extractors. The ACU will assist it until the Hydrocarbon and at least one more factory are done.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[Training Officer]: Your first engineer will go to build a Hydrocarbon and then several Land Factories around a Mass Extractor. The ACU will assist it until the Hydrocarbon and at least one more factory are done.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: Always try to place Land Factories around Mass Extractors and Air Factories around Power Generators to fully use the adjacency bonus (cost discount).', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
