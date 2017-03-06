@@ -15,14 +15,12 @@ OnSync = function()
     end
     
     if Sync.NoOrdersAllowed then
-        WARN('NoOrdersAllowed')
         NoOrdersAllowed = Sync.NoOrdersAllowed
-        if Sync.NoOrdersAllowed then
-            IN_ClearKeyMap()
-        else
-            IN_AddKeyMapTable(import('/lua/ui/game/gamemain.lua').modifiersKeys)
-            import('/modules/hotbuild.lua').addModifiers()
-            IN_AddKeyMapTable(import('/lua/keymap/keymapper.lua').GetKeyMappings(true))
-        end
+        IN_ClearKeyMap()
+    elseif Sync.NoOrdersAllowed == false then
+        NoOrdersAllowed = Sync.NoOrdersAllowed
+        IN_AddKeyMapTable(import('/lua/ui/game/gamemain.lua').modifiersKeys)
+        import('/modules/hotbuild.lua').addModifiers()
+        IN_AddKeyMapTable(import('/lua/keymap/keymapper.lua').GetKeyMappings(true))
     end
 end
