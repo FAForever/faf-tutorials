@@ -155,6 +155,7 @@ end
 -- Example Build Order
 ----------------------
 function StartBuildOrder(skipZoom)
+    Sync.NoOrdersAllowed = true
     -- Switch Army veiw
     Utilities.UserConRequest('SetFocusArmy 1')
     -- SimConExecute('SetFocusArmy 1')
@@ -310,6 +311,7 @@ end
 -- Player's build order practise
 --------------------------------
 function SpawnPlayer()
+    Sync.NoOrdersAllowed = false
     -- Switch back to player's army
     Utilities.UserConRequest('SetFocusArmy 0')
 
