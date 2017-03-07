@@ -41,7 +41,6 @@ end
 
 function OnStart(self)
     ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
-    --StartBuildOrder(true)
 end
 
 ------------------
@@ -320,22 +319,4 @@ function SpawnPlayer()
 
     -- Spawn ACU, name it
     ScenarioFramework.SpawnCommander('Player', 'Commander', 'Warp', true)
-end
-
---------
--- Debug
---------
-function OnCtrlF3()
-    SaveMap()
-end
-
-function OnCtrlF4()
-    ResetMap()
-end
-
-function OnShiftF3()
-    LOG(repr(Scenario.Chains))
-end
-
-function OnShiftF4()
 end

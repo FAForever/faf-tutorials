@@ -30,11 +30,6 @@ local NEUTRAL_CIVILIAN = ScenarioInfo.NEUTRAL_CIVILIAN
 
 local tManager = TutorialManager.CreateTutorialManager()
 
---------------
--- Debug only!
---------------
-local Debug = false     -- Skipping initial cinematics
-
 ----------
 -- Startup
 ----------
@@ -54,7 +49,6 @@ function OnStart(self)
     Spawncars()
 
     ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
-    -- StartBuildOrder(true)
 end
 
 ------------------
