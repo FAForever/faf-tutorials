@@ -91,3 +91,16 @@ function TestArrow()
     local ObjectiveArrow = import('objectiveArrow.lua').ObjectiveArrow
     local arrow = ObjectiveArrow { AttachTo = unit }
 end
+
+function CreateChoiceDialogue(title, tblChoices, tblCallbacks)
+    local dialogue = CreateDialogue(title, tblChoices)
+    dialogue.OnButtonPressed = function(self, info)
+        dialogue:Destroy()
+
+        local cb = tblCallbacks[info.buttonID]
+        if cb then
+            ForkThread(cb)
+        end
+    end
+    return dialogue
+end
