@@ -211,8 +211,7 @@ TutorialManager = Class {
         if not isACU then
             WaitSeconds(3)
 
-            IssueStop({engineer})
-            IssueClearCommands({engineer})
+            self:IssueGroupStopClearCommands({engineer})
         end
 
         for _, order in tblOrders do
@@ -616,8 +615,7 @@ TutorialManager = Class {
     AssignAttackGroupOrders = function(self, group)
         local units = group.AttackForce
 
-        IssueStop(units)
-        IssueClearCommands(units)
+        self:IssueGroupStopClearCommands(units)
 
         for _, order in group.orders or {} do
             for action, data in order do
@@ -639,6 +637,11 @@ TutorialManager = Class {
     ----------------
     -- Common Orders
     ----------------
+    IssueGroupStopClearCommands = function(sefl, group)
+        IssueStop(group)
+        IssueClearCommands(group)
+    end,
+
     IssueGroupAssist = function(self, group, data)
         if not type(data) == 'table' then
             error('*TUTORIAL MANAGER ERROR: IssueGroupAssist requires table as a second parametr. Provided type: ' .. type(data), 2)
