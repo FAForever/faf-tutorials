@@ -159,10 +159,11 @@ end
 ----------------------
 -- ACU Orders
 function StartBuildOrder(skipZoom)
+    -- Disallow orders
     Sync.NoOrdersAllowed = true
+
     -- Switch Army veiw
     Utilities.UserConRequest('SetFocusArmy 1')
-    -- SimConExecute('SetFocusArmy 1')
 
     if not skipZoom then
         -- Move camera to the right place
@@ -344,6 +345,9 @@ end
 -- Player's build order practise
 --------------------------------
 function SpawnPlayer()
+    -- Allow orders again
+    Sync.NoOrdersAllowed = false
+
     -- Switch back to player's army
     Utilities.UserConRequest('SetFocusArmy 0')
 
