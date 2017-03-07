@@ -1,11 +1,20 @@
-Intro_Choice = {
-    {text = '[Training Officer]: Welcome commander, choose if you want to hear the basic information about the map, watch an example build order or try the build order yourself.', vid = 'FAF_TUT_Theta_BO_Intro_Choice.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'Intro_Choice', faction = 'UEF'},
-}
+local TutorialStrings = import('/lua/TutorialStrings.lua')
+
+-----------------
+-- Common strings
+-----------------
+IntroChoice_Dialogue = TutorialStrings.IntroChoice_Dialogue
+IntroChoice_Title = TutorialStrings.IntroChoice_Title
+IntroChoice_MapInfo = TutorialStrings.IntroChoice_MapInfo
+IntroChoice_ExampleBO = TutorialStrings.IntroChoice_ExampleBO
+IntroChoice_TryBO = TutorialStrings.IntroChoice_TryBO
+StartBuildOrder = TutorialStrings.StartBuildOrder
+
+
 
 ---------------------
 -- Cinematic map info
 ---------------------
-
 MapInfo = {
     {text = '[Training Officer]: Welcome to this Supreme Commander Forged Alliance Forever map tutorial. This tutorial will teach you about the classic 1v1 map Theta passage. Let\'s get started.', vid = 'FAF_TUT_Theta_BO_MapInfo_1.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'MapInfo_1', faction = 'UEF'},
     {text = '[Training Officer]: Theta is a 5x5 land map, the smallest basic size map in Forged Alliance. The most important strategy to learn for this map is T1 land spam which we will show you shortly. For now let\'s take a look at the key features of the map.', vid = 'FAF_TUT_Theta_BO_MapInfo_2.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'MapInfo_2', faction = 'UEF'},
@@ -47,19 +56,11 @@ NorthPlateau2 = {
     {text = '[Training Officer]: If you can secure these two Mass Extractors for example with a Point Defense, you will have the map control advantage. Mantain this map control and you will be well on your way to winning the game.', vid = 'FAF_TUT_Theta_BO_NorthPlateau2.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'NorthPlateau2', faction = 'UEF'},
 }
 
-StartBuildOrder = {
-    {text = '[Training Officer]: Let\'s watch some example build order now.', vid = 'FAF_TUT_Theta_BO_StartBuildOrder_1.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'StartBuildOrder_1', faction = 'UEF'},
-    {text = '[Training Officer]: Hold down your \'SHIFT\' key to see the command queue of the units. You can also select the ACU, Engineers or factories to see their build queue. In case you need a bit more time to follow the build order, you can adjust the speed with the \'+\' and \'-\' keys, or Pause the game with the \'II\'-Button on the top middle of the screen.', vid = 'FAF_TUT_Theta_BO_StartBuildOrder_2.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'StartBuildOrder_2', faction = 'UEF'},
-}
-
 
 
 --------------
 -- Build order
 --------------
-
-
-
 LandFirst = {
     {text = '[Training Officer]: A Land Factory is built first, followed by a single Power Generator. Then 4 Mass Extractors along the way to the Hydrocarbon.', vid = 'FAF_TUT_Theta_BO_LandFirst_1.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'LandFirst_1', faction = 'UEF'},
     {text = '[Training Officer]: Be sure to place move orders closer to the Mass Extractors to utilize the full build range of your ACU. Build range is the small yellow circle on your HUD surrounding the ACU.', vid = 'FAF_TUT_Theta_BO_LandFirst_2.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'LandFirst_2', faction = 'UEF'},
@@ -105,9 +106,4 @@ ACUMiddle = {
 
 MiddleRadar = {
     {text = '[Training Officer]: Make sure to build a radar in the middle of the map as well. Once the radar is up, you can use an engineer to reclaim anything that was left in that area.', vid = 'FAF_TUT_Theta_BO_MiddleRadar.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'MiddleRadar', faction = 'UEF'},
-}
-
--- TODO: second sentence not recorded
-EndBuildOrder = {
-    {text = '[Training Officer]: Now you should know the basics about this map. It\'s time for you to try the build order yourself.', vid = 'FAF_TUT_Theta_BO_EndBuildOrder.sfd', bank = 'FAF_TUT_Theta_BO_VO', cue = 'EndBuildOrder', faction = 'UEF'},
 }

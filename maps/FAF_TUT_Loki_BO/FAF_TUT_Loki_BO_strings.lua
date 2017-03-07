@@ -1,15 +1,20 @@
-Intro_Choice = {
-    {text = '[Training Officer]: Welcome commander, choose if you want to hear the basic information about the map, watch an example build order or try the build order yourself.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
+local TutorialStrings = import('/lua/TutorialStrings.lua')
+
+-----------------
+-- Common strings
+-----------------
+IntroChoice_Dialogue = TutorialStrings.IntroChoice_Dialogue
+IntroChoice_Title = TutorialStrings.IntroChoice_Title
+IntroChoice_MapInfo = TutorialStrings.IntroChoice_MapInfo
+IntroChoice_ExampleBO = TutorialStrings.IntroChoice_ExampleBO
+IntroChoice_TryBO = TutorialStrings.IntroChoice_TryBO
+StartBuildOrder = TutorialStrings.StartBuildOrder
 
 
 
 ---------------------
 -- Cinematic map info
 ---------------------
-
-
-
 MapInfo = {
     {text = '[Training Officer]: Welcome to this Supreme Commander Forged Alliance Forever map tutorial. This tutorial will teach you about the classic 1v1 map Loki. Let\'s get started.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: Loki is a 10x10km land map, the most played format in 1v1. This map is suitable for a lot of different strategies, but we will stick to T1 landspam at first. For now let\'s take a look at the key features of the map.', vid = '', bank = '', cue = '', faction = 'UEF'},
@@ -63,19 +68,11 @@ PlateauEast = {
     {text = '', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
-StartBuildOrder = {
-    {text = '[Training Officer]: Let\'s watch an example build order now.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[Training Officer]: Hold down your \'SHIFT\' key to see the command queue of the units. You can also select the ACU, Engineers or Factories to see their build queue. In case you need a bit more time to follow the build order, you can adjust the speed with the \'+\' and \'-\' keys, or Pause the game with the \'II\'-Button on the top middle of the screen.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
-
 
 
 --------------
 -- Build order
 --------------
-
-
-
 InitialBO = {
     {text = '[Training Officer]: Land Factory is built first, followed by 2 Power Generators (pgens) and 2 Mass Extractors (mex). Then 3 more pgens and 1 Land Factory. After that, again 3 pgens, but this time an Air Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there, before moving up and securing the three Mex Expansion, by building the mexes and a Land Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},

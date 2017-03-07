@@ -40,7 +40,7 @@ function OnPopulate(scenario)
 end
 
 function OnStart(self)
-    ScenarioFramework.Dialogue(OpStrings.Intro_Choice, TutorialStart, true)
+    ScenarioFramework.Dialogue(OpStrings.IntroChoice_Dialogue, TutorialStart, true)
 end
 
 ------------------
@@ -51,17 +51,19 @@ function TutorialStart()
     ScenarioFramework.SaveMap()
 
     -- Choice dialogue
-    local dialogue = CreateDialogue('What do you want to do?', {'Watch map basic info', 'Watch build order', 'Try the build order'})
-    dialogue.OnButtonPressed = function(self, info)
-        dialogue:Destroy()
-        if info.buttonID == 1 then
-            ForkThread(MapIntro)
-        elseif info.buttonID == 2 then
-            StartBuildOrder()
-        else
-            SpawnPlayer()
-        end
-    end
+    ScenarioFramework.CreateChoiceDialogue(
+        OpStrings.IntroChoice_Title,    -- Title
+        {                               -- Choices
+            OpStrings.IntroChoice_MapInfo,
+            OpStrings.IntroChoice_ExampleBO,
+            OpStrings.IntroChoice_TryBO,
+        },
+        {                               -- Callbacks
+            MapIntro,
+            StartBuildOrder,
+            SpawnPlayer,
+        }
+    )
 end
 
 ----------------------
@@ -70,8 +72,6 @@ end
 function MapIntro()
     -- Vision to the map
     Utilities.UserConRequest('SallyShears')
-
-    -- MarkReclaimAreas({'Reclaim_Area_1', 'Reclaim_Area_2', 'Reclaim_Area_3'})
 
     Cinematics.EnterNISMode()
 

@@ -1,20 +1,24 @@
-Intro_Choice = {
-    {text = '[Training Officer]: Welcome commander, choose if you want to hear the basic information about the map, watch an example build order or try the build order yourself.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
+local TutorialStrings = import('/lua/TutorialStrings.lua')
+
+-----------------
+-- Common strings
+-----------------
+IntroChoice_Dialogue = TutorialStrings.IntroChoice_Dialogue
+IntroChoice_Title = TutorialStrings.IntroChoice_Title
+IntroChoice_MapInfo = TutorialStrings.IntroChoice_MapInfo
+IntroChoice_ExampleBO = TutorialStrings.IntroChoice_ExampleBO
+IntroChoice_TryBO = TutorialStrings.IntroChoice_TryBO
+StartBuildOrder = TutorialStrings.StartBuildOrder
 
 
 
 ---------------------
 -- Cinematic map info
 ---------------------
-
-
-
 MapInfo = {
     {text = '[Training Officer]: Welcome to this Supreme Commander Forged Alliance Forever map tutorial. This tutorial will teach you about the map Summer Duel. Let\'s get started.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: Summer Duel is a 5x5km map. As most 5x5km maps it\'s all about the T1 land spam. For now let\'s take a look at the key features of the map.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
-
 
 StartPosition = {
     {text = '[Training Officer]: Your starting position has 4 Mass Extranctors (mex) and a close hydro.', vid = '', bank = '', cue = '', faction = 'UEF'},
@@ -41,19 +45,11 @@ ACURush = {
 	{text = '[Training Officer]: Therefore you send an early t1 landscout to the choke, as you will see in the buildorder. If the scout sees the ACU or gets killed you immideatly build a t1 point defence in your base, before building further factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
-StartBuildOrder = {
-    {text = '[Training Officer]: Let\'s watch some example build order now.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[Training Officer]: Hold down your \'SHIFT\' key to see the command queue of the units. You can also select the ACU, Engineers or factories to see their build queue. In case you need a bit more time to follow the build order, you can adjust the speed with the \'+\' and \'-\' keys, or Pause the game with the \'II\'-Button on the top middle of the screen.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
-
 
 
 --------------
 -- Build order
 --------------
-
-
-
 LandFirst = {
     {text = '[Training Officer]: A Land Factory is built first, followed by 1 Power Generator and 4 mexes. Then set a move command for the ACU towards the hydro and let it assist the second engi.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: The Land Factory builds 3 Enginners (engies), 1 tank, 2 Landscouts, 2 engis and then a mix of 2 tanks and 1 engi on repeat.', vid = '', bank = '', cue = '', faction = 'UEF'},
