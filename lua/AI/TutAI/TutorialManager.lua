@@ -658,7 +658,9 @@ TutorialManager = Class {
                 target = self:GetAttackGroup(num).AttackForce[1]
             end
             
-            WaitSeconds(3)
+            if not target then
+                WaitSeconds(3)
+            end
         end
 
         IssueGuard(group, target)
