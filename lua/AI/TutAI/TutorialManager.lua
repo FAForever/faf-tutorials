@@ -622,8 +622,10 @@ TutorialManager = Class {
                     self:IssueGroupMove(units, data)
                 elseif action == 'patrol' then
                     self:IssueGroupPatrol(units, data)
+                elseif action == 'wait' then
+                    self:WaitThread(units, data)
                 else
-                    WARN('*TUTORIAL MANAGER ERROR: AssignAttackGroupOrders, unknown action type: "' .. action .. '". Supported types: assist, attackmove, move, patrol')
+                    WARN('*TUTORIAL MANAGER ERROR: AssignAttackGroupOrders, unknown action type: "' .. action .. '". Supported types: assist, attackmove, move, patrol, wait')
                 end
             end
         end
