@@ -88,61 +88,59 @@ function MapIntro()
     WaitSeconds(1)
 
     -- Initial Camera
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Init'), 2)
-
-    WaitSeconds(1)
     ScenarioFramework.Dialogue(OpStrings.MapInfo, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Init'), 15)
+    WaitSeconds(9)
 
     -- Starting Position
     ScenarioFramework.Dialogue(OpStrings.StartPosition, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Starting_Position'), 4)
     WaitSeconds(10)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Starting_Position'), 3)
-    WaitSeconds(5)
 
     -- Reclaim near base
     ScenarioFramework.Dialogue(OpStrings.ReclaimNearBase, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ReclaimNearBase'), 2)
-    WaitSeconds(5)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ReclaimNearBase'), 3)
+    WaitSeconds(3)
 
     -- Reclaim in middle
     ScenarioFramework.Dialogue(OpStrings.ReclaimMiddle, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Mid_Reclaim'), 3)
-    WaitSeconds(6)
+    WaitSeconds(4)
 
     -- Civ buildings
     ScenarioFramework.Dialogue(OpStrings.MiddleWrecks, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Mid_Civs'), 2)
-    WaitSeconds(3)
+    WaitSeconds(4)
 
     -- More info about middle pass
     ScenarioFramework.Dialogue(OpStrings.InfoAboutMiddle, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Middle_Pass'), 3)
-    WaitSeconds(7)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Middle_Pass'), 4)
+    WaitSeconds(4)
 
     -- Bottom Pass
     ScenarioFramework.Dialogue(OpStrings.BottomPassage, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_South_Pass'), 3)
-    WaitSeconds(9)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_South_Pass'), 4)
+    WaitSeconds(8)
 
     -- North Area 
     ScenarioFramework.Dialogue(OpStrings.NorthPart, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Main'), 4)
-    WaitSeconds(9)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Main'), 6)
+    WaitSeconds(5)
 
     -- North Mexes
     ScenarioFramework.Dialogue(OpStrings.NorthPlateau, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Top_Expansion'), 2)
-    WaitSeconds(7)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Top_Expansion'), 3)
+    WaitSeconds(8)
 
     -- Final words
     ScenarioFramework.Dialogue(OpStrings.NorthPlateau2, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Mid_Final'), 5)
-    WaitSeconds(6)
+    WaitSeconds(5)
 
     -- Move to Starting position
     ScenarioFramework.Dialogue(OpStrings.StartBuildOrder, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_BO_Start'), 3)
-    WaitSeconds(1)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_BO_Start'), 7)
+    WaitSeconds(3)
 
     Cinematics.ExitNISMode()
 
@@ -306,7 +304,6 @@ function StartBuildOrder(skipZoom)
     tManager:Initialize()
 end
 
--- TODO: once build order ends, swich back to player's army view and let him try the build order.
 --------------------------------
 -- Player's build order practise
 --------------------------------
