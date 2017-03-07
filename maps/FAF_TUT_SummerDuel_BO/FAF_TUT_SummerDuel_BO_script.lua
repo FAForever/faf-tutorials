@@ -213,6 +213,8 @@ function StartBuildOrder(skipZoom)
                     RallyPoint = 'Fac_1_Rally',
                     RepeatBuild = true,
                 },
+                {wait = {'Units_Active', 3, categories.ueb0101, ClearCommands = false}},
+                {RallyPoint = 'Final_Rally'},
             },
             { -- Factory 2
                 { -- Order 1
@@ -224,6 +226,8 @@ function StartBuildOrder(skipZoom)
                     RallyPoint = 'Fac_2_Rally',
                     RepeatBuild = true,
                 },
+                {wait = {'Units_Active', 3, categories.ueb0101, ClearCommands = false}},
+                {RallyPoint = 'Final_Rally'},
             },
             { -- Factory 3
                 { -- Order 1
