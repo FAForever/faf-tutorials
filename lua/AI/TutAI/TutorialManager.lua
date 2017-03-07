@@ -100,8 +100,15 @@ TutorialManager = Class {
         while locked do
             WaitSeconds(1)
         end
-        IssueClearCommands(group)
-        IssueClearFactoryCommands(group)
+
+        -- Clear commands by default unless data.ClearCommands == false
+        if data.ClearCommands == nil or data.ClearCommands then
+            IssueClearCommands(group)
+        end
+        -- IssueClearFactoryCommands clears rally point without clearing build queue
+        if data.ClearFactoryCommands == nil or data.ClearFactoryCommands then
+            IssueClearFactoryCommands(group)
+        end
     end,
 
     SetVoiceOvers = function(self, file, voTable)
@@ -457,7 +464,6 @@ TutorialManager = Class {
 
     AssignFactoryOrders = function(self, factory, type, num)
         local tblOrders = self.Orders.Factories[type][num]
-        local lastOrder = {}
 
         if not tblOrders then
             LOG('No orders for: ' .. type .. ' Factory ' .. num)
@@ -468,11 +474,9 @@ TutorialManager = Class {
 
         IssueClearFactoryCommands({factory})
         for _, order in tblOrders do
-            lastOrder = order
-
             for action, data in order do
                 if action == 'wait' then -- First, check if we should wait until the previous order is done
-                    self:SetFactoryWait(factory)
+                    self:WaitThread({factory}, data)
                 elseif action == 'RallyPoint' then -- Second, check if rally point is changing
                     self:SetFactoryRallyPoint(factory, data)
                 elseif action == 'build' then
@@ -487,15 +491,6 @@ TutorialManager = Class {
                     WARN('*TUTORIAL MANAGER ERROR: AssignFactoryOrders, unknown action type: "' .. action .. '". Supported types: wait, assist, build, RallyPoint, RepeatBuild, patrol')
                 end
             end
-        end
-    end,
-
-    -- Waiting for previous command to be done
-    SetFactoryWait = function(self, factory)
-        local locked = true
-
-        while locked do
-            WaitSeconds(1)
         end
     end,
 
