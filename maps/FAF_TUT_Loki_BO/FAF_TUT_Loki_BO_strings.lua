@@ -64,7 +64,7 @@ PlateauEast = {
 }
 
 StartBuildOrder = {
-    {text = '[Training Officer]: Let\'s watch ane example build order now.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[Training Officer]: Let\'s watch an example build order now.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[Training Officer]: Hold down your \'SHIFT\' key to see the command queue of the units. You can also select the ACU, Engineers or Factories to see their build queue. In case you need a bit more time to follow the build order, you can adjust the speed with the \'+\' and \'-\' keys, or Pause the game with the \'II\'-Button on the top middle of the screen.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
