@@ -45,7 +45,7 @@ Configurations = {
 * First of all copy this file from your FA installation map folder, since mex positions and other markers has changes a bit since vanilla times.
 * Delete all armies that you deleted in `.scenario.lua`
 * For all armies that left you need to set plan: `plans = '/lua/ai/OpAI/DefaultBlankPlanlist.lua',`
-* Other useless markers can be deleted later in [Map Editor](http://wiki.faforever.com/index.php?title=Map_Editor)
+* Other useless markers can be deleted later in the [Map Editor](http://wiki.faforever.com/index.php?title=Map_Editor)
 
 #### Changes to .script.lua
 * You can use script from any already existing tutorial, they are very similar.
@@ -66,5 +66,8 @@ WaitSeconds(6)
 
 ##### Example BO
 * You need to supply Tutorial Manager with correct info to execute the build order. The tables should be easy to understand. Make sure you get the brackets right.
-* Most of the work will be done in the Map Editor, placing and naming the units and markers correctly.
+* Most of the work will be done in the [Map Editor](http://wiki.faforever.com/index.php?title=Map_Editor), placing and naming the units and markers correctly.
 * Available orders and their required parameters can be found in `\lua\AI\TutAI\TutorialManager.lua`.
+
+#### Changes to .strings.lua
+* This file contains all map-specific strings, it also imports common strings from the mod.
