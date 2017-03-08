@@ -324,6 +324,7 @@ function StartBuildOrder(skipZoom)
         TankScout2 = 'AttackGroup3',
         SecondFactory = 'LandFactory2',
         FithEngineer = 'Engineer5',
+        ACUMoveToMid = {'Units_Active', 2, categories.ueb0101},
         AirFactory = 'AirFactory1',
         TankScout2 = 'AttackGroup3',
         SixthEngineer = 'Engineer6',
@@ -331,8 +332,7 @@ function StartBuildOrder(skipZoom)
         BomberScout = 'AttackGroup5',
         FactorySpam = 'LandFactory3',
         EighthEngineer = 'Engineer8',
-        Powerspam = {'Units_Active', 6, categories.ueb0101}
-        -- FollowUp = {'Units_Active', 1, categories.ueb3101, SpawnPlayer},
+        Powerspam = {'Units_Active', 6, categories.ueb0101, SpawnPlayer},
     })
 
     tManager:Initialize()
@@ -351,7 +351,7 @@ function SpawnPlayer()
     -- Reset the map props
     ScenarioFramework.ResetMap()
 
-    ScenarioFramework.StartOperationJessZoom('Player_Start')
+    ScenarioFramework.StartOperationJessZoom('AI_Start')
 
     -- Spawn ACU, name it
     ScenarioFramework.SpawnCommander('Player', 'Commander', 'Warp', true)

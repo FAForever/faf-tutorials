@@ -173,6 +173,8 @@ function StartBuildOrder(skipZoom)
     tManager:SetEngineersOrders({
         ACU = {
             {build = 'ACU_Initial'}, -- groupName OR {unitName1, unitName2, ...}, if there's a marker with the same name as the building, move order will be issued first
+            {wait = {'Units_Active', 1, categories.ueb0102, ClearCommands = false}},
+            {build = 'ACU_Build_2'},
         },
         Engineers = {
             { -- Engineer 1
@@ -211,12 +213,6 @@ function StartBuildOrder(skipZoom)
             { -- Engineer 10
                 {assist = {'Engineer', 9}},
             },
-            --[[{
-                {assist = {'Engineer', 5}},
-            },
-            {
-                {assist = {'Engineer', 5}},
-            },--]]
         },
     })
 
@@ -336,6 +332,8 @@ function StartBuildOrder(skipZoom)
         FactorySpam = 'Engineer7',
         EighthEngineer = 'Engineer8',
         Powerspam = 'Engineer9',
+        ReclaimFactory = 'LandFactory6',
+        FollowUp = {'Units_Active', 6, categories.ueb0101, SpawnPlayer},
     })
 
     tManager:Initialize()
@@ -354,7 +352,7 @@ function SpawnPlayer()
     -- Reset the map props
     ScenarioFramework.ResetMap()
 
-    ScenarioFramework.StartOperationJessZoom('Player_Start')
+    ScenarioFramework.StartOperationJessZoom('AI_Start')
 
     -- Spawn ACU, name it
     ScenarioFramework.SpawnCommander('Player', 'Commander', 'Warp', true)

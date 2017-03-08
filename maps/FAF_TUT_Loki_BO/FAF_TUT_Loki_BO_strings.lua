@@ -74,31 +74,32 @@ PlateauEast = {
 -- Build order
 --------------
 InitialBO = {
-    {text = '[{i TrainingOfficer}]: Land Factory is built first, followed by 2 Power Generators (pgens) and 2 Mass Extractors (mex). Then 3 more pgens and 1 Land Factory. After that, again 3 pgens, but this time an Air Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there, before moving up and securing the three Mex Expansion, by building the mexes and a Land Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: Factory builds 3 engineers (engies). Then 1 tank and 1 scouts to protect your expanding engies and/or for raiding enemy engis.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: A Land Factory is built first, followed by 2 Power Generators (pgens) and 2 Mass Extractors (mexes). Then 3 more pgens and 1 Land Factory. After that, again 3 pgens, but this time an Air Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there before moving futher to the north.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The Factory builds 3 engineers (engies). Then 1 tank and 1 scouts to protect your expanding engies and/or for raiding enemy engis.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[{i TrainingOfficer}]: After that, 3 more engies and 1 tank+scout, then follow this up by an equal mix of engies and tanks.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[{i TrainingOfficer}]: Changing factory rally point will also affect which way the units will leave the factory, you can save some time by that.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FirstEngineer = {
-    {text = '[{i TrainingOfficer}]: First engie builds the other 2 mexes in the mainbase and then move to the back to build 2 mexes, hydro and a radar. After crossing the pond it secures the expansion.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The first engie builds the other 2 mexes in the starting position and then takes the western route towards the top left expansion. It will build those 2 mexes and a hydro with radar on it\'s way there.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: After crossing the pond, build a Land Factory first to secure the expansion. In case your engineer gets killing it will be faster to rebuild it from that factory rather than having to send a new one from the main base.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SecondEngineer = {
-    {text = '[{i TrainingOfficer}]: The second engie grabs some reclaim.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The second engie will reclaim the rocks near the base.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 ThirdEngineer = {
-    {text = '[{i TrainingOfficer}]: Third engie goes to the Hillside Expansion and builds the mexes, folowed by reclaiming.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: Your third engie should go to the Hillside Expansion and build the mexes there. Once they are up, reclaim the rocks.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 TankScout = {
-    {text = '[{i TrainingOfficer}]: Those engies will be protected by your first tank.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: These engies will be protected by your first tank. Send a scout with it to spot the incoming units sooner.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SecondFactory = {
-    {text = '[{i TrainingOfficer}]: The second Factory will be your main Land Factory. Queue up a mix of 5 tanks, 1 landscout, 2 arties and set the waypoint out of your base. But don\'t forget repeat build!', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The second Factory will be your main Land Factory. Queue up a mix of 5 tanks, 1 landscout, 2 arties and set the waypoint out of your base. Don\'t forget to set the factory on a repeat build!', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FourthEngineer = {
@@ -106,27 +107,29 @@ FourthEngineer = {
 }
 
 FithEngineer = {
-    {text = '[{i TrainingOfficer}]: The fifth engi assists the ACU, until it moves out to get the buildings done faster.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: Order the fifth engie to assist your ACU to get the buildings done faster.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SixthEngineer = {
-    {text = '[{i TrainingOfficer}]: Sixth engie also goes to the Hillside Expansion to grab reclaim.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: Your sixth engie also goes to the Hillside Expansion to reclaim rocks.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 AirFactory = {
-    {text = '[{i TrainingOfficer}]: The Air Factory builds a queue of 1 airscout and 3 intercepters, that way you always have airscouts available and their existence will remind you of scouting.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The Air Factory builds a queue of 1 Air Scout and 3 Intercepters (inties). That way you always have Air Scouts available and their existence should remind you to scout.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FactorySpam = {
-    {text = '[{i TrainingOfficer}]: By the time your seventh engie is built, the ACU will be done building and leave the base. At that point select both engis in your base and build 3 more pgens and 4 more Land Factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: By the time your seventh engie is built, the ACU will be done building and leaves the base. At that point select both engies in your base and build 3 more pgens and 4 more Land Factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The ACU will move to the Hillside Expansion to build a factory there. After that continue to the north for the expansion with 3 mexes.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 EighthEngineer = {
-    {text = '[{i TrainingOfficer}]: Eighth engie assists building the Land Factories, which you give an assist order on the second factory you built.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The eighth engie assists building the Land Factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: All other Land Factories should assist the second Land Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 Powerspam = {
-    {text = '[{i TrainingOfficer}]: The next two engies start your Power spam, because you will need a lot of power as soon you get all the reclaim from the Hillside Expansion. Don\'t forget to include one Energy Storage to more easily manage your power situation and to be able to Overcharge with your ACU.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The next two engies will build more pgens, because you will need a lot of power as soon as you get all the reclaim from the Hillside Expansion. Don\'t forget to include one Energy Storage to more easily manage your power situation and to be able to Overcharge with your ACU.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 ReclaimFactory = {

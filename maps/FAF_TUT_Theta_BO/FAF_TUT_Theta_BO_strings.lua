@@ -9,6 +9,7 @@ IntroChoice_MapInfo = TutorialStrings.IntroChoice_MapInfo
 IntroChoice_ExampleBO = TutorialStrings.IntroChoice_ExampleBO
 IntroChoice_TryBO = TutorialStrings.IntroChoice_TryBO
 StartBuildOrder = TutorialStrings.StartBuildOrder
+EndBuildOrder = TutorialStrings.EndBuildOrder
 
 
 

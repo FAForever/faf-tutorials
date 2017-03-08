@@ -925,8 +925,8 @@ Scenario = {
     --[[  Armies                                                                   ]]--
     --[[                                                                           ]]--
     next_army_id = '6',
-    next_group_id = '9',
-    next_unit_id = '419',
+    next_group_id = '10',
+    next_unit_id = '420',
     Armies = 
     {
         --[[                                                                           ]]--
@@ -1706,6 +1706,13 @@ Scenario = {
                         platoon = '',
                         Units = {
                         },
+                    },
+                    ['Commander'] = {
+                        type = 'uel0001',
+                        orders = '',
+                        platoon = '',
+                        Position = { 186.500000, 31.101563, 90.500000 },
+                        Orientation = { 0.000000, 0.296706, 0.000000 },
                     },
                 },
             },

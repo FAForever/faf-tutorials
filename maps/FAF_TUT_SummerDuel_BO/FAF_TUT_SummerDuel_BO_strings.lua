@@ -33,16 +33,16 @@ MainRoute = {
 }
 
 NorthernChoke = {
-    {text = '[{i TrainingOfficer}]: By using the other two chokes you can sneak some raiding parties around the mainforce of your opponent.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: By using the side passes you can sneak some raiding parties around your opponent\'s main force.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SouthernChoke = {
-    {text = '[{i TrainingOfficer}]: But be careful to not get raided yourself.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: But be careful to not get raided yourself. You can wall of the area if you want.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 ACURush = {
     {text = '[{i TrainingOfficer}]: A common strategy on this map is to rush the enemy base with the ACU before building a second factory. To counter that, it is important to identify the rush in time.', vid = '', bank = '', cue = '', faction = 'UEF'},
-	{text = '[{i TrainingOfficer}]: Therefore you send an early t1 landscout to the choke, as you will see in the buildorder. If the scout sees the ACU or gets killed you immideatly build a t1 point defence in your base, before building further factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
+	{text = '[{i TrainingOfficer}]: Therefore you send an early t1 landscout to the choke, as you will see in the buildorder. If the scout sees the ACU or gets killed you immideatly build a T1 Point Defense (PD) in your base, before building further factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 
@@ -51,41 +51,43 @@ ACURush = {
 -- Build order
 --------------
 LandFirst = {
-    {text = '[{i TrainingOfficer}]: A Land Factory is built first, followed by 1 Power Generator and 4 mexes. Then set a move command for the ACU towards the hydro and let it assist the second engi.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: The Land Factory builds 3 Enginners (engies), 1 tank, 2 Landscouts, 2 engis and then a mix of 2 tanks and 1 engi on repeat.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: A Land Factory is built first, followed by 1 Power Generator and 4 mexes. Then set a move command for the ACU towards the hydro and let it assist the second engie.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The Land Factory builds 3 Enginners (engies), 1 tank, 2 Landscouts, 2 engis and then a mix of 2 tanks and 1 engie on repeat.', vid = '', bank = '', cue = '', faction = 'UEF'},
     {text = '[{i TrainingOfficer}]: Changing factory rally point will also affect which way the units will leave the factory, you can save some time by that.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FirstEngineer = {
-    {text = '[{i TrainingOfficer}]: First engi builds the hydro, then 1 pgen, 1 Land factory, 1 pgen, 2 Land factory, 1 pgen, 1 Air factory, 1 landfactory, 1 pgen.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The first engie builds the hydro and then mix of pgens and factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SecondEngineer = {
-    {text = '[{i TrainingOfficer}]: The second engi expands south towards the reclaim field and builds the mex on the way.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The second engie expands south towards the reclaim field and builds the mex on the way.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: It\'s quite important to not lose this engie as the rocks give you good amout of mass. Your first tank will protect this engie.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 ThirdEngineer = {
-    {text = '[{i TrainingOfficer}]: Third engi builds 2 mexes by heading north and then comes back towards the middle and builds 1 more mex and a radar.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: Your third engie builds 2 mexes by heading north and then comes back towards the middle and builds the last mex there and a T1 Radar.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 TankScout = {
-    {text = '[{i TrainingOfficer}]: The tank and 1 scout escort the engie heading south.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: Send the first tank and scout to protect your engineer reclaiming the rocks.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SecondScout = {
-    {text = '[{i TrainingOfficer}]: The second scouts gets sent to the mid choke to spot an incoming ACU rush, as it was explained in the Map info.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The second scouts gets sent to the middle to spot an incoming ACU rush, as it was explained in the map info.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: If you spot an incoming ACU, cancel the current build queue and build a T1 PD immediately.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 SecondFactory = {
-    {text = '[{i TrainingOfficer}]: The second factory will be your main Land factory. Queue up a mix of 5 tanks, 1 landscout, 2 arties and set the waypoint towards the mid Choke. But don\'t forget repeat build!', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The second Land Factory will be your main factory. Queue up a mix of 5 tanks, 1 scout, 2 arties and set the waypoint towards the middle choke point. Don\'t forget to set the factory on a repeat build!', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FourthEngineer = {
-    {text = '[{i TrainingOfficer}]: Fourth engi assists the second engi building factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The fourth engie will assists the first one with building your base.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FithEngineer = {
-    {text = '[{i TrainingOfficer}]: The fifth engi builds the untaken mex in the south. After that the southern mex in the mid choke.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The fifth engie builds the untaken mex in the south. After that the southern mex in the mid choke.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 DualTank = {
@@ -96,15 +98,20 @@ ACUMove = {
     {text = '[{i TrainingOfficer}]: After the third factory is finished the ACU goes straight through the mid choke towards the enemy base. Now you set the waypoint of your factories close to the enemy base.That way the tanks arrive fast at the front to assist your ACU.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
+SixthEngineer = {
+    {text = '[{i TrainingOfficer}]: The sixth engie will also assist with building the base.', vid = '', bank = '', cue = '', faction = 'UEF'},
+}
+
 SeventhEngineer = {
-    {text = '[{i TrainingOfficer}]: Seventh engi tries to take the northern mid choke mex.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The seventh engie tries to take the northern mid choke mex.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 AirFactory = {
-    {text = '[{i TrainingOfficer}]: The airfactory builds a queue of 1 airscout and 3 intercepters. The first airscout is done shortly before your ACU arrives at the enemy base, use it and scout what your opponent has before you attack.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: The Air Factory builds a queue of 1 air scout and 3 interceptors (inties). The first air scout is done shortly before your ACU arrives at the enemy base, use it and scout what your opponent has before you attack.', vid = '', bank = '', cue = '', faction = 'UEF'},
 }
 
 FollowUp = {
-    {text = '[{i TrainingOfficer}]: You are putting great pressure on your opponent now, keep on spamming units and try to reclaim the wrecks with engis, that way you will take the victory. However don\'t be temped to upgrade a mex, it is a big investement, which could, done at the wrong time, delay your unit production and make you lose. Good Luck commander!', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: However don\'t be temped to upgrade a mex, it is a big investement, which could, done at the wrong time, delay your unit production and make you lose. Better invest spare mass into more Landfactories and tanks. Good Luck commander!', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: You are putting a great pressure on your opponent now, keep on spamming the units and try to reclaim the wrecks with engies, that way you will take the victory.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {text = '[{i TrainingOfficer}]: However don\'t be tempted to upgrade a mex as it is a big investement, which could, done at the wrong time, delay your unit production and lose you the game. Better invest spare mass into more Land Factories and tanks. Good Luck commander!', vid = '', bank = '', cue = '', faction = 'UEF'},
+    TutorialStrings.EndBuildOrder[1],
 }

@@ -293,7 +293,7 @@ function StartBuildOrder(skipZoom)
         MoreTanks = 'AttackGroup5',
         ACUMiddle = {'Units_Active', 9, categories.ueb1103},
         MiddleRadar = 'Engineer6',
-        EndBuildOrder = {'Units_Active', 1, categories.ueb3101, SpawnPlayer},
+        EndBuildOrder = {'Units_Active', 4, categories.ueb0101, SpawnPlayer},
     })
 
     tManager:Initialize()
@@ -312,7 +312,7 @@ function SpawnPlayer()
     -- Reset the map props
     ScenarioFramework.ResetMap()
 
-    ScenarioFramework.StartOperationJessZoom('Player_Start')
+    ScenarioFramework.StartOperationJessZoom('AI_Start')
 
     -- Spawn ACU, name it
     ScenarioFramework.SpawnCommander('Player', 'Commander', 'Warp', true)

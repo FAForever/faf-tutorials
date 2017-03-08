@@ -78,19 +78,19 @@ function MapIntro()
     WaitSeconds(1)
 
     -- Initial Camera
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 2)
     ScenarioFramework.Dialogue(OpStrings.MapInfo, nil, true)
-    WaitSeconds(10)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 10)
+    WaitSeconds(6)
 
     -- Starting Position
     ScenarioFramework.Dialogue(OpStrings.StartPosition, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 3)
-    WaitSeconds(1)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 4)
+    WaitSeconds(2)
 
     -- Reclaim near hhill
     ScenarioFramework.Dialogue(OpStrings.Stones, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Stones'), 2)
-    WaitSeconds(4)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Stones'), 3)
+    WaitSeconds(3)
 
     -- Middle Pass
     ScenarioFramework.Dialogue(OpStrings.MainRoute, nil, true)
@@ -99,7 +99,7 @@ function MapIntro()
 
     -- North route
     ScenarioFramework.Dialogue(OpStrings.NorthernChoke, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_NorthernChoke'), 2)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_NorthernChoke'), 3)
     WaitSeconds(4)
 
     -- South route
@@ -110,11 +110,13 @@ function MapIntro()
     -- Bottom Pass
     ScenarioFramework.Dialogue(OpStrings.ACURush, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ACURush'), 5)
-    WaitSeconds(9)
+    WaitSeconds(2)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ACURush_2'), 10)
+    WaitSeconds(2)
 
     -- North Area 
     ScenarioFramework.Dialogue(OpStrings.StartBuildOrder, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartBuildOrder'), 4)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartBuildOrder'), 6)
     WaitSeconds(1)
 
     Cinematics.ExitNISMode()
@@ -298,9 +300,10 @@ function StartBuildOrder(skipZoom)
         FithEngineer = 'Engineer5',
         DualTank = 'AttackGroup4',
         ACUMove = {'Units_Active', 3, categories.ueb0101},
+        SixthEngineer = 'Engineer6',
         SeventhEngineer = 'Engineer7',
         AirFactory = 'AirFactory1',
-        -- FollowUp = {'Units_Active', 1, categories.ueb3101, SpawnPlayer},
+        FollowUp = {'Units_Active', 5, categories.ueb0101, SpawnPlayer},
     })
     tManager:Initialize()
 end
@@ -318,7 +321,7 @@ function SpawnPlayer()
     -- Reset the map props
     ScenarioFramework.ResetMap()
 
-    ScenarioFramework.StartOperationJessZoom('Player_Start')
+    ScenarioFramework.StartOperationJessZoom('AI_Start')
 
     -- Spawn ACU, name it
     ScenarioFramework.SpawnCommander('Player', 'Commander', 'Warp', true)
