@@ -2,7 +2,7 @@ local ScenarioFramework = import('/lua/scenarioframework.lua')
 local ScenarioUtils = import('/lua/sim/ScenarioUtilities.lua')
 
 TutorialManager = Class {
-    -- This function just sets up variables local to the new TutorialManager Instance
+    --- This function just sets up variables local to the new TutorialManager Instance
     Create = function(self)
         self.Trash = TrashBag()
 
@@ -37,7 +37,7 @@ TutorialManager = Class {
         self.TriggerNumber = 1
     end,
 
-    -- Starts the build order
+    --- Starts the build order
     -- Spawn ACU, assign orders. 
     -- Starts threads for monitoring built units
     Initialize = function(self, strArmy)
@@ -75,7 +75,7 @@ TutorialManager = Class {
         self:ForkThread(self.AssignEngineerOrders, self.Units.ACU, nil, true) -- Orders for ACU
     end,
 
-    -- Auto trashbags all threads on a base manager
+    --- Auto trashbags all threads on a tutorial manager
     ForkThread = function(self, fn, ...)
         if fn then
             local thread = ForkThread(fn, self, unpack(arg))
@@ -86,6 +86,14 @@ TutorialManager = Class {
         end
     end,
 
+    --- Wait until required conditions are met
+    -- data is a table that contains one of 3 possible values
+    -- - data.Seconds - Simply specify how long to wait
+    -- - data.AreaReclaimed - Wait until everything in the area is reclaimed
+    -- - {StatType, categories, count} - Last option is for ArmyStatTrigger
+    -- There are 2 additional keys that can be used in the data table
+    -- - data.ClearCommands = false - Will not clearing group's current orders (Clear factory build queue as well)
+    -- - data.ClearFactoryCommands = false - Will not ClearFactoryCommands (Clear factory rally point without clearing build queue)
     WaitThread = function(self, group, data)
         if data.Seconds then
             WaitSeconds(data.Seconds)
@@ -117,12 +125,16 @@ TutorialManager = Class {
         end
     end,
 
+    --- voTable has following format: {voName1 = triggerData1, voName2 = triggerData2}
+    -- triggerData can be a string in case of factories, engineers and attack groups, example 'Engineer1', 'LandFactory2', 'AttackGroup3'
+    -- or a table for ArmyStatTrigger
+    -- trigger can contain a callback function as a 4th value in the table, currently used for ending the example BO and switching back to the player's focus
     SetVoiceOvers = function(self, file, voTable)
         self.StringsFile = file
         self.VoiceOvers = voTable
     end,
 
-    -- This needs to be done after army brain is set, Initialize function is called
+    --- Set triggers for voice over that require them, this needs to be done after army brain is set aka Initialize function is called
     SetVoiceOverTriggers = function(self)
         for voName, data in self.VoiceOvers do
             if type(data) == 'table' then
@@ -161,9 +173,24 @@ TutorialManager = Class {
         end
     end,
 
-    ------------
-    -- Engineers
-    ------------
+    --- Sets a table with engineers' orders
+    -- Format:
+    -- {
+    --     ACU = {
+    --         {action = data}, -- Order 1
+    --         {action = data}, -- Order 2
+    --         ...
+    --     },
+    --     Engineers = {
+    --         { -- Engineer 1
+    --             {action = data}, -- Order 1
+    --             ...
+    --         },
+    --         ...
+    --     },
+    -- }
+    -- See AssignEngineerOrders function for available action types
+    -- There can be several actions in one order table, but it's recommended to use only one action per table as the order of actions would be defined by the IFs inside AssignEngineerOrders function
     SetEngineersOrders = function(self, data)
         for units, tblOrders in data do
             self.Orders[units] = tblOrders
@@ -182,7 +209,7 @@ TutorialManager = Class {
         return table.getn(self.Units.Engineers)
     end,
 
-    -- Main engineer thread, checks for newly built engineers, assign orders to them
+    --- Main engineer thread, checks for newly built engineers, assign orders to them
     NewEngineersMonitor = function(self)
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.ENGINEER - categories.COMMAND, false, true) -- NeedToBeIdle, NeedToBeBuilt
@@ -207,6 +234,9 @@ TutorialManager = Class {
         end
     end,
 
+    --- Assign orders to the engineer, picks them from a table defined by SetEngineersOrders function
+    -- Action "build" can be either a string or a table of string.
+    --     string for building a group, table of strings for building single units
     AssignEngineerOrders = function(self, engineer, num, isACU)
         local tblOrders = {}
         if isACU then
@@ -356,6 +386,7 @@ TutorialManager = Class {
         end
     end,
 
+    --- Issues an engineer to build all units supplied as strings, if there's a marker with the same name as the name of the unit to be built, the engineer will first move to that marker
     EngineerBuildUnit = function(self, engineer, ...)
         local aiBrain = self.AIBrain
 
@@ -375,6 +406,10 @@ TutorialManager = Class {
         end
     end,
 
+    --- Issues engineer to build a group of units, units have to be properly named in the map editor to be built in correct order
+    -- Format for naming the units: "number_description". Make sure to have only one number in the name, each unit in the group has to have an unique name.
+    -- Example: "1_EngOne_Mex"
+    -- Ff there's a marker with the same name as the name of the unit to be built, the engineer will first move to that marker
     EngineerBuildGroup = function(self, engineer, group)
         local aiBrain = self.AIBrain
         local tblData = ScenarioUtils.FindUnitGroup(group, Scenario.Armies[self.strArmy].Units)
@@ -403,9 +438,30 @@ TutorialManager = Class {
         end
     end,
 
-    ------------
-    -- Factories
-    ------------
+    --- Sets a table with factories orders
+    -- Format:
+    -- {
+    --     Air = {
+    --         { -- Factory 1
+    --             { -- Order 1
+    --                 action1 = data1
+    --                 action2 = data2
+    --                 ...
+    --             },
+    --             ...
+    --         },
+    --         {}, -- Factory 2
+    --         ...
+    --     },
+    --     Land = {
+    --         {}, -- Factory 1
+    --         ...
+    --     },
+    --     Naval = {},
+    --     Gate = {},
+    -- }
+    -- There can be several actions in one order table, use it for actions that don't interfere with each other like: build, RallyPoint, RepeatBuild
+    -- See AssignFactoryOrders function for full list of available actions
     SetFactoriesQueue = function(self, data)
         self.Orders.Factories = data
     end,
@@ -442,7 +498,7 @@ TutorialManager = Class {
         return table.getn(self.Units.Factories[type])
     end,
 
-    -- Main factory thread, checks for newly built factories, assign orders to them
+    --- Main factory thread, checks for newly built factories, assign orders to them
     NewFactoriesMonitor = function(self)
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.FACTORY * categories.STRUCTURE, true, true) -- NeedToBeIdle, includeUnfinished
@@ -500,19 +556,21 @@ TutorialManager = Class {
         end
     end,
 
-    -- Factory Rally Point
-    SetFactoryRallyPoint = function(self ,factory, rallyPoint)
+    --- Set Factory Rally Point
+    SetFactoryRallyPoint = function(self, factory, rallyPoint)
         IssueFactoryRallyPoint({factory}, ScenarioUtils.MarkerToPosition(rallyPoint))
     end,
 
-    -- Factory Build
+    --- Order factory to build units
+    -- tblQueue has format: { {bluprintId1, count1}, {bluprintId2, count2}, ...}
     SetFactoryBuildQueue = function(self, factory, tblQueue)
         for _, data in tblQueue do
             IssueBuildFactory({factory}, data[1], data[2])
         end
     end,
 
-    -- Factory Assist
+    --- Order factory to assist another factory a same type, waits in case that the factory to be assisted has not been built yet
+    -- num is a number of factory to assist
     SetFactoryAssist = function(self, factory, num)
         local type = self:GetFactoryType(factory)
 
@@ -525,14 +583,15 @@ TutorialManager = Class {
         IssueFactoryAssist({factory}, targetFactory)
     end,
 
-    -- Factory Patrol -- FIXME: Patrol nor attack move work on factories
+    --- Order factory to patrol over chain -- FIXME: Patrol nor attack move work on factories
     SetFactoryPatrol = function(self, factory, chain)
         for _, v in ScenarioUtils.ChainToPositions(chain) do
             IssuePatrol({factory}, v)
         end
     end,
 
-    -- Repeat Build
+    --- Toggle factory repeat build
+    -- val is true/false
     SetFactoryRepeatBuild = function(self, factory, val)
         local unitID = factory:GetEntityId()
         if not Sync.SetRepeatBuild then
@@ -542,9 +601,24 @@ TutorialManager = Class {
         Sync.SetRepeatBuild[unitID] = val
     end,
 
-    ----------
-    -- Attacks
-    ----------
+    --- Sets a table with attack groups
+    -- Format:
+    -- {
+    --     { -- Attack Group 1
+    --         units = {{blueprintId1, count1}, {blueprintId2, count2}, ...},
+    --         orders = {
+    --             {action = data}, -- Order 1
+    --             {action = data}, -- Order 2
+    --             ...
+    --         },
+    --     },
+    --     { -- Attack Group 2
+    --         ...
+    --     },
+    --     ...
+    -- }
+    -- There can be several actions in one order table, but it's recommended to use one action per table to assign them in correct order
+    -- See AssignAttackGroupOrders function for full list of available actions
     SetAttackGroups = function(self, data)
         self.Units.AttackGroups = data
 
@@ -562,7 +636,7 @@ TutorialManager = Class {
         return self.Units.AttackGroups[number]
     end,
 
-    -- Main thread for managing newly built units
+    --- Main thread for managing newly built units
     NewUnitsMonitor = function(self)
         while self.Active do
             local units = self.AIBrain:GetListOfUnits(categories.MOBILE - categories.ENGINEER, false, true)
@@ -578,6 +652,8 @@ TutorialManager = Class {
         end
     end,
 
+    --- Assign unit to first attack group that requires the unit
+    -- TODO: Copy the number of required units in the attack group instead of decreasing the number set from the script to keep an option of resetting the tutorial
     AssignUnitToAttackGroup = function(self, unit)
         for _, group in self.Units.AttackGroups do
             if not group.Formed then
@@ -640,11 +716,16 @@ TutorialManager = Class {
     ----------------
     -- Common Orders
     ----------------
+    --- Stops the group and clears all commands
     IssueGroupStopClearCommands = function(sefl, group)
         IssueStop(group)
         IssueClearCommands(group)
     end,
 
+    --- Orders group of units to assist one target
+    -- target is defined by data table, format for the table is {type, num}
+    -- type can be 'ACU', 'Engineer', 'Factory', 'AttackGroup'
+    -- FIXME: Factory will require factory type as well in order to work
     IssueGroupAssist = function(self, group, data)
         if not type(data) == 'table' then
             error('*TUTORIAL MANAGER ERROR: IssueGroupAssist requires table as a second parametr. Provided type: ' .. type(data), 2)
@@ -659,8 +740,8 @@ TutorialManager = Class {
                 target = self.Units.ACU
             elseif targetType == 'Engineer' then
                 target = self.Units.Engineers[num]
-            elseif targetType == 'Factory' then
-                target = self.Units.Factories[num]
+            --elseif targetType == 'Factory' then
+            --    target = self.Units.Factories[num]
             elseif targetType == 'AttackGroup' then
                 -- First unit of the attack group
                 target = self:GetAttackGroup(num).AttackForce[1]
@@ -674,6 +755,10 @@ TutorialManager = Class {
         IssueGuard(group, target)
     end,
 
+    --- Put group of units on attack move
+    -- data can be a string or a table of strings
+    -- in case of string it will use a marker, or a chain (if the string contains "Chain")
+    -- in case of table it will issue attack move on those markers' positions
     IssueGroupAttackMove = function(self, group, data)
         if type(data) == 'string' then
             if string.find(data, 'Chain') then
@@ -690,6 +775,10 @@ TutorialManager = Class {
         end
     end,
 
+    --- Put group of units on move
+    -- data can be a string or a table of strings
+    -- in case of string it will use a marker, or a chain (if the string contains "Chain")
+    -- in case of table it will issue move on those markers' positions
     IssueGroupMove = function(self, group, data)
         if type(data) == 'string' then
             if string.find(data, 'Chain') then
@@ -706,6 +795,9 @@ TutorialManager = Class {
         end
     end,
 
+    --- Put group of units on a patrol
+    -- data can be a string or a table of strings
+    -- string for using chain, table of strings for using single markers to define the patrol route
     IssueGroupPatrol = function(self, group, data)
         if type(data) == 'string' then
             for _, v in ScenarioUtils.ChainToPositions(data) do
