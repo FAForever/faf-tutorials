@@ -87,18 +87,24 @@ TutorialManager = Class {
     end,
 
     WaitThread = function(self, group, data)
-        local locked = true
+        if data.Seconds then
+            WaitSeconds(data.Seconds)
+        elseif data.AreaReclaimed then
+        else
 
-        Unlock = function()
-            locked = false
-        end
+            local locked = true
 
-        ScenarioFramework.CreateArmyStatTrigger(Unlock, self.AIBrain, 'Trigger' .. self.TriggerNumber, 
-            {{StatType = data[1], CompareType = 'GreaterThanOrEqual', Value = data[2], Category = data[3]}})
-        self.TriggerNumber = self.TriggerNumber + 1
+            Unlock = function()
+                locked = false
+            end
 
-        while locked do
-            WaitSeconds(1)
+            ScenarioFramework.CreateArmyStatTrigger(Unlock, self.AIBrain, 'Trigger' .. self.TriggerNumber, 
+                {{StatType = data[1], CompareType = 'GreaterThanOrEqual', Value = data[2], Category = data[3]}})
+            self.TriggerNumber = self.TriggerNumber + 1
+
+            while locked do
+                WaitSeconds(1)
+            end
         end
 
         -- Clear commands by default unless data.ClearCommands == false
