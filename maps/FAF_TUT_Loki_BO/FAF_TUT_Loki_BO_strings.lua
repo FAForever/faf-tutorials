@@ -16,56 +16,88 @@ StartBuildOrder = TutorialStrings.StartBuildOrder
 -- Cinematic map info
 ---------------------
 MapInfo = {
-    {text = '[{i TrainingOfficer}]: Welcome to this Supreme Commander Forged Alliance Forever map tutorial. This tutorial will teach you about the classic 1v1 map Loki. Let\'s get started.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: Loki is a 10x10km land map, the most played format in 1v1. This map is suitable for a lot of different strategies, but we will stick to T1 landspam at first. For now let\'s take a look at the key features of the map.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_MapInfo_1>[{i TrainingOfficer}]: Welcome to this Supreme Commander Forged Alliance Forever map tutorial. This tutorial will teach you about the classic 1v1 map Loki. Let\'s get started.',
+        vid = 'FAF_TUT_Loki_BO_MapInfo_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'MapInfo_1', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_MapInfo_2>[{i TrainingOfficer}]: Loki is a 10x10km land map, the most played format in 1v1. This map is suitable for a lot of different strategies, but we will stick to T1 landspam at first. For now let\'s take a look at the key features of the map.',
+        vid = 'FAF_TUT_Loki_BO_MapInfo_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'MapInfo_2', faction = 'UEF'
+    },
 }
 
 
 StartPosition = {
-    {text = '[{i TrainingOfficer}]: You start in one corner of the map, with 4 Mass Extractors (mexes).', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_StartPosition>[{i TrainingOfficer}]: You start in one corner of the map, with 4 Mass Extractors (mexes).',
+        vid = 'FAF_TUT_Loki_BO_StartPosition.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'StartPosition', faction = 'UEF'
+    },
 }
 
 
 TwoMexHydro = {
-    {text = '[{i TrainingOfficer}]: The back of your base is pretty safe against raiding and the hydro will offer you a nice powerboost.' , vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_TwoMexHydro>[{i TrainingOfficer}]: The back of your base is pretty safe against raiding and the hydro will offer you a nice powerboost.' ,
+        vid = 'FAF_TUT_Loki_BO_TwoMexHydro.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'TwoMexHydro', faction = 'UEF'
+    },
 }
 
 
 ReclaimNearBase = {
-    {text = '[{i TrainingOfficer}]: This reclaim is important to boost your buildorder.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_ReclaimNearBase>[{i TrainingOfficer}]: This reclaim is important to boost your buildorder.',
+        vid = 'FAF_TUT_Loki_BO_ReclaimNearBase.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'ReclaimNearBase', faction = 'UEF'
+    },
 }
 
 
 ThreeMexHillside = {
-    {text = '[{i TrainingOfficer}]: Your first and most important expansion is this one. As you can see there are 3 mexes and a lot of reclaim. If you manage to secure it and get engies here to reclaim, you are going to have a strong early game economy. Don\'t rush for the civilians, they don\'t give a lot of mass.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_ThreeMexHillside>[{i TrainingOfficer}]: Your first and most important expansion is this one. As you can see there are 3 mexes and a lot of reclaim. If you manage to secure it and get engies here to reclaim, you are going to have a strong early game economy. Don\'t rush for the civilians, they don\'t give a lot of mass.',
+        vid = 'FAF_TUT_Loki_BO_ThreeMexHillside.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'ThreeMexHillside', faction = 'UEF'
+    },
 }
 
 TwoMexSide = {
-    {text = '[{i TrainingOfficer}]: Some more mexes here. Those don\'t really count as an expansion. Most of the time 3 or 4 mexes in one spot are called an "expansion".', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_TwoMexSide>[{i TrainingOfficer}]: Some more mexes here. Those don\'t really count as an expansion. Most of the time 3 or 4 mexes in one spot are called an "expansion".',
+        vid = 'FAF_TUT_Loki_BO_TwoMexSide.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'TwoMexSide', faction = 'UEF'
+    },
 }
 
 FourMexCorner = {
-    {text = '[{i TrainingOfficer}]: Here in the corner is with 4 mexes the biggest expansion on your side of the map.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FourMexCorner>[{i TrainingOfficer}]: Here in the corner is with 4 mexes the biggest expansion on your side of the map.',
+        vid = 'FAF_TUT_Loki_BO_FourMexCorner.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FourMexCorner', faction = 'UEF'
+    },
 }
 
 Pond = {
-    {text = '[{i TrainingOfficer}]: There is a small pond between your base and the expansion, which only hover or amphibious units can cross, which means it is difficult to reinforce that position from your mainbase. However it can also be helpful as it blocks ground access to your base, unless enemy hover/amphibious units exist. ', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_Pond>[{i TrainingOfficer}]: There is a small pond between your base and the expansion, which only hover or amphibious units can cross, which means it is difficult to reinforce that position from your mainbase. However it can also be helpful as it blocks ground access to your base, unless enemy hover/amphibious units exist. ',
+        vid = 'FAF_TUT_Loki_BO_Pond.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'Pond', faction = 'UEF'
+    },
 }
 
 ThreeMexTop = {
-    {text = '[{i TrainingOfficer}]: This 3 mex expansion is very close to the one in the corner. If you manage to secure this expansion the one behind is generally protected aside from aerial drops. To achieve that, we will send the ACU to this position. ', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_ThreeMexTop>[{i TrainingOfficer}]: This 3 mex expansion is very close to the one in the corner. If you manage to secure this expansion the one behind is generally protected aside from aerial drops. To achieve that, we will send the ACU to this position. ',
+        vid = 'FAF_TUT_Loki_BO_ThreeMexTop.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'ThreeMexTop', faction = 'UEF'
+    },
 }
 
 Choke = {
-    {text = '[{i TrainingOfficer}]: The direct path to the mainbase of your opponent is only a small choke. This is an obstacle for your armies, so better avoid it with bigger forces. If your units are split up by the terrain/buildings, the enemy will find it easy to destroy them.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_Choke>[{i TrainingOfficer}]: The direct path to the mainbase of your opponent is only a small choke. This is an obstacle for your armies, so better avoid it with bigger forces. If your units are split up by the terrain/buildings, the enemy will find it easy to destroy them.',
+        vid = 'FAF_TUT_Loki_BO_Choke.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'Choke', faction = 'UEF'
+    },
 }
 
 PlateauWest = {
-    {text = '[{i TrainingOfficer}]: The main area where army manuevers will take place are these plateaus.', vid = '', bank = '', cue = '', faction = 'UEF'},
-}
-
-PlateauEast = {
-    {text = '', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_PlateauWest>[{i TrainingOfficer}]: The main area where army manuevers will take place are these plateaus.',
+        vid = 'FAF_TUT_Loki_BO_PlateauWest.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'PlateauWest', faction = 'UEF'
+    },
 }
 
 
@@ -74,69 +106,138 @@ PlateauEast = {
 -- Build order
 --------------
 InitialBO = {
-    {text = '[{i TrainingOfficer}]: A Land Factory is built first, followed by 2 Power Generators (pgens) and 2 Mass Extractors (mexes). Then 3 more pgens and 1 Land Factory. After that, again 3 pgens, but this time an Air Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there before moving futher to the north.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: The Factory builds 3 engineers (engies). Then 1 tank and 1 scouts to protect your expanding engies and/or for raiding enemy engis.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: After that, 3 more engies and 1 tank+scout, then follow this up by an equal mix of engies and tanks.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: Changing factory rally point will also affect which way the units will leave the factory, you can save some time by that.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_1>[{i TrainingOfficer}]: A Land Factory is built first, followed by 2 Power Generators (pgens) and 2 Mass Extractors (mexes). Then 3 more pgens and 1 Land Factory. After that, again 3 pgens, but this time an Air Factory.',
+        vid = 'FAF_TUT_Loki_BO_InitialBO_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_1', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_2>[{i TrainingOfficer}]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there before moving futher to the north.',
+        vid = 'FAF_TUT_Loki_BO_InitialBO_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_2', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_3>[{i TrainingOfficer}]: The Factory builds 3 engineers (engies). Then 1 tank and 1 scouts to protect your expanding engies and/or for raiding enemy engis.',
+        vid = 'FAF_TUT_Loki_BO_InitialBO_3.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_3', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_4>[{i TrainingOfficer}]: After that, 3 more engies and 1 tank+scout, then follow this up by an equal mix of engies and tanks.',
+        vid = 'FAF_TUT_Loki_BO_InitialBO_4.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_4', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_5>[{i TrainingOfficer}]: Changing factory rally point will also affect which way the units will leave the factory, you can save some time by that.',
+        vid = 'FAF_TUT_Loki_BO_InitialBO_5.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_5', faction = 'UEF'
+    },
 }
 
 FirstEngineer = {
-    {text = '[{i TrainingOfficer}]: The first engie builds the other 2 mexes in the starting position and then takes the western route towards the top left expansion. It will build those 2 mexes and a hydro with radar on it\'s way there.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: After crossing the pond, build a Land Factory first to secure the expansion. In case your engineer gets killing it will be faster to rebuild it from that factory rather than having to send a new one from the main base.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FirstEngineer_1>[{i TrainingOfficer}]: The first engie builds the other 2 mexes in the starting position and then takes the western route towards the top left expansion. It will build those 2 mexes and a hydro with radar on it\'s way there.',
+        vid = 'FAF_TUT_Loki_BO_FirstEngineer_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FirstEngineer_1', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FirstEngineer_2>[{i TrainingOfficer}]: After crossing the pond, build a Land Factory first to secure the expansion. In case your engineer gets killing it will be faster to rebuild it from that factory rather than having to send a new one from the main base.',
+        vid = 'FAF_TUT_Loki_BO_FirstEngineer_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FirstEngineer_2', faction = 'UEF'
+    },
 }
 
 SecondEngineer = {
-    {text = '[{i TrainingOfficer}]: The second engie will reclaim the rocks near the base.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_SecondEngineer>[{i TrainingOfficer}]: The second engie will reclaim the rocks near the base.',
+        vid = 'FAF_TUT_Loki_BO_SecondEngineer.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'SecondEngineer', faction = 'UEF'
+    },
 }
 
 ThirdEngineer = {
-    {text = '[{i TrainingOfficer}]: Your third engie should go to the Hillside Expansion and build the mexes there. Once they are up, reclaim the rocks.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_ThirdEngineer>[{i TrainingOfficer}]: Your third engie should go to the Hillside Expansion and build the mexes there. Once they are up, reclaim the rocks.',
+        vid = 'FAF_TUT_Loki_BO_ThirdEngineer.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'ThirdEngineer', faction = 'UEF'
+    },
 }
 
 TankScout = {
-    {text = '[{i TrainingOfficer}]: These engies will be protected by your first tank. Send a scout with it to spot the incoming units sooner.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_TankScout>[{i TrainingOfficer}]: These engies will be protected by your first tank. Send a scout with it to spot the incoming units sooner.',
+        vid = 'FAF_TUT_Loki_BO_TankScout.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'TankScout', faction = 'UEF'
+    },
 }
 
 SecondFactory = {
-    {text = '[{i TrainingOfficer}]: The second Factory will be your main Land Factory. Queue up a mix of 5 tanks, 1 landscout, 2 arties and set the waypoint out of your base. Don\'t forget to set the factory on a repeat build!', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_SecondFactory>[{i TrainingOfficer}]: The second Factory will be your main Land Factory. Queue up a mix of 5 tanks, 1 landscout, 2 arties and set the waypoint out of your base. Don\'t forget to set the factory on a repeat build!',
+        vid = 'FAF_TUT_Loki_BO_SecondFactory.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'SecondFactory', faction = 'UEF'
+    },
 }
 
 FourthEngineer = {
-    {text = '[{i TrainingOfficer}]: Fourth engie expands east. It is likely, that this engie wont be able to secure the 3 mex expnasion, but you might get some mass before the enemy is there to destroy it.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FourthEngineer>[{i TrainingOfficer}]: Fourth engie expands east. It is likely, that this engie wont be able to secure the 3 mex expnasion, but you might get some mass before the enemy is there to destroy it.',
+        vid = 'FAF_TUT_Loki_BO_FourthEngineer.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FourthEngineer', faction = 'UEF'
+    },
 }
 
 FithEngineer = {
-    {text = '[{i TrainingOfficer}]: Order the fifth engie to assist your ACU to get the buildings done faster.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FithEngineer>[{i TrainingOfficer}]: Order the fifth engie to assist your ACU to get the buildings done faster.',
+        vid = 'FAF_TUT_Loki_BO_FithEngineer.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FithEngineer', faction = 'UEF'
+    },
 }
 
 SixthEngineer = {
-    {text = '[{i TrainingOfficer}]: Your sixth engie also goes to the Hillside Expansion to reclaim rocks.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_SixthEngineer>[{i TrainingOfficer}]: Your sixth engie also goes to the Hillside Expansion to reclaim rocks.',
+        vid = 'FAF_TUT_Loki_BO_SixthEngineer.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'SixthEngineer', faction = 'UEF'
+    },
 }
 
 AirFactory = {
-    {text = '[{i TrainingOfficer}]: The Air Factory builds a queue of 1 Air Scout and 3 Intercepters (inties). That way you always have Air Scouts available and their existence should remind you to scout.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_AirFactory>[{i TrainingOfficer}]: The Air Factory builds a queue of 1 Air Scout and 3 Intercepters (inties). That way you always have Air Scouts available and their existence should remind you to scout.',
+        vid = 'FAF_TUT_Loki_BO_AirFactory.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'AirFactory', faction = 'UEF'
+    },
 }
 
 FactorySpam = {
-    {text = '[{i TrainingOfficer}]: By the time your seventh engie is built, the ACU will be done building and leaves the base. At that point select both engies in your base and build 3 more pgens and 4 more Land Factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: The ACU will move to the Hillside Expansion to build a factory there. After that continue to the north for the expansion with 3 mexes.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FactorySpam_1>[{i TrainingOfficer}]: By the time your seventh engie is built, the ACU will be done building and leaves the base. At that point select both engies in your base and build 3 more pgens and 4 more Land Factories.',
+        vid = 'FAF_TUT_Loki_BO_FactorySpam_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FactorySpam_1', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FactorySpam_2>[{i TrainingOfficer}]: The ACU will move to the Hillside Expansion to build a factory there. After that continue to the north for the expansion with 3 mexes.',
+        vid = 'FAF_TUT_Loki_BO_FactorySpam_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FactorySpam_2', faction = 'UEF'
+    },
 }
 
 EighthEngineer = {
-    {text = '[{i TrainingOfficer}]: The eighth engie assists building the Land Factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: All other Land Factories should assist the second Land Factory.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_EighthEngineer_1>[{i TrainingOfficer}]: The eighth engie assists building the Land Factories.',
+        vid = 'FAF_TUT_Loki_BO_EighthEngineer_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'EighthEngineer_1', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_EighthEngineer_2>[{i TrainingOfficer}]: All other Land Factories should assist the second Land Factory.',
+        vid = 'FAF_TUT_Loki_BO_EighthEngineer_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'EighthEngineer_2', faction = 'UEF'
+    },
 }
 
 Powerspam = {
-    {text = '[{i TrainingOfficer}]: The next two engies will build more pgens, because you will need a lot of power as soon as you get all the reclaim from the Hillside Expansion. Don\'t forget to include one Energy Storage to more easily manage your power situation and to be able to Overcharge with your ACU.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_Powerspam>[{i TrainingOfficer}]: The next two engies will build more pgens, because you will need a lot of power as soon as you get all the reclaim from the Hillside Expansion. Don\'t forget to include one Energy Storage to more easily manage your power situation and to be able to Overcharge with your ACU.',
+        vid = 'FAF_TUT_Loki_BO_Powerspam.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'Powerspam', faction = 'UEF'
+    },
 }
 
 ReclaimFactory = {
-    {text = '[{i TrainingOfficer}]: The ACU is now building the factory on the Hillside Expansion. This factory will produce only engies to reclaim the stones as fast as possible.', vid = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_ReclaimFactory>[{i TrainingOfficer}]: The ACU is now building the factory on the Hillside Expansion. This factory will produce only engies to reclaim the stones as fast as possible.',
+        vid = 'FAF_TUT_Loki_BO_ReclaimFactory.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'ReclaimFactory', faction = 'UEF'
+    },
 }
 
 FollowUp = {
-    {text = '[{i TrainingOfficer}]: Now you have a running base and a good amount of land spam going. Multiple options are available; you can either build more Land Factories or upgrade your mexes one by one, assisting with your engies which were previously building factories.', vid = '', bank = '', cue = '', faction = 'UEF'},
-    {text = '[{i TrainingOfficer}]: If you watch replays of high level players on this map you\'re going to notice, that they are using a different buildorder. But that build is more complex and requires more experience. The buildorder you just saw is designed to be simple but still effective. Good Luck Commander!',vid  = '', bank = '', cue = '', faction = 'UEF'},
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FollowUp_1>[{i TrainingOfficer}]: Now you have a running base and a good amount of land spam going. Multiple options are available; you can either build more Land Factories or upgrade your mexes one by one, assisting with your engies which were previously building factories.',
+        vid = 'FAF_TUT_Loki_BO_FollowUp_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FollowUp_1', faction = 'UEF'
+    },
+    {
+        text = '<LOC FAF_TUT_Loki_BO_FollowUp_2>[{i TrainingOfficer}]: If you watch replays of high level players on this map you\'re going to notice, that they are using a different buildorder. But that build is more complex and requires more experience. The buildorder you just saw is designed to be simple but still effective. Good Luck Commander!',
+        vid  = 'FAF_TUT_Loki_BO_FollowUp_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FollowUp_2', faction = 'UEF'
+    },
 }
