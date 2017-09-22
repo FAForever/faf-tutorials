@@ -15,7 +15,7 @@ exclusive = false
 ui_only = false
 conflicts = {}
 mountpoints = {
-	lua = '/lua',
-	maps = '/maps',
-    'mods/tutorials/hook' = '/schook'
+    lua = '/lua',
+    maps = '/maps',
+    ['mods/tutorials/hook'] = '/schook'
 }
