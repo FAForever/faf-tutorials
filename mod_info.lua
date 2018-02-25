@@ -17,5 +17,8 @@ conflicts = {}
 mountpoints = {
     lua = '/lua',
     maps = '/maps',
-    ['mods/tutorials/hook'] = '/schook'
+    mods = '/mods'
+}
+hooks = {
+    '/mods/tutorials/hook'
 }
