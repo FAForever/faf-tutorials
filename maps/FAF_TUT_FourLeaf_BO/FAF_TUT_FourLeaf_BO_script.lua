@@ -81,32 +81,32 @@ function MapIntro()
 
     -- Initial Camera
     ScenarioFramework.Dialogue(OpStrings.MapInfo, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 15)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 10)
     WaitSeconds(6)
 
     -- Starting Position
     ScenarioFramework.Dialogue(OpStrings.StartPosition, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 4)
-    WaitSeconds(10)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 5)
+    WaitSeconds(6)
 
     -- Side leaf entrance
     ScenarioFramework.Dialogue(OpStrings.Backdoor, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Backdoor'), 4)
-    WaitSeconds(7)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Backdoor'), 5)
+    WaitSeconds(6)
 
     -- Enemy starting position
     ScenarioFramework.Dialogue(OpStrings.EnemyStartPosition, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_EnemyStartPosition'), 3)
-    WaitSeconds(4)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_EnemyStartPosition'), 4)
+    WaitSeconds(1)
 
     -- Expansion leaves
     ScenarioFramework.Dialogue(OpStrings.Expansions, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Expansions'), 3)
-    WaitSeconds(3)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Expansions'), 8)
+    WaitSeconds(10)
 
     -- Middle reclaim
     ScenarioFramework.Dialogue(OpStrings.MidReclaim, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MidReclaim'), 6)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MidReclaim'), 8)
     WaitSeconds(10)
 
     -- Reclaim behind the base
