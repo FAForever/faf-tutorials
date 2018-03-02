@@ -100,7 +100,7 @@ function MapIntro()
     -- North route
     ScenarioFramework.Dialogue(OpStrings.NorthernChoke, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_NorthernChoke'), 3)
-    WaitSeconds(4)
+    WaitSeconds(3)
 
     -- South route
     ScenarioFramework.Dialogue(OpStrings.SouthernChoke, nil, true)
@@ -110,7 +110,7 @@ function MapIntro()
     -- Bottom Pass
     ScenarioFramework.Dialogue(OpStrings.ACURush, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ACURush'), 5)
-    WaitSeconds(2)
+    WaitSeconds(3)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ACURush_2'), 10)
     WaitSeconds(2)
 
