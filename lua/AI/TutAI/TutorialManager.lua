@@ -382,6 +382,8 @@ TutorialManager = Class {
             propsToReclaim = table.filter(propsToReclaim, MassFilter)
             for k, prop in propsToReclaim do
                 IssueReclaim({engineer}, prop)
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(1, 3))
             end
         end
     end,
@@ -400,8 +402,12 @@ TutorialManager = Class {
                 -- Move before building
                 if Scenario.MasterChain._MASTERCHAIN_.Markers[v] then
                     IssueMove({engineer}, Scenario.MasterChain._MASTERCHAIN_.Markers[v].position)
+                    -- Small delay between orders to simulate player's clicks
+                    WaitTicks(Random(4, 7))
                 end
                 IssueBuildMobile({engineer}, unitData.Position, unitData.type, {})
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(3, 6))
             end
         end
     end,
@@ -435,6 +441,9 @@ TutorialManager = Class {
                 IssueMove({engineer}, unitData.move)
             end
             IssueBuildMobile({engineer}, unitData.Position, unitData.type, {})
+            
+            -- Small delay between orders to simulate player's clicks
+            WaitTicks(Random(3, 6))
         end
     end,
 
@@ -566,6 +575,8 @@ TutorialManager = Class {
     SetFactoryBuildQueue = function(self, factory, tblQueue)
         for _, data in tblQueue do
             IssueBuildFactory({factory}, data[1], data[2])
+            -- Small delay between orders to simulate player's clicks
+            WaitTicks(Random(3, 4))
         end
     end,
 
@@ -764,13 +775,19 @@ TutorialManager = Class {
             if string.find(data, 'Chain') then
                 for _, v in ScenarioUtils.ChainToPositions(data) do
                     IssueAggressiveMove(group, v)
+                    -- Small delay between orders to simulate player's clicks
+                    WaitTicks(Random(2, 5))
                 end
             else
                 IssueAggressiveMove(group, ScenarioUtils.MarkerToPosition(data))
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(2, 5))
             end
         elseif type(data) == 'table' then
             for _, marker in data do
                 IssueAggressiveMove(group, ScenarioUtils.MarkerToPosition(marker))
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(2, 5))
             end
         end
     end,
@@ -784,13 +801,19 @@ TutorialManager = Class {
             if string.find(data, 'Chain') then
                 for _, v in ScenarioUtils.ChainToPositions(data) do
                     IssueMove(group, v)
+                    -- Small delay between orders to simulate player's clicks
+                    WaitTicks(Random(2, 5))
                 end
             else
                 IssueMove(group, ScenarioUtils.MarkerToPosition(data))
+                -- Small delay between orders to simulate player's clicks
+                 WaitTicks(Random(2, 5))
             end
         elseif type(data) == 'table' then
             for _, marker in data do
                 IssueMove(group, ScenarioUtils.MarkerToPosition(marker))
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(2, 5))
             end
         end
     end,
@@ -802,10 +825,14 @@ TutorialManager = Class {
         if type(data) == 'string' then
             for _, v in ScenarioUtils.ChainToPositions(data) do
                 IssuePatrol(group, v)
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(2, 5))
             end
         elseif type(data) == 'table' then
             for _, marker in data do
                 IssuePatrol(group, ScenarioUtils.MarkerToPosition(marker))
+                -- Small delay between orders to simulate player's clicks
+                WaitTicks(Random(2, 5))
             end
         end
     end,
