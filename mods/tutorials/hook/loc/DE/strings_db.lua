@@ -72,7 +72,7 @@ FAF_TUT_Loki_BO_FithEngineer = "[{i TrainingOfficer}]: Der fünfte Techniker unt
 FAF_TUT_Loki_BO_SixthEngineer = "[{i TrainingOfficer}]: Der sechste Techniker geht auch an den Berghang und erntet Steine."
 FAF_TUT_Loki_BO_AirFactory = "[{i TrainingOfficer}]: Die Luftwaffenfabrik baut einen Luftaufklärer und 3 Abfangjäger (inties) und wiederholt diesen Vorgang. Hierdurch sind immer Luftaufklärer da, welche einen auch daran erinnern den Gegner so oft wie möglich zu Spähen."
 FAF_TUT_Loki_BO_FactorySpam_1 = "[{i TrainingOfficer}]: In der Zeit, in der der siebte Techniker gebaut wird, beendet die ACU Ihre Arbeiten und macht sich auf den Weg. Selektiere beide verbleibenden Techniker in deiner Basis und bau 3 weitere Energiegeneratoren und 4 weitere Landfabriken."
-FAF_TUT_Loki_BO_FactorySpam_2 "[{i TrainingOfficer}]: Die ACU läuft zu den Bergkamm und baut dort eine Landfabrik. Danach geht sie weiter zu den 3 Massepunkte im Norden."
+FAF_TUT_Loki_BO_FactorySpam_2 = "[{i TrainingOfficer}]: Die ACU läuft zu den Bergkamm und baut dort eine Landfabrik. Danach geht sie weiter zu den 3 Massepunkte im Norden."
 FAF_TUT_Loki_BO_EighthEngineer_1 = "[{i TrainingOfficer}]: Der achte Techniker unterstützt den Bau der Landfabriken."
 FAF_TUT_Loki_BO_EighthEngineer_2 = "[{i TrainingOfficer}]: Alle anderen Landfabriken sollten die zweite Fabrik unterstützen."
 FAF_TUT_Loki_BO_Powerspam = "[{i TrainingOfficer}]: Die nächsten zwei Techniker bauen mehr Energiegeneratoren, weil du sobald die Steine geerntet werden mehr Strom benötigen wirst. Vergiss nicht einen Energiespeicher zu bauen. Damit ermöglichst du es einen Superschuss (Überladung) mit der ACU abzufeuern und dein Strommanagement ist flexibler."
