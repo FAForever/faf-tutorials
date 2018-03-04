@@ -21,7 +21,7 @@ MapInfo = {
         vid = 'FAF_TUT_FourLeaf_BO_MapInfo_1.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_MapInfo_1', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_MapInfo_2>[{i TrainingOfficer}]: Four-Leaf Clover is a 5x5km land map. This map is all about the reclaim, as you will see. Now let\'s take a look at the key features of the map.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_MapInfo_2>[{i TrainingOfficer}]: Four-Leaf Clover is a 10x10km land map. This map is all about the reclaim, as you will see. Now let\'s take a look at the key features of the map.',
         vid = 'FAF_TUT_FourLeaf_BO_MapInfo_2.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_MapInfo_2', faction = 'UEF'
     },
 }

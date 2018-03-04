@@ -10,7 +10,7 @@ FAF_TUT_Common_StartBuildOrder_2 = "[{i TrainingOfficer}]: Hold down your 'SHIFT
 FAF_TUT_Common_EndBuildOrder = "[{i TrainingOfficer}]: Now you should know the basics about this map. It's time for you to try the build order yourself."
 
 FAF_TUT_FourLeaf_BO_MapInfo_1 = "[{i TrainingOfficer}]: Welcome to this Supreme Commander Forged Alliance Forever map tutorial. This tutorial will teach you about the map Four-Leaf Clover. Let's get started."
-FAF_TUT_FourLeaf_BO_MapInfo_2 = "[{i TrainingOfficer}]: Four-Leaf Clover is a 5x5km land map. This map is all about the reclaim, as you will see. Now let's take a look at the key features of the map."
+FAF_TUT_FourLeaf_BO_MapInfo_2 = "[{i TrainingOfficer}]: Four-Leaf Clover is a 10x10km land map. This map is all about the reclaim, as you will see. Now let's take a look at the key features of the map."
 FAF_TUT_FourLeaf_BO_StartPosition = "[{i TrainingOfficer}]: You start in one of the corners with 4 Mass Extractors (mexes) and a close Hydrocarbon Power Plant (hydro). However they are further spread out than on other maps so make sure to use full build range of your ACU."
 FAF_TUT_FourLeaf_BO_Backdoor = "[{i TrainingOfficer}]: As you saw in the overview already, a big rock in the middle gives each 'leaf' its circle structure. This offers a way around the mountain directly in the back of your base. It's very important to protect this entrance against raiding units."
 FAF_TUT_FourLeaf_BO_EnemyStartPosition = "[{i TrainingOfficer}]: Your opponent starts in the opposite corver of the map."

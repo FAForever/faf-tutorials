@@ -10,7 +10,7 @@ FAF_TUT_Common_StartBuildOrder_2 = "[{i TrainingOfficer}]: Mantener apretado la 
 FAF_TUT_Common_EndBuildOrder = "[{i TrainingOfficer}]: Ahora deberías conocer lo básico de este mapa. Es tiempo de que ahora intentes por tu cuenta el orden de construcción."
 
 FAF_TUT_FourLeaf_BO_MapInfo_1 = "[{i TrainingOfficer}]: Bienvenido al tutorial de mapas del Supreme Commander Forged Alliance. Este tutorial te enseñara acerca del mapa Four-Leaf Clover (Trébol de cuatro hojas). Empecemos."
-FAF_TUT_FourLeaf_BO_MapInfo_2 = "[{i TrainingOfficer}]: El mapa Four-Leaf Clover es un mapa terrestre de 5x5km. Como puedes apreciar, este mapa es todo acerca de recolectar. Ahora veamos las características de este mapa."
+FAF_TUT_FourLeaf_BO_MapInfo_2 = "[{i TrainingOfficer}]: El mapa Four-Leaf Clover es un mapa terrestre de 10x10km. Como puedes apreciar, este mapa es todo acerca de recolectar. Ahora veamos las características de este mapa."
 FAF_TUT_FourLeaf_BO_StartPosition = "[{i TrainingOfficer}]: Comienzas en una de las esquinas con 4 Extractores de Masa (Mexes) y una Panta de Energía de Hidrocarbono (hyrdro). Sin embargo, hay más que están alejadas y esparcidas a diferencia de otros mapas, así que asegúrate de usar bien el rango de construcción de tu ACU."
 FAF_TUT_FourLeaf_BO_Backdoor = "[{i TrainingOfficer}]: Como has visto en el resumen, hay una gran roca en el medio que da a cada 'hoja' su estructura circular. Esto ofrece un camino alrededor de la montaña que dirige a la parte trasera de tu base. Es muy importante que protejas esta entrada contra las unidades de ataque."
 FAF_TUT_FourLeaf_BO_EnemyStartPosition = "[{i TrainingOfficer}]: Tu oponente comienza en la esquina opuesta del mapa."
