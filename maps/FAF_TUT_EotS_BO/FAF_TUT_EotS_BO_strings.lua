@@ -35,7 +35,7 @@ StartPosition = {
 
 Lamp = {
     {
-        text = '[{i TrainingOfficer}]: This little lamp contains 300 mass, which are very useful to boost your early economy. There is one in every corner of the map. Hold down Shift+Ctrl to view reclaim numbers.',
+        text = '[{i TrainingOfficer}]: This little lamp contains 300 mass, which is a very useful boost to your early economy. There is one in every corner of the map. Hold down Shift+Ctrl to view reclaim numbers.',
         vid = 'FAF_TUT_EotS_BO_Lamp.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_Lamp', faction = 'UEF'
     },
 }
@@ -49,21 +49,21 @@ EastPath1 = {
 
 EastPath2 = {
     {
-        text = '[{i TrainingOfficer}]: Close to the expansion and far away from your mainbase are 5 Mass Extractors (mexes) and some reclaim. To get this position and maybe the expansion the ACU will be sent there.',
+        text = '[{i TrainingOfficer}]: This area contains 5 Mass Extractors (mexes) and some reclaim. The ACU will be sent here to secure this position, and if possible the nearby expansion as well.',
         vid = 'FAF_TUT_EotS_BO_EastPath2.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_EastPath2', faction = 'UEF'
     },
 }
 
 SouthPath = {
     {
-        text = '[{i TrainingOfficer}]: This is the second path that leads to the southern expansion. As you can see the 5 Mass Extractors (mexes) and reclaim are close to your base so they will be save anyway. No need to send your ACU this way.',
+        text = '[{i TrainingOfficer}]: This is the second path that leads to the southern expansion. As you can see, here the 5 Mass Extractors (mexes) and reclaim are closer to your base so they will be relatively safe. No need to send your ACU this way.',
         vid = 'FAF_TUT_EotS_BO_SouthPath.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_SouthPath', faction = 'UEF'
     },
 }
 
 Middle = {
     {
-        text = '[{i TrainingOfficer}]: On the direct way to your opponents base is this small island. It counts as an expansion as well. 4 Mass Extractors (mexes) and quite some reclaim are very nice to get. Also the island is quite easy to defend once you secured it.',
+        text = '[{i TrainingOfficer}]: The island in the middle of the map counts as an expansion as well. The 4 Mass Extractors (mexes) and various reclaimables can give you a nice advantage. Also, the island is quite easy to defend once it has been secured.',
         vid = 'FAF_TUT_EotS_BO_Middle.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_Middle', faction = 'UEF'
     },
 }
@@ -82,7 +82,7 @@ OpponentSpawn = {
 --------------
 LandFirst = {
     {
-        text = '[{i TrainingOfficer}]: This build order will focus on a heavy T1 Air spam to gain an early air control and then use of Bombers and Gunships to deal damage.',
+        text = '[{i TrainingOfficer}]: This build order will focus on heavy T1 Air spam to gain early air control, followed by the use of Bombers and Gunships to deal damage.',
         vid = 'FAF_TUT_EotS_BO_LandFirst_1.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_LandFirst_1', faction = 'UEF'
     },
     {
@@ -93,7 +93,7 @@ LandFirst = {
 
 ACUMove = {
     {
-        text = '[{i TrainingOfficer}]: After finishing all buildings, the ACU will move to the east expansion. Secure some Mass Extractors (mexes) and reclaim the big rocks on the way there.',
+        text = '[{i TrainingOfficer}]: After finishing its build queue, the ACU will move to the east expansion. Secure some Mass Extractors (mexes) and reclaim the big rocks on the way there.',
         vid = 'FAF_TUT_EotS_BO_ACUMove.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_ACUMove', faction = 'UEF'
     },
 }
@@ -104,7 +104,7 @@ FactoryQueue = {
         vid = 'FAF_TUT_EotS_BO_FactoryQueue_1.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_FactoryQueue_1', faction = 'UEF'
     },
     {
-        text = '[{i TrainingOfficer}]: Changing factory rally point will also affect which way the units will leave the factory, you can save some time by that.',
+        text = '[{i TrainingOfficer}]: Changing factory rally points will affect which way the units will leave the factory, you can save some time by exploting that mechanic.',
         vid = 'FAF_TUT_EotS_BO_FactoryQueue_2.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_FactoryQueue_2', faction = 'UEF'
     },
 }
@@ -118,7 +118,7 @@ FirstEngineer = {
 
 SecondEngineer = {
     {
-        text = '[{i TrainingOfficer}]: The second engineer (engie) will assists the first one.',
+        text = '[{i TrainingOfficer}]: The second engineer (engie) assists the first one.',
         vid = 'FAF_TUT_EotS_BO_SecondEngineer.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_SecondEngineer', faction = 'UEF'
     },
 }
@@ -132,14 +132,14 @@ ThirdEngineer = {
 
 FourthEngineer = {
     {
-        text = '[{i TrainingOfficer}]: Fourth engie expands south also grabbing the arms, although don\'t forget to build the t1 pd to protect the path to your base, because at first we wont send a lot of units there.',
+        text = '[{i TrainingOfficer}]: The fourth engie expands south, grabbing the arms along the way. Don\'t forget to build the T1 PD to protect the path to your base, since we wont be sending a lot of units there early on.',
         vid = 'FAF_TUT_EotS_BO_FourthEngineer.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_FourthEngineer', faction = 'UEF'
     },
 }
 
 FithEngineer = {
     {
-        text = '[{i TrainingOfficer}]: The fifth engie goes to the middle island. Get the reclaim before building the mexes. The mass you reclaimed is safe in your pockets, mexes need to pay for themselves first.',
+        text = '[{i TrainingOfficer}]: The fifth engie goes to the middle island. Get the reclaim before building the mexes. The mass you reclaimed is safe in your pockets, while mexes need to pay for themselves first.',
         vid = 'FAF_TUT_EotS_BO_FithEngineer.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_FithEngineer', faction = 'UEF'
     },
 }
@@ -153,25 +153,25 @@ EngiAirFactory = {
 
 ACUAirFactory = {
     {
-        text = '[{i TrainingOfficer}]: The Air Factory built by the ACU build a queue of 1 Bomber, 1 Scout and 4 Interceptors (inties). Build the bomber first to kill the engi of your opponent that might go to the middle island.',
+        text = '[{i TrainingOfficer}]: The Air Factory built by the ACU build a queue of 1 Bomber, 1 Scout and 4 Interceptors (inties). Build the bomber first to kill the engie of your opponent that might go to the middle island.',
         vid = 'FAF_TUT_EotS_BO_ACUAirFactory_1.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_ACUAirFactory_1', faction = 'UEF'
     },
 	{
-        text = '[{i TrainingOfficer}]: The Scout that is built after the Bomber will spot the target for the Bomber. This can either be the engi heading for the middle or one on the two engineers expanding to the sides. Keep in mind that the one going to the middle has higher priority. This needs a good timing so dont\'t worry if you can\'t execute it the first few times.',
+        text = '[{i TrainingOfficer}]: The Scout that is built after the Bomber will spot the target for the Bomber. This can either be the engie heading for the middle or one of the two engineers expanding to the sides. Keep in mind that the one going to the middle has higher priority. This needs good timing so dont\'t worry if you can\'t execute it the first few times.',
         vid = 'FAF_TUT_EotS_BO_ACUAirFactory_2.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_ACUAirFactory_2', faction = 'UEF'
     },
 }
 
 TankScout1 = {
     {
-        text = '[{i TrainingOfficer}]: Send the first Tank and Land Scout to protects the engi going south because it\'s the only engi going there. Better make sure it survives.',
+        text = '[{i TrainingOfficer}]: Send the first Tank and Land Scout to protect the engie going south because it\'s the only one going there. Better make sure it survives.',
         vid = 'FAF_TUT_EotS_BO_TankScout1.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_TankScout1', faction = 'UEF'
     },
 }
 
 TankScout2 = {
     {
-        text = '[{i TrainingOfficer}]: The Second pair of tank+scout protects the engie going east. Since the ACU is going there as well, this engi has a lower priority than the one going south.',
+        text = '[{i TrainingOfficer}]: The second pair of tank+scout protects the engie going east. Since the ACU is going there as well, this engie has a lower priority than the one going south.',
         vid = 'FAF_TUT_EotS_BO_TankScout2.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_TankScout2', faction = 'UEF'
     },
 }
@@ -203,7 +203,7 @@ SeventhEngineer = {
 
 EighthEngineer = {
     {
-        text = '[{i TrainingOfficer}]: The eight engie should assists the first one with building the power.',
+        text = '[{i TrainingOfficer}]: The eighth engie should assist the first one with building power.',
         vid = 'FAF_TUT_EotS_BO_EighthEngineer.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_EighthEngineer', faction = 'UEF'
     },
 }
@@ -238,21 +238,21 @@ AirScout2 = {
 
 ThirdAirFactory = {
     {
-        text = '[{i TrainingOfficer}]: Your next, third Air Factory assists one of the others. In case you\'re having an air control you can mix more Bombers in to get more damage done or upgrade the factory to T2 to access Gunships.',
+        text = '[{i TrainingOfficer}]: Your third Air Factory assists one of the others. In case you have air control, you can mix in more Bombers to get more damage done or upgrade the factory to T2 to access Gunships.',
         vid = 'FAF_TUT_EotS_BO_ThirdAirFactory.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_ThirdAirFactory', faction = 'UEF'
     },
 }
 
 NavalFactory = {
     {
-        text = '[{i TrainingOfficer}]: The Naval Factories produces only Submarines (subs) for now. Build submarines instead of Frigates first because they counter Frigates and Frigates can\'t raid any mexes on EotS. If you manage to kill the naval production of your opponent you can swith to Frigates for their radar and Anti Air capabilites.',
+        text = '[{i TrainingOfficer}]: The Naval Factories only produce Submarines (subs) for now. Build submarines instead of Frigates first because they counter Frigates and Frigates can\'t raid any mexes on EotS. If you manage to kill the naval production of your opponent, you can switch to Frigates for their radar and Anti Air capabilites.',
         vid = 'FAF_TUT_EotS_BO_NavalFactory.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_NavalFactory', faction = 'UEF'
     },
 }
 
 MoreLandfactories = {
     {
-        text = '[{i TrainingOfficer}]: When you manage to get some mexes out on the map you can afford to build some more Land Factories. You can either build them in your main base to preasure the south, or in your eastern expansion to preasure your opponent\'s main base.',
+        text = '[{i TrainingOfficer}]: When you manage to get some mexes out on the map you can afford to build some more Land Factories. You can either build them in your main base to pressure the south, or in your eastern expansion to pressure your opponent\'s main base.',
         vid = 'FAF_TUT_EotS_BO_MoreLandfactories.sfd', bank = 'FAF_TUT_EotS_BO_VO', cue = 'FAF_TUT_EotS_BO_MoreLandfactories', faction = 'UEF'
     },
 }
