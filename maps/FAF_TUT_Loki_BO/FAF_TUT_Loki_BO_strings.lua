@@ -67,14 +67,14 @@ TwoMexSide = {
 
 FourMexCorner = {
     {
-        text = '<LOC FAF_TUT_Loki_BO_FourMexCorner>[{i TrainingOfficer}]: Here in the corner is with 4 mexes the biggest expansion on your side of the map.',
+        text = '<LOC FAF_TUT_Loki_BO_FourMexCorner>[{i TrainingOfficer}]: Here in the corner with 4 mexes is the biggest expansion on your side of the map.',
         vid = 'FAF_TUT_Loki_BO_FourMexCorner.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FourMexCorner', faction = 'UEF'
     },
 }
 
 Pond = {
     {
-        text = '<LOC FAF_TUT_Loki_BO_Pond>[{i TrainingOfficer}]: There is a small pond between your base and the expansion, which only hover or amphibious units can cross, which means it is difficult to reinforce that position from your mainbase. However it can also be helpful as it blocks ground access to your base, unless enemy hover/amphibious units exist. ',
+        text = '<LOC FAF_TUT_Loki_BO_Pond>[{i TrainingOfficer}]: There is a small pond between your base and the expansion, which only hover or amphibious units can cross, which means it is difficult to reinforce that position from your mainbase. However it can also be helpful as it blocks ground access to your base, unless enemy hover or amphibious units exist. ',
         vid = 'FAF_TUT_Loki_BO_Pond.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'Pond', faction = 'UEF'
     },
 }
@@ -88,14 +88,14 @@ ThreeMexTop = {
 
 Choke = {
     {
-        text = '<LOC FAF_TUT_Loki_BO_Choke>[{i TrainingOfficer}]: The direct path to the mainbase of your opponent is only a small choke. This is an obstacle for your armies, so better avoid it with bigger forces. If your units are split up by the terrain/buildings, the enemy will find it easy to destroy them.',
+        text = '<LOC FAF_TUT_Loki_BO_Choke>[{i TrainingOfficer}]: The direct path to the mainbase of your opponent is only a small choke. This is an obstacle for your armies, so better avoid it with bigger forces. If your units are split up by the terrain or buildings, the enemy will find it easy to destroy them.',
         vid = 'FAF_TUT_Loki_BO_Choke.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'Choke', faction = 'UEF'
     },
 }
 
 PlateauWest = {
     {
-        text = '<LOC FAF_TUT_Loki_BO_PlateauWest>[{i TrainingOfficer}]: The main area where army manuevers will take place are these plateaus.',
+        text = '<LOC FAF_TUT_Loki_BO_PlateauWest>[{i TrainingOfficer}]: The main area where army manoeuvres will take place are these plateaus.',
         vid = 'FAF_TUT_Loki_BO_PlateauWest.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'PlateauWest', faction = 'UEF'
     },
 }
@@ -111,11 +111,11 @@ InitialBO = {
         vid = 'FAF_TUT_Loki_BO_InitialBO_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_1', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_Loki_BO_InitialBO_2>[{i TrainingOfficer}]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there before moving futher to the north.',
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_2>[{i TrainingOfficer}]: After finishing all buildings the ACU will move to the Hillside Expansion and build a Land Factory there before moving further to the north.',
         vid = 'FAF_TUT_Loki_BO_InitialBO_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_2', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_Loki_BO_InitialBO_3>[{i TrainingOfficer}]: The Factory builds 3 engineers (engies). Then 1 tank and 1 scouts to protect your expanding engies and/or for raiding enemy engis.',
+        text = '<LOC FAF_TUT_Loki_BO_InitialBO_3>[{i TrainingOfficer}]: The Factory builds 3 engineers (engies). Then 1 tank and 1 scout to protect your expanding engineers, or for raiding enemy engis.',
         vid = 'FAF_TUT_Loki_BO_InitialBO_3.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'InitialBO_3', faction = 'UEF'
     },
     {
@@ -134,7 +134,7 @@ FirstEngineer = {
         vid = 'FAF_TUT_Loki_BO_FirstEngineer_1.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FirstEngineer_1', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_Loki_BO_FirstEngineer_2>[{i TrainingOfficer}]: After crossing the pond, build a Land Factory first to secure the expansion. In case your engineer gets killing it will be faster to rebuild it from that factory rather than having to send a new one from the main base.',
+        text = '<LOC FAF_TUT_Loki_BO_FirstEngineer_2>[{i TrainingOfficer}]: After crossing the pond, build a Land Factory first to secure the expansion. In case your engineer gets killed it will be faster to rebuild it from that factory rather than having to send a new one from the main base.',
         vid = 'FAF_TUT_Loki_BO_FirstEngineer_2.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FirstEngineer_2', faction = 'UEF'
     },
 }
@@ -169,7 +169,7 @@ SecondFactory = {
 
 FourthEngineer = {
     {
-        text = '<LOC FAF_TUT_Loki_BO_FourthEngineer>[{i TrainingOfficer}]: Fourth engie expands east. It is likely, that this engie wont be able to secure the 3 mex expnasion, but you might get some mass before the enemy is there to destroy it.',
+        text = '<LOC FAF_TUT_Loki_BO_FourthEngineer>[{i TrainingOfficer}]: Fourth engie expands east. It is likely, that this engie wont be able to secure the 3 mex expansion, but you might get some mass before the enemy is there to destroy it.',
         vid = 'FAF_TUT_Loki_BO_FourthEngineer.sfd', bank = 'FAF_TUT_Loki_BO_VO', cue = 'FourthEngineer', faction = 'UEF'
     },
 }
