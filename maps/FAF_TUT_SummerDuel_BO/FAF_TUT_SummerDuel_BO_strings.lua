@@ -28,7 +28,7 @@ MapInfo = {
 
 StartPosition = {
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_StartPosition>[{i TrainingOfficer}]: Your starting position has 4 Mass Extranctors (mex) and a close hydro.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_StartPosition>[{i TrainingOfficer}]: Your starting position has 4 Mass Extractors (mex) and a close hydro.',
         vid = 'FAF_TUT_SummerDuel_BO_StartPosition.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_StartPosition', faction = 'UEF'
     },
 }
@@ -67,7 +67,7 @@ ACURush = {
         vid = 'FAF_TUT_SummerDuel_BO_ACURush_1.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_ACURush_1', faction = 'UEF'
     },
 	{
-        text = '<LOC FAF_TUT_SummerDuel_BO_ACURush_2>[{i TrainingOfficer}]: Therefore you send an early t1 landscout to the choke, as you will see in the buildorder. If the scout sees the ACU or gets killed you immideatly build a T1 Point Defense (PD) in your base, before building further factories.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_ACURush_2>[{i TrainingOfficer}]: Therefore you send an early t1 landscout to the choke, as you will see in the buildorder. If the scout sees the ACU or gets killed you immediately build a T1 Point Defense (PD) in your base, before building further factories.',
         vid = 'FAF_TUT_SummerDuel_BO_ACURush_2.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_ACURush_2', faction = 'UEF'
     },
 }
@@ -83,7 +83,7 @@ LandFirst = {
         vid = 'FAF_TUT_SummerDuel_BO_LandFirst_1.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_LandFirst_1', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_LandFirst_2>[{i TrainingOfficer}]: The Land Factory builds 3 Enginners (engies), 1 tank, 2 Landscouts, 2 engis and then a mix of 2 tanks and 1 engie on repeat.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_LandFirst_2>[{i TrainingOfficer}]: The Land Factory builds 3 Engineers (engies), 1 tank, 2 Landscouts, 2 engies and then a mix of 2 tanks and 1 engie on repeat.',
         vid = 'FAF_TUT_SummerDuel_BO_LandFirst_2.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_LandFirst_2', faction = 'UEF'
     },
     {
@@ -105,14 +105,14 @@ SecondEngineer = {
         vid = 'FAF_TUT_SummerDuel_BO_SecondEngineer_1.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_SecondEngineer_1', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_SecondEngineer_2>[{i TrainingOfficer}]: It\'s quite important to not lose this engie as the rocks give you good amout of mass. Your first tank will protect this engie.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_SecondEngineer_2>[{i TrainingOfficer}]: It\'s quite important to not lose this engie as the rocks give you good amount of mass. Your first tank will protect this engie.',
         vid = 'FAF_TUT_SummerDuel_BO_SecondEngineer_2.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_SecondEngineer_2', faction = 'UEF'
     },
 }
 
 ThirdEngineer = {
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_ThirdEngineer>[{i TrainingOfficer}]: Your third engie builds 2 mexes by heading north and then comes back towards the middle and builds the last mex there and a T1 Radar.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_ThirdEngineer>[{i TrainingOfficer}]: Your third engie builds 2 mexes by heading north and then comes back towards the middle and builds the last mex there, and a T1 Radar.',
         vid = 'FAF_TUT_SummerDuel_BO_ThirdEngineer.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_ThirdEngineer', faction = 'UEF'
     },
 }
@@ -126,7 +126,7 @@ TankScout = {
 
 SecondScout = {
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_SecondScout_1>[{i TrainingOfficer}]: The second scouts gets sent to the middle to spot an incoming ACU rush, as it was explained in the map info.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_SecondScout_1>[{i TrainingOfficer}]: The second scout gets sent to the middle to spot an incoming ACU rush, as it was explained in the map info.',
         vid = 'FAF_TUT_SummerDuel_BO_SecondScout_1.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_SecondScout_1', faction = 'UEF'
     },
     {
@@ -144,7 +144,7 @@ SecondFactory = {
 
 FourthEngineer = {
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_FourthEngineer>[{i TrainingOfficer}]: The fourth engie will assists the first one with building your base.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_FourthEngineer>[{i TrainingOfficer}]: The fourth engie will assist the first one with building your base.',
         vid = 'FAF_TUT_SummerDuel_BO_FourthEngineer.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_FourthEngineer', faction = 'UEF'
     },
 }
@@ -158,7 +158,7 @@ FithEngineer = {
 
 DualTank = {
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_DualTank>[{i TrainingOfficer}]: The 2 tanks which are built now will protect the nothern choke.',
+        text = '<LOC FAF_TUT_SummerDuel_BO_DualTank>[{i TrainingOfficer}]: The 2 tanks which are built now will protect the northern choke.',
         vid = 'FAF_TUT_SummerDuel_BO_DualTank.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_DualTank', faction = 'UEF'
     },
 }
@@ -197,7 +197,7 @@ FollowUp = {
         vid = 'FAF_TUT_SummerDuel_BO_FollowUp_1.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_FollowUp_1', faction = 'UEF'
     },
     {
-        text = '<LOC FAF_TUT_SummerDuel_BO_FollowUp_2>[{i TrainingOfficer}]: However don\'t be tempted to upgrade a mex as it is a big investement, which could, done at the wrong time, delay your unit production and lose you the game. Better invest spare mass into more Land Factories and tanks. Good Luck commander!',
+        text = '<LOC FAF_TUT_SummerDuel_BO_FollowUp_2>[{i TrainingOfficer}]: However don\'t be tempted to upgrade a mex as it is a big investment, which could, done at the wrong time, delay your unit production and lose you the game. Better invest spare mass into more Land Factories and tanks. Good Luck commander!',
         vid = 'FAF_TUT_SummerDuel_BO_FollowUp_2.sfd', bank = 'FAF_TUT_SummerDuel_BO_VO', cue = 'FAF_TUT_SummerDuel_BO_FollowUp_2', faction = 'UEF'
     },
     TutorialStrings.EndBuildOrder[1],
