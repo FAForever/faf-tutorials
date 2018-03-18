@@ -35,21 +35,21 @@ StartPosition = {
 
 Backdoor = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_Backdoor>[{i TrainingOfficer}]: As you saw in the overview already, a big rock in the middle gives each \'leaf\' its circle structure. This offers a way around the mountain directly in the back of your base. It\'s very important to protect this entrance against raiding units.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_Backdoor>[{i TrainingOfficer}]: As you saw in the overview already, a big rock in the middle gives each \'leaf\' its circular structure. This offers a way around the mountain directly in the back of your base. It\'s very important to protect this entrance against raiding units.',
         vid = 'FAF_TUT_FourLeaf_BO_Backdoor.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_Backdoor', faction = 'UEF'
     },
 }
 
 EnemyStartPosition = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_EnemyStartPosition>[{i TrainingOfficer}]: Your opponent starts in the opposite corver of the map.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_EnemyStartPosition>[{i TrainingOfficer}]: Your opponent starts in the opposite corner of the map.',
         vid = 'FAF_TUT_FourLeaf_BO_EnemyStartPosition.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_EnemyStartPosition', faction = 'UEF'
     },
 }
 
 Expansions = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_Expansions_1>[{i TrainingOfficer}]: The empty starting psoitions function as expansions.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_Expansions_1>[{i TrainingOfficer}]: The empty starting positions function as expansions.',
         vid = 'FAF_TUT_FourLeaf_BO_Expansions_1.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_Expansions_1', faction = 'UEF'
     },
     {
@@ -64,7 +64,7 @@ Expansions = {
 
 MidReclaim = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_MidReclaim_1>[{i TrainingOfficer}]: How I told you earlier Four-Leaf Clover is all about the reclaim. There is a huge amount in the middle. Press "Ctrl+Shift" after the cinematics end to see the values.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_MidReclaim_1>[{i TrainingOfficer}]: Now, I told you earlier Four-Leaf Clover is all about the reclaim. There is a huge amount in the middle. Press "Ctrl+Shift" after the cinematics end to see the values.',
         vid = 'FAF_TUT_FourLeaf_BO_MidReclaim_1.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_MidReclaim_1', faction = 'UEF'
     },
     {
@@ -120,7 +120,7 @@ LandFirst = {
 
 FirstEngineer = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_FirstEngineer>[{i TrainingOfficer}]: The first engie builds the last of the core mexes followed by a hydro, an Air Facotry, 4 pgens and 4 Land Factories.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_FirstEngineer>[{i TrainingOfficer}]: The first engie builds the last of the core mexes followed by a hydro, an Air Factory, 4 pgens and 4 Land Factories.',
         vid = 'FAF_TUT_FourLeaf_BO_FirstEngineer.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_FirstEngineer', faction = 'UEF'
     },
 }
@@ -141,7 +141,7 @@ ThirdEngineer = {
 
 FourthEngineer = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_FourthEngineer>[{i TrainingOfficer}]: Fourth engie will assists the first one with building your main base.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_FourthEngineer>[{i TrainingOfficer}]: Fourth engie will assist the first one with building your main base.',
         vid = 'FAF_TUT_FourLeaf_BO_FourthEngineer.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_FourthEngineer', faction = 'UEF'
     },
 }
@@ -225,7 +225,7 @@ EighthEngineer = {
 
 Powerspam = {
     {
-        text = '<LOC FAF_TUT_FourLeaf_BO_Powerspam_1>[{i TrainingOfficer}]: After your Land Factories are up, give one engie the order to build more pgens. The others can be send to front to reclaim wrecks after a fight or build radars.',
+        text = '<LOC FAF_TUT_FourLeaf_BO_Powerspam_1>[{i TrainingOfficer}]: After your Land Factories are up, give one engie the order to build more pgens. The others can be send to the front to reclaim wrecks after a fight, or build radars.',
         vid = 'FAF_TUT_FourLeaf_BO_Powerspam_1.sfd', bank = 'FAF_TUT_FourLeaf_BO_VO', cue = 'FAF_TUT_FourLeaf_BO_Powerspam_1', faction = 'UEF'
     },
     {
