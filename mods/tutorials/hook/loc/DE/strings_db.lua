@@ -81,7 +81,7 @@ FAF_TUT_Loki_BO_FollowUp_1 = "[{i TrainingOfficer}]: Jetzt hast du eine funktion
 FAF_TUT_Loki_BO_FollowUp_2 = "[{i TrainingOfficer}]: Wenn du dir die Aufzeichnungen (Replays) von erfahrenen Spielern (z. B. Top 10) anschaust, wirst du feststellen, dass diese verschiedene Baureihenfolgen nutzen. Aber das ist sehr komplex und benötigt mehr Erfahrung. Die eben vorgestellte Baureihenfolge ist einfach aber sehr effektiv. Viel Glück Commander!"
 
 FAF_TUT_SummerDuel_BO_MapInfo_1 = "[{i TrainingOfficer}]: Willkommen zum Supreme Commander Forged Alliance Forever Karten Lernprogramm. Dieses Lernprogramm wird dich in die Karte Summer Diesl' einweisen. Lass uns beginnen."
-FAF_TUT_SummerDuel_BO_MapInfo_2 = "[{i TrainingOfficer}]: 'Summer Duel' ist eine 5x5km Kaste. Wie die meisten 5x5km Karten sind vor allem viele T1 Landeinheiten wichtig (T1 land spam). Schauen wir uns mal die wichtigsten Elemente dieser Karte an."
+FAF_TUT_SummerDuel_BO_MapInfo_2 = "[{i TrainingOfficer}]: 'Summer Duel' ist eine 5x5km Karte. Wie die meisten 5x5km Karten sind vor allem viele T1 Landeinheiten wichtig (T1 land spam). Schauen wir uns mal die wichtigsten Elemente dieser Karte an."
 FAF_TUT_SummerDuel_BO_StartPosition = "[{i TrainingOfficer}]: Deine Startposition hat 4 Massepunkte für Masseextraktoren (mex) und ein nahen Punkt für HC-Energiekraftwerkt (hydro) "
 FAF_TUT_SummerDuel_BO_Stones = "[{i TrainingOfficer}]: Es gibt ein paar Steine in der Nähe die zu zurückgewinnen kannst (reclaim). Du solltest diese zu schnell wie möglich zurückgewinnen um deine Wirtschaft zu stärken."
 FAF_TUT_SummerDuel_BO_MainRoute = "[{i TrainingOfficer}]: 'Summer Duel' besteht aus 3 wichtigen Schlüsselpunkten. Dieser hier ist die direkte Route zur gegnerischen Basis und dadurch der Hauptkampfplatz. "
