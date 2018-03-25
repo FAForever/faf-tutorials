@@ -86,61 +86,59 @@ function MapIntro()
     WaitSeconds(1)
 
     -- Initial Camera
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 2)
-
-    WaitSeconds(1)
     ScenarioFramework.Dialogue(OpStrings.MapInfo, nil, true)
-
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_MapInfo'), 8)
+    WaitSeconds(12)
+    
     -- Starting Position
     ScenarioFramework.Dialogue(OpStrings.StartPosition, nil, true)
-    WaitSeconds(10)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 3)
-    WaitSeconds(3)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartPosition'), 4)
+    WaitSeconds(1)
 
-    -- Reclaim near base
+    -- Back of the base
     ScenarioFramework.Dialogue(OpStrings.TwoMexHydro, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_TwoMexHydro'), 2)
-    WaitSeconds(4)
-
-    -- Reclaim in middle
-    ScenarioFramework.Dialogue(OpStrings.ReclaimNearBase, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ReclaimNearBase'), 3)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_TwoMexHydro'), 3)
     WaitSeconds(2)
 
-    -- Civ buildings
-    ScenarioFramework.Dialogue(OpStrings.ThreeMexHillside, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ThreeMexHillside'), 2)
-    WaitSeconds(6)
+    -- Reclaim near base
+    ScenarioFramework.Dialogue(OpStrings.ReclaimNearBase, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ReclaimNearBase'), 3)
+    WaitSeconds(1)
 
-    -- More info about middle pass
+    -- 3 mex reclaim
+    ScenarioFramework.Dialogue(OpStrings.ThreeMexHillside, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ThreeMexHillside'), 4)
+    WaitSeconds(9)
+
+    -- Two mexes near base
     ScenarioFramework.Dialogue(OpStrings.TwoMexSide, nil, true)
     Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_TwoMexSide'), 3)
-    WaitSeconds(3)
-
-    -- Bottom Pass
-    ScenarioFramework.Dialogue(OpStrings.FourMexCorner, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_FourMexCorner'), 3)
     WaitSeconds(4)
 
-    -- North Area 
+    -- Corner Expansion
+    ScenarioFramework.Dialogue(OpStrings.FourMexCorner, nil, true)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_FourMexCorner'), 4)
+    WaitSeconds(1)
+
+    -- Pond 
     ScenarioFramework.Dialogue(OpStrings.Pond, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Pond'), 3)
-    WaitSeconds(5)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Pond'), 5)
+    WaitSeconds(8)
 
     -- North Mexes
     ScenarioFramework.Dialogue(OpStrings.ThreeMexTop, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ThreeMexTop'), 2)
-    WaitSeconds(3)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_ThreeMexTop'), 4)
+    WaitSeconds(7)
 
-    -- Final words
+    -- Middle Choke
     ScenarioFramework.Dialogue(OpStrings.Choke, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Choke'), 4)
-    WaitSeconds(4)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_Choke'), 6)
+    WaitSeconds(5)
 
     -- Move to Starting position
     ScenarioFramework.Dialogue(OpStrings.PlateauWest, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_PlateauWest'), 3)
-    WaitSeconds(2)
+    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_PlateauWest'), 4)
+    WaitSeconds(1)
 
     -- Move to Starting position
     ScenarioFramework.Dialogue(OpStrings.StartBuildOrder, nil, true)
