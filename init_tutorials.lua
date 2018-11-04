@@ -50,18 +50,36 @@ local function mount_dir(dir, mountpoint)
     table.insert(path, { dir = dir, mountpoint = mountpoint } )
 end
 
-
 local function mount_contents(dir, mountpoint)
     LOG('checking ' .. dir)
     for _,entry in io.dir(dir .. '\\*') do
         if entry != '.' and entry != '..' then
-        local mp = string.lower(entry)
-        local safe = true
-        mp = string.gsub(mp, '[.]scd$', '')
-        mp = string.gsub(mp, '[.]zip$', '')
-        mount_dir(dir .. '\\' .. entry, mountpoint .. '/' .. mp)
+            local mp = string.lower(entry)
+            local safe = true
+            for i, black in blacklist do
+                safe = safe and (string.find(mp, black, 1) == nil)
+            end
+            if safe then
+                mp = string.gsub(mp, '[.]scd$', '')
+                mp = string.gsub(mp, '[.]zip$', '')
+                mount_dir(dir .. '\\' .. entry, mountpoint .. '/' .. mp)
+            else
+                LOG('not safe ' .. entry)
+            end
         end
     end
+end
+
+local function mount_dir_with_glob(dir, glob, mountpoint)
+    sorted = {}
+    LOG('checking ' .. dir .. glob)
+    for _,entry in io.dir(dir .. glob) do
+        if entry != '.' and entry != '..' then
+            table.insert(sorted, dir .. entry)
+        end
+    end
+    table.sort(sorted)
+    table.foreach(sorted, function(k,v) mount_dir(v, mountpoint) end)
 end
 
 local function mount_dir_with_whitelist(dir, glob, mountpoint)
@@ -96,6 +114,9 @@ mount_dir_with_whitelist(InitFileDir .. '\\..\\gamedata\\', '*.nx2', '/')
 
 mount_dir_with_whitelist(fa_path .. '\\gamedata\\', '*.scd', '/')
 mount_dir(fa_path, '/')
+
+mount_dir(InitFileDir .. '\\..\\movies', '/movies')
+mount_dir_with_glob(InitFileDir .. '\\..\\gamedata\\', '*_VO.nx2', '/')
 
 hook = {
     '/schook',
