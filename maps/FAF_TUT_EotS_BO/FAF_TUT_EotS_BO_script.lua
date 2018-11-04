@@ -79,46 +79,47 @@ function MapIntro()
 
     -- Initial Camera
     ScenarioFramework.Dialogue(OpStrings.MapInfo, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('MapInfo'), 10)
+    Cinematics.CameraMoveToMarker('Cam_MapInfo', 10)
     WaitSeconds(6)
 
     -- Starting Position
     ScenarioFramework.Dialogue(OpStrings.StartPosition, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('StartPosition'), 4)
+    Cinematics.CameraMoveToMarker('Cam_StartPosition', 4)
     WaitSeconds(2)
 
     -- Reclaim Lamp near base
-    ScenarioFramework.Dialogue(OpStrings.Stones, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Lamp'), 3)
+    ScenarioFramework.Dialogue(OpStrings.Lamp, nil, true)
+    Cinematics.CameraMoveToMarker('Cam_Lamp', 3)
     WaitSeconds(3)
 
     -- East Path 1
-    ScenarioFramework.Dialogue(OpStrings.MainRoute, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('EastPath1'), 3)
+    ScenarioFramework.Dialogue(OpStrings.EastPath1, nil, true)
+    Cinematics.CameraMoveToMarker('Cam_EastPath1', 3)
     WaitSeconds(4)
 
     -- East Path 2
-    ScenarioFramework.Dialogue(OpStrings.NorthernChoke, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('EastPath2'), 3)
+    ScenarioFramework.Dialogue(OpStrings.EastPath2, nil, true)
+    Cinematics.CameraMoveToMarker('Cam_EastPath2', 3)
     WaitSeconds(3)
 
     -- South route
-    ScenarioFramework.Dialogue(OpStrings.SouthernChoke, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('SouthPath'), 3)
+    ScenarioFramework.Dialogue(OpStrings.SouthPath, nil, true)
+    Cinematics.CameraMoveToMarker('Cam_SouthPath', 3)
     WaitSeconds(2)
 
     -- Middle
-    ScenarioFramework.Dialogue(OpStrings.ACURush, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Middle'), 5)
+    ScenarioFramework.Dialogue(OpStrings.Middle, nil, true)
+    Cinematics.CameraMoveToMarker('Cam_Middle', 5)
     WaitSeconds(3)
 
     -- Oponent spawn
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('OpponentSpawn'), 10)
+    ScenarioFramework.Dialogue(OpStrings.OpponentSpawn, nil, true)
+    Cinematics.CameraMoveToMarker('Cam_OpponentSpawn', 10)
     WaitSeconds(2)
 
     -- North Area 
     ScenarioFramework.Dialogue(OpStrings.StartBuildOrder, nil, true)
-    Cinematics.CameraMoveToMarker(ScenarioUtils.GetMarker('Cam_StartBuildOrder'), 6)
+    Cinematics.CameraMoveToMarker('Cam_StartBuildOrder', 6)
     WaitSeconds(1)
 
     Cinematics.ExitNISMode()
