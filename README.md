@@ -71,3 +71,7 @@ WaitSeconds(6)
 
 #### Changes to .strings.lua
 * This file contains all map-specific strings, it also imports common strings from the mod.
+
+### Deployment
+For deployment us the python script make_patch.py
+See python make_patch.py --help 
