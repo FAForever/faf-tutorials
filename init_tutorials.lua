@@ -2,6 +2,8 @@ dofile(InitFileDir .. '\\..\\fa_path.lua')
 
 path = {}
 
+blacklist = {}
+
 whitelist =
 {
     "effects.nx2",
