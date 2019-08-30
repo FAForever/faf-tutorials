@@ -348,7 +348,7 @@ def create_files_from_git(featured_mod):
                 if os.path.isdir(absolute_path):
                     for root, dirs, files in os.walk(absolute_path):
                         for next_file in files:
-                            zip_file.write(os.path.join(root, next_file))
+                            zip_file.write(os.path.join(root, next_file),os.path.relpath(os.path.join(root,next_file),featured_mod.git_folder()))
                 else:
                     zip_file.write(path)
         os.chmod(output_file, stat.S_IROTH | stat.S_IRGRP | stat.S_IWGRP | stat.S_IWRITE | stat.S_IREAD)
